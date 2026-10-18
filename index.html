@@ -62,6 +62,7 @@
 }
 
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth; scroll-padding-top:72px}
 @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important; animation:none!important} }
 body{
@@ -72,6 +73,9 @@ body{
 }
 .num, .tab{font-variant-numeric:tabular-nums}
 a{color:var(--accent); text-decoration:none}
+a.btn{display:inline-flex; align-items:center; gap:8px; text-decoration:none}
+a.btn.ghost{color:var(--fg)}
+.btn:hover{filter:brightness(1.06)}
 a:hover{text-decoration:underline}
 :focus-visible{outline:3px solid var(--accent); outline-offset:2px; border-radius:6px}
 h1,h2,h3,h4{font-family:var(--font-display); text-wrap:balance; margin:0; color:var(--fg)}
@@ -309,7 +313,7 @@ section.chapter{padding-block:44px}
 }
 
 /* Leg ramp */
-.ramp{display:grid; grid-template-columns:36px repeat(3, minmax(0,1fr)); gap:10px; height:260px; align-items:end; position:relative}
+.ramp{display:grid; grid-template-columns:36px repeat(4, minmax(0,1fr)); gap:10px; height:260px; align-items:end; position:relative}
 .ramp .axis{height:100%; display:flex; flex-direction:column; justify-content:space-between; font-size:11px; color:var(--fg-3); text-align:right; padding-bottom:28px; font-variant-numeric:tabular-nums}
 .ramp .grp{height:100%; display:grid; grid-template-rows:1fr 28px; position:relative}
 .ramp .bars{display:flex; gap:8px; align-items:end; justify-content:center; height:100%; border-bottom:1px solid var(--line-strong); position:relative}
@@ -423,7 +427,8 @@ section.chapter{padding-block:44px}
 .day .mb{display:flex; height:6px; border-radius:3px; overflow:hidden; gap:1px; background:var(--surface-2)}
 .day .meta{font-size:12px; color:var(--fg-2); font-variant-numeric:tabular-nums}
 .day.rest .mb{background:repeating-linear-gradient(90deg, var(--surface-3) 0 4px, transparent 4px 8px)}
-.exh, .exr{display:grid; grid-template-columns:28px minmax(0,1.7fr) 104px 84px minmax(110px,1fr) 70px; gap:14px; align-items:center}
+.exh, .exr{display:grid; grid-template-columns:28px minmax(0,1.7fr) 100px 84px minmax(100px,1fr) 56px 76px; gap:14px; align-items:center}
+.exr .restc{font-size:13px; color:var(--fg-2); white-space:nowrap}
 .exh{font-size:12px; font-weight:600; color:var(--fg-2); letter-spacing:.04em; text-transform:uppercase; padding-bottom:10px; border-bottom:1px solid var(--line)}
 .exr{padding:13px 0; border-bottom:1px solid var(--line)}
 .exr:last-child{border-bottom:0}
@@ -442,12 +447,13 @@ section.chapter{padding-block:44px}
 @media (max-width:760px){
   .exh{display:none}
   .exr{grid-template-columns:28px minmax(0,1fr) 92px; row-gap:8px}
-  .exr .sx, .exr .rirc{display:none}
+  .exr .sx, .exr .rirc, .exr .restc{display:none}
   .exr .nm .mob{display:block; font-size:12px; color:var(--fg); margin-top:3px; font-variant-numeric:tabular-nums}
   .exr .rrw{grid-column:2 / -1}
 }
-.recov{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px}
-@media (max-width:640px){ .recov{grid-template-columns:minmax(0,1fr)} }
+.recov{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:12px}
+@media (max-width:900px){ .recov{grid-template-columns:repeat(2, minmax(0,1fr))} }
+@media (max-width:480px){ .recov{grid-template-columns:minmax(0,1fr)} }
 .mus{display:grid; gap:9px}
 .mu{display:grid; grid-template-columns:minmax(0,140px) minmax(0,1fr) 30px; gap:12px; align-items:center; font-size:14px}
 .mu .t{height:14px; border-radius:7px; background:var(--surface-2); overflow:hidden}
@@ -462,7 +468,85 @@ section.chapter{padding-block:44px}
 .lu-r small{font-size:12px; color:var(--fg-2); font-variant-numeric:tabular-nums}
 select{padding:9px 10px; border-radius:10px; border:1px solid var(--line-strong); background:var(--surface); color:var(--fg); font:600 14px/1.2 var(--font-text); width:100%; max-width:100%}
 
-footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1px solid var(--line); margin-top:30px}
+/* Hero CTA */
+.cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px}
+/* Week plan */
+.wkplan{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px; margin-top:8px}
+.wkplan small{display:block; font-size:12px; color:var(--fg-2)}
+.wkplan b{display:block; font-size:15px; font-weight:650; margin-top:2px; color:var(--fg)}
+@media (max-width:520px){ .wkplan{grid-template-columns:minmax(0,1fr)} }
+.pill i{width:7px; height:7px; border-radius:50%; display:inline-block}
+/* Rules tiles */
+.rules{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; margin-bottom:16px}
+@media (max-width:860px){ .rules{grid-template-columns:repeat(2, minmax(0,1fr))} }
+@media (max-width:460px){ .rules{grid-template-columns:minmax(0,1fr)} }
+.rule{background:var(--surface); border-radius:var(--r-md); padding:16px 18px; box-shadow:var(--shadow)}
+.rule .v{font:700 24px/1.15 var(--font-display); letter-spacing:-.02em; margin-top:4px; font-variant-numeric:tabular-nums}
+.rule p{font-size:13px; color:var(--fg-2); margin-top:2px}
+/* Nutrition ladder */
+.lad-scroll{overflow-x:auto}
+.lad-inner{min-width:440px; position:relative}
+.lad{display:grid; grid-template-columns:44px repeat(8, minmax(0,1fr)); gap:6px; height:250px}
+.lad .ax{display:flex; flex-direction:column; justify-content:space-between; font-size:11px; color:var(--fg-3); text-align:right; padding-bottom:24px; font-variant-numeric:tabular-nums}
+.lad .ax span{transform:translateY(-50%)}
+.lad .ax span:last-child{transform:translateY(50%)}
+.lad-grid{position:absolute; left:50px; right:0; top:0; height:226px; display:flex; flex-direction:column; justify-content:space-between; pointer-events:none}
+.lad-grid i{border-top:1px dashed var(--line)}
+.lcol{appearance:none; border:0; background:transparent; padding:0; cursor:pointer; display:grid; grid-template-rows:1fr 24px; height:100%; color:var(--fg); font:inherit; position:relative; z-index:1}
+.lcol .sw{align-self:end; position:relative; height:var(--h); transition:height .8s cubic-bezier(.2,.8,.2,1)}
+.lcol .stk{height:100%; display:flex; flex-direction:column-reverse; gap:1px; border-radius:8px 8px 3px 3px; overflow:hidden; opacity:.45; transition:opacity .2s}
+.lcol:hover .stk{opacity:.7}
+.lcol.on .stk{opacity:1}
+.lcol .sw b{position:absolute; bottom:100%; left:50%; transform:translateX(-50%); margin-bottom:4px; font:650 11px/1 var(--font-display); color:var(--fg-2); white-space:nowrap; font-variant-numeric:tabular-nums}
+.lcol.on .sw b{color:var(--fg); font-size:12px; font-weight:750}
+.lcol .wl{font:600 12px/24px var(--font-display); color:var(--fg-2); text-align:center}
+.lcol.on .wl{color:var(--accent)}
+.lad-ph{display:grid; grid-template-columns:44px repeat(8, minmax(0,1fr)); gap:6px; margin-top:6px}
+.lad-ph div{border-top:3px solid var(--pc); padding-top:6px; font-size:11px; font-weight:650; color:var(--fg-2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.lad-ph div:last-child{overflow:visible; text-align:right; direction:rtl}
+.ld-rows{display:grid; gap:0; margin-top:14px}
+.ld-row{display:grid; grid-template-columns:96px minmax(0,1fr); gap:12px; padding:10px 0; border-bottom:1px solid var(--line); font-size:14px}
+.ld-row:last-child{border-bottom:0}
+.ld-row span{color:var(--fg-2)}
+.ld-row b{font-weight:600}
+.quote{background:var(--surface); border-radius:var(--r-lg); padding:24px 26px; box-shadow:var(--shadow)}
+.quote p{font:600 clamp(18px, 2.2vw, 22px)/1.4 var(--font-display); letter-spacing:-.01em}
+.quote p + p{font:400 15px/1.5 var(--font-text); color:var(--fg-2); margin-top:10px; letter-spacing:0}
+/* Baseline + weight log */
+.base{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px}
+@media (max-width:860px){ .base{grid-template-columns:repeat(2, minmax(0,1fr))} }
+@media (max-width:460px){ .base{grid-template-columns:minmax(0,1fr)} }
+.base .stat .v{font-size:clamp(26px, 3.4vw, 32px)}
+.base .stat .mon{display:inline-flex; margin-top:10px}
+.wt-form{display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end}
+.wt-form input{padding:9px 10px; border-radius:10px; border:1px solid var(--line-strong); background:var(--surface); color:var(--fg); font:600 15px/1.2 var(--font-text); font-variant-numeric:tabular-nums}
+.wt-form input[type=number]{width:96px}
+.wt-stats{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; margin-top:18px}
+@media (max-width:560px){ .wt-stats{grid-template-columns:minmax(0,1fr)} }
+.wt-stats .mc .big{font-size:24px}
+.wt-chart{margin-top:16px}
+.wt-chart svg{width:100%; height:auto; display:block}
+.wt-list{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px}
+.wt-list span{display:inline-flex; align-items:center; gap:6px; font-size:12px; background:var(--surface-2); border-radius:999px; padding:4px 6px 4px 10px; font-variant-numeric:tabular-nums}
+.wt-list button{appearance:none; border:0; background:var(--surface-3); color:var(--fg-2); width:18px; height:18px; border-radius:50%; cursor:pointer; font-size:12px; line-height:1}
+/* Program shortcut */
+.fab{position:fixed; z-index:60; right:calc(env(safe-area-inset-right, 0px) + 16px); bottom:calc(env(safe-area-inset-bottom, 0px) + 16px); display:inline-flex; align-items:center; gap:8px; padding:12px 18px 12px 14px; border:0; border-radius:999px; background:var(--fg); color:var(--bg); font:650 15px/1 var(--font-text); box-shadow:0 8px 28px rgba(0,0,0,.28); cursor:pointer}
+.fab svg{width:20px; height:20px; flex:none}
+.fab kbd{font:600 11px/1 var(--font-mono); opacity:.6; border:1px solid currentColor; border-radius:4px; padding:2px 5px}
+@media (hover:none){ .fab kbd{display:none} }
+.scrim{position:fixed; inset:0; z-index:70; background:rgba(0,0,0,.38)}
+.sheet{position:fixed; z-index:80; left:0; right:0; bottom:0; margin:0 auto; max-width:640px; max-height:86vh; overflow:auto; overscroll-behavior:contain; background:var(--surface); border-radius:26px 26px 0 0; box-shadow:0 -12px 48px rgba(0,0,0,.28);
+  padding-top:10px; padding-bottom:calc(env(safe-area-inset-bottom, 0px) + 20px); padding-left:max(20px, env(safe-area-inset-left, 0px)); padding-right:max(20px, env(safe-area-inset-right, 0px)); animation:sheetUp .38s cubic-bezier(.2,.9,.25,1)}
+@keyframes sheetUp{from{transform:translateY(48px)} to{transform:none}}
+.sheet .grab{width:40px; height:5px; border-radius:3px; background:var(--surface-3); margin:2px auto 14px}
+.sheet-head{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:14px}
+.sheet-head h3{font-size:22px; letter-spacing:-.02em}
+.sheet .close{appearance:none; border:0; width:32px; height:32px; border-radius:50%; background:var(--surface-2); color:var(--fg); font-size:18px; cursor:pointer; flex:none}
+.sheet .seg{margin-bottom:14px}
+.sheet .lu-r{grid-template-columns:22px minmax(0,1fr) auto auto}
+.sheet-foot{display:flex; gap:8px; flex-wrap:wrap; margin-top:18px}
+
+footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1px solid var(--line); margin-top:30px}
 
 .fade-in{animation:fadeUp .6s cubic-bezier(.2,.8,.2,1) both}
 @keyframes fadeUp{from{transform:translateY(8px)} to{transform:none}}
@@ -477,8 +561,8 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
       Hypertrophy 2.0
     </a>
     <div class="nav-links">
+      <a href="#program">Program</a>
       <a href="#today">Today</a>
-      <a href="#circuit">Circuit 1</a>
       <a href="#volume">Volume</a>
       <a href="#progression">Progression</a>
       <a href="#effort">Effort</a>
@@ -486,6 +570,7 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
       <a href="#session">55 minutes</a>
       <a href="#nutrition">Nutrition</a>
       <a href="#timeline">12 weeks</a>
+      <a href="#baseline">Baseline</a>
       <a href="#scorecard">Scorecard</a>
       <a href="#verdict">Verdict</a>
     </div>
@@ -494,20 +579,21 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
 
 <main id="top">
   <header class="wrap hero">
-    <div class="eyebrow">Circuit 1 · 6-day PPL × 2 · Upper-body aesthetic specialization</div>
+    <div class="eyebrow">Transition to growth · Circuit 1 · 6-day PPL × 2</div>
     <h1>Train the right muscles.<br><span class="grad">Then prove it.</span></h1>
-    <p class="lede">Six days a week, 85 working sets, under 55 minutes a session. Shoulders, back and upper chest lead the program, and the legs finally get a real training stimulus. Use the Today console before and after every session; everything below it is the reference.</p>
+    <p class="lede">Six days a week, 85 working sets, 50–55 minutes a session, while calories climb from 1,700 toward maintenance over eight weeks. Shoulders, back and upper chest lead; the legs finally get real work. Use Today before and after every session. Everything below it is the reference.</p>
     <div class="prio" aria-label="Aesthetic priorities">
       <span class="chip"><i style="background:var(--ring-1)"></i>Shoulders</span>
       <span class="chip"><i style="background:var(--ring-3)"></i>Back</span>
       <span class="chip"><i style="background:var(--ring-2)"></i>Upper chest</span>
       <span class="chip"><i style="background:var(--legs)"></i>Legs, back in the program</span>
     </div>
+    <div class="cta"><a class="btn" href="#program">Training program</a><a class="btn ghost" href="#today">Today's session</a><a class="btn ghost" href="#nutrition">Nutrition ladder</a></div>
     <div class="stats">
       <div class="stat"><div class="k">Training days</div><div class="v num">6<small>/ week</small></div><div class="s">Pull · Push · Legs × 2, then rest</div></div>
       <div class="stat"><div class="k">Working sets</div><div class="v num">85<small>/ week</small></div><div class="s">From week 3; warm-ups excluded</div></div>
       <div class="stat"><div class="k">Session length</div><div class="v num">50–55<small>min</small></div><div class="s">Including warm-up and transitions</div></div>
-      <div class="stat"><div class="k">Block length</div><div class="v num">12<small>weeks</small></div><div class="s">Calibrate, grow, audit, grow, assess</div></div>
+      <div class="stat"><div class="k">Calorie ladder</div><div class="v num">1.7→2.4<small>k kcal</small></div><div class="s">8 weeks toward maintenance</div></div>
     </div>
   </header>
 
@@ -551,7 +637,7 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
             </svg>
             <div>
               <div class="t" id="clkT">00:00</div>
-              <div class="ts" id="clkS">Session clock · target 45–55 min</div>
+              <div class="ts" id="clkS">Session clock · target 50–55 min</div>
               <div class="row">
                 <button class="btn sm" type="button" id="clkGo">Start</button>
                 <button class="btn sm ghost" type="button" id="clkReset">Reset</button>
@@ -561,10 +647,12 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
           <div class="rest" aria-label="Rest timer">
             <div style="display:flex;justify-content:space-between;align-items:baseline"><span class="label">Rest timer</span><span class="rt" id="restT">0:00</span></div>
             <div class="bar"><i id="restBar"></i></div>
+            <div style="font-size:12px;color:var(--fg-2);margin-top:8px">Isolation 60–120 s · Compound 2–3 min</div>
             <div class="row">
               <button class="btn sm ghost" type="button" data-rest="60">1:00</button>
               <button class="btn sm ghost" type="button" data-rest="90">1:30</button>
               <button class="btn sm ghost" type="button" data-rest="120">2:00</button>
+              <button class="btn sm ghost" type="button" data-rest="150">2:30</button>
               <button class="btn sm ghost" type="button" data-rest="180">3:00</button>
               <button class="btn sm ghost" type="button" id="restStop">Stop</button>
             </div>
@@ -603,17 +691,17 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
   </section>
 
   <!-- CIRCUIT -->
-  <section class="chapter wrap" id="circuit" aria-labelledby="cir-h">
+  <section class="chapter wrap" id="program" aria-labelledby="cir-h">
     <div class="ch-head">
-      <span class="ch-num">CIRCUIT 1 · THE WEEK</span>
+      <span class="ch-num">TRAINING PROGRAM · CIRCUIT 1</span>
       <h2 id="cir-h">Six sessions, one rest day</h2>
       <p>Tap a day to open it here and in the Today console. Type your current working load into any exercise; the starting reference stays visible underneath.</p>
     </div>
     <div class="days" id="days" role="group" aria-label="Training days"></div>
     <div class="card" style="margin-top:14px" id="dayDetail"></div>
     <div class="grid g2" style="margin-top:16px">
-      <div class="callout info"><div class="ico">i</div><div><p><b>Upper-body loads are starting points,</b> not mandatory targets. Most upper-body sets: 1–3 RIR.</p></div></div>
-      <div class="callout warn"><div class="ico">!</div><div><p><b>Legs, weeks 1–2:</b> roughly 50–70% of the listed leg sets at 3–4 RIR. The full prescriptions are the eventual working targets. Leg loads are set in week 1.</p></div></div>
+      <div class="callout info"><div class="ico">i</div><div><p><b>Upper-body loads are starting points,</b> not mandatory targets. Compounds mostly 1–3 RIR, isolations 1–2. Rest 2–3 min between compound sets and 60–120 s between isolation sets.</p></div></div>
+      <div class="callout warn"><div class="ico">!</div><div><p><b>Legs ramp over four weeks:</b> about 50–60% of listed sets in week 1 at 3–4 RIR, more in week 2 if recovered, close to full in week 3, full in week 4 if recovery permits. Leg loads are set in week 1.</p></div></div>
     </div>
   </section>
 
@@ -710,6 +798,14 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
       <h2 id="eff-h">How hard every set should be</h2>
       <p>RIR is reps in reserve: how many more clean reps you could have done. 0 means failure. Each row shows the target window.</p>
     </div>
+    <div class="rules">
+      <div class="rule"><span class="label">Compounds</span><div class="v">1–3 RIR</div><p>Mostly. Presses, rows, pulldowns, leg press, RDL</p></div>
+      <div class="rule"><span class="label">Isolations</span><div class="v">1–2 RIR</div><p>Mostly. Raises, curls, extensions, calves</p></div>
+      <div class="rule"><span class="label">New leg movements</span><div class="v">3–4 RIR</div><p>Initially, while loads and technique settle</p></div>
+      <div class="rule"><span class="label">Rest · compounds</span><div class="v">2–3 min</div><p>Between sets</p></div>
+      <div class="rule"><span class="label">Rest · isolations</span><div class="v">60–120 s</div><p>Between sets</p></div>
+      <div class="rule"><span class="label">Increase weight</span><div class="v">All sets at top</div><p>Every set at the top of its range, at target RIR</p></div>
+    </div>
     <div class="card">
       <div class="rir" id="rirTable">
         <div class="rir-head"><span>Movement</span><span>Target RIR</span><span>Technique standard</span></div>
@@ -721,16 +817,16 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
   <!-- 10 LEGS -->
   <section class="chapter wrap" id="legs" aria-labelledby="legs-h">
     <div class="ch-head">
-      <span class="ch-num">§ 10 · THE FIRST TWO WEEKS</span>
+      <span class="ch-num">§ 10 · THE FIRST FOUR WEEKS</span>
       <h2 id="legs-h">Bringing the legs back in</h2>
-      <p>You haven't trained legs directly for a long time. Volume ramps over two weeks, and the ramp only continues if recovery allows.</p>
+      <p>You haven't trained legs directly for a long time. Volume ramps over four weeks, and each step only happens if recovery allows.</p>
     </div>
     <div class="grid g-12-8">
       <div class="card">
-        <div class="card-head"><div><h3>Leg session sets by week</h3><div class="sub">Hatched top shows the range</div></div><span class="pill info" id="rampWeek">Week 1</span></div>
+        <div class="card-head"><div><h3>Leg session sets by week</h3><div class="sub">Hatched top shows the range · week 3 approaches full</div></div><span class="pill info" id="rampWeek">Week 1</span></div>
         <div style="position:relative">
           <div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-          <div class="ramp" id="ramp" role="img" aria-label="Legs A: 7 to 8 sets in week 1, about 10 in week 2, 13 from week 3. Legs B: 7 to 8 sets in week 1, about 10 to 11 in week 2, 14 from week 3."></div>
+          <div class="ramp" id="ramp" role="img" aria-label="Legs A: 7 to 8 sets in week 1, about 10 in week 2, approaching 13 in week 3, 13 from week 4. Legs B: 7 to 8 in week 1, about 10 to 11 in week 2, approaching 14 in week 3, 14 from week 4."></div>
         </div>
         <div class="key"><span><i style="background:var(--legs)"></i>Legs A</span><span><i style="background:var(--p-assess)"></i>Legs B</span><span>Upper sessions: normal programmed sets throughout</span></div>
       </div>
@@ -787,23 +883,52 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
   <!-- 12 NUTRITION -->
   <section class="chapter wrap" id="nutrition" aria-labelledby="nut-h">
     <div class="ch-head">
-      <span class="ch-num">§ 12 · NUTRITION</span>
-      <h2 id="nut-h">Fueling the growth phase</h2>
-      <p>The goal changed, so the nutrition changes. The 1,700 kcal cut does not carry into this block. Establish maintenance, then run a small surplus and adjust on two-to-three-week trends.</p>
+      <span class="ch-num">NUTRITION · 8-WEEK LADDER</span>
+      <h2 id="nut-h">Climbing toward maintenance</h2>
+      <p>Protein stays at 160 g, fat rises slowly and carbs take most of the added calories to fuel training. Weekly numbers are flexible reference points, not ceilings. Higher-calorie meals and weekends are normal life, with no need to compensate afterwards.</p>
+    </div>
+    <div class="card">
+      <div class="nut">
+        <div style="min-width:0">
+          <div class="card-head" style="margin-bottom:26px"><div><h3>Weekly calorie reference</h3><div class="sub">Stacked by macro calories · tap a week</div></div>
+            <div class="prio" style="margin-top:0"><span class="chip"><i style="background:var(--ring-1)"></i>Protein</span><span class="chip"><i style="background:var(--p-audit)"></i>Fat</span><span class="chip"><i style="background:var(--ring-3)"></i>Carbs</span></div></div>
+          <div class="lad-scroll"><div class="lad-inner">
+            <div class="lad-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="lad" id="lad" role="group" aria-label="Calorie reference by week"></div>
+            <div class="lad-ph" id="ladPh"></div>
+          </div></div>
+        </div>
+        <div id="ladDetail" style="min-width:0"></div>
+      </div>
+    </div>
+    <div class="grid g2" style="margin-top:16px">
+      <div class="callout warn"><div class="ico">!</div><div><p><b>1,700 kcal is likely still a deficit</b> at your activity level. Eat above the reference whenever hunger, training or social occasions call for it. We aren't prolonging the cut.</p></div></div>
+      <div class="callout good"><div class="ico">✓</div><div><p><b>A guide, not a test.</b> 2,100 kcal in week 1 is not a mistake. If recovery clearly needs more food, we don't wait for the next scheduled step.</p></div></div>
+      <div class="callout info"><div class="ico">i</div><div><p><b>Weeks 5–8 are provisional.</b> They move with weight trend, appetite, energy and performance, and don't climb automatically past maintenance. Calories are approximate due to rounding.</p></div></div>
+      <div class="callout info"><div class="ico">i</div><div><p><b>Day 7 is no exception.</b> Same weekly reference on recovery days; there's no need to cut calories.</p></div></div>
+    </div>
+    <div class="quote" style="margin-top:16px">
+      <p>The goal for the first month isn't to maximize weight gain. It's to establish the routine, improve energy availability and drop the psychological burden of cutting.</p>
+      <p>From there, the winter is for building muscle with a modest surplus.</p>
+    </div>
+    <div class="ch-head" style="margin-top:40px;margin-bottom:16px">
+      <span class="ch-num">AFTER THE LADDER</span>
+      <h3 style="font-size:24px;letter-spacing:-.02em">Winter growth calculator</h3>
+      <p>Once weeks 5–7 show where maintenance sits, run a small surplus of about 100–200 kcal and adjust on two-to-three-week trends.</p>
     </div>
     <div class="card">
       <div class="nut">
         <div style="display:grid;gap:20px;align-content:start">
           <div>
-            <div class="label" style="margin-bottom:8px">Your observed maintenance</div>
-            <div class="maint"><input type="number" id="maint" value="2400" min="1200" max="5000" step="25" inputmode="numeric" aria-label="Observed maintenance calories"><span style="color:var(--fg-2);font-size:14px">kcal / day · example value, replace with yours</span></div>
+            <div class="label" style="margin-bottom:8px">Maintenance found in weeks 5–7</div>
+            <div class="maint"><input type="number" id="maint" value="2400" min="1200" max="5000" step="25" inputmode="numeric" aria-label="Observed maintenance calories"><span style="color:var(--fg-2);font-size:14px">kcal / day · example, replace with what the trend shows</span></div>
           </div>
           <div class="slider"><div class="top"><label for="surplus">Surplus</label><b id="surplusV">+150 kcal</b></div><input type="range" id="surplus" min="100" max="200" step="10" value="150"><span class="hint">Program range: 100–200 kcal above observed maintenance</span></div>
           <div class="slider"><div class="top"><label for="protein">Protein</label><b id="proteinV">160 g</b></div><input type="range" id="protein" min="150" max="170" step="5" value="160"><span class="hint">Program range: 150–170 g / day</span></div>
-          <div class="slider"><div class="top"><label for="fat">Fat</label><b id="fatV">62 g</b></div><input type="range" id="fat" min="55" max="90" step="1" value="62"><span class="hint">55–70 g / day, or more depending on total calories</span></div>
+          <div class="slider"><div class="top"><label for="fat">Fat</label><b id="fatV">75 g</b></div><input type="range" id="fat" min="55" max="90" step="1" value="75"><span class="hint">Week 8 reference is 75 g; more is fine as calories rise</span></div>
         </div>
         <div>
-          <div class="label">Daily target</div>
+          <div class="label">Winter growth target</div>
           <div class="kcal" id="kcal">2,550<small>kcal</small></div>
           <div class="stackbar" id="macroBar" aria-hidden="true"></div>
           <div class="macros">
@@ -813,22 +938,6 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
           </div>
           <p style="font-size:13px;color:var(--fg-2);margin-top:12px">Carbs fill the remainder, prioritized around training.</p>
         </div>
-      </div>
-    </div>
-    <div class="grid g2" style="margin-top:16px">
-      <div class="card">
-        <h3>Strategy</h3>
-        <dl class="strategy">
-          <div class="st"><dt>Energy balance</dt><dd>Establish maintenance, then a small surplus</dd></div>
-          <div class="st"><dt>Weight-gain pace</dt><dd>Slow and controlled</dd></div>
-          <div class="st"><dt>Adjustments</dt><dd>Gradual, based on two-to-three-week trends</dd></div>
-          <div class="st"><dt>Waist</dt><dd>Track weekly</dd></div>
-          <div class="st"><dt>Recovery</dt><dd>Sleep, gym performance, soreness, energy</dd></div>
-        </dl>
-      </div>
-      <div class="grid" style="align-content:start">
-        <div class="callout warn"><div class="ico">!</div><div><p><b>Not a dirty bulk.</b> A lean growth phase adjusts calories gradually instead of prescribing an arbitrary high-calorie number.</p></div></div>
-        <div class="callout info"><div class="ico">i</div><div><p><b>How to read the scale.</b> Weigh every morning and use the weekly average. If the average isn't rising slowly after two to three weeks, nudge calories up. If the waist climbs fast, ease off.</p></div></div>
       </div>
     </div>
   </section>
@@ -850,6 +959,35 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
       </div>
     </div>
     <div class="grid g3" style="margin-top:16px" id="phaseCards"></div>
+  </section>
+
+  <!-- BASELINE -->
+  <section class="chapter wrap" id="baseline" aria-labelledby="base-h">
+    <div class="ch-head">
+      <span class="ch-num">BASELINE AND MONITORING</span>
+      <h2 id="base-h">Where we start</h2>
+      <p>Today's numbers, and how each one is tracked from here.</p>
+    </div>
+    <div class="base">
+      <div class="stat"><div class="k">Weight</div><div class="v num">~69.4<small>kg</small></div><span class="pill info mon">7-day rolling average</span></div>
+      <div class="stat"><div class="k">Waist</div><div class="v num">78–78.5<small>cm</small></div><span class="pill info mon">Weekly</span></div>
+      <div class="stat"><div class="k">Body fat</div><div class="v num">~17<small>%</small></div><span class="pill neutral mon">Garmin estimate · trend only</span></div>
+      <div class="stat"><div class="k">Strength</div><div class="v" style="font-size:22px;line-height:1.25">Existing working weights</div><span class="pill info mon">Every workout</span></div>
+      <div class="stat"><div class="k">Recovery</div><div class="v" style="font-size:22px;line-height:1.25">Establish a baseline</div><span class="pill info mon">Weekly</span></div>
+      <div class="stat"><div class="k">Progress photos</div><div class="v" style="font-size:22px;line-height:1.25">Take them now</div><span class="pill info mon">Every 4 weeks</span></div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <div class="card-head"><div><h3>Morning weight log</h3><div class="sub">Judge the 7-day rolling average, never a single day. Saved in this browser only.</div></div></div>
+      <form class="wt-form" id="wtForm">
+        <div class="field"><label for="wtDate">Date</label><input type="date" id="wtDate"></div>
+        <div class="field"><label for="wtKg">Weight, kg</label><input type="number" id="wtKg" step="0.1" min="30" max="200" inputmode="decimal" placeholder="69.4"></div>
+        <div class="field"><label for="wtWaist">Waist, cm</label><input type="number" id="wtWaist" step="0.5" min="40" max="150" inputmode="decimal" placeholder="optional"></div>
+        <button class="btn" type="submit">Add entry</button>
+      </form>
+      <div class="wt-stats" id="wtStats"></div>
+      <div class="wt-chart" id="wtChart"></div>
+      <div class="wt-list" id="wtList"></div>
+    </div>
   </section>
 
   <!-- SCORECARD -->
@@ -903,6 +1041,19 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
   <div class="wrap">Hypertrophy 2.0 · Circuit 1 · Program sections 8–13. Your loads, reps, ticked checklist items and selected week are saved in this browser only.</div>
 </footer>
 
+<button class="fab" id="fab" type="button" aria-haspopup="dialog" aria-controls="sheet">
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11"/></svg>
+  Program <kbd>P</kbd>
+</button>
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetH" hidden>
+  <div class="grab" aria-hidden="true"></div>
+  <div class="sheet-head"><div><span class="label" id="sheetWk">Week 1</span><h3 id="sheetH">Training program</h3></div><button class="close" type="button" id="sheetClose" aria-label="Close">×</button></div>
+  <div class="seg" id="sheetSeg" role="group" aria-label="Day"></div>
+  <div id="sheetBody"></div>
+  <div class="sheet-foot"><button class="btn" type="button" id="sheetStart">Open in Today</button><a class="btn ghost" href="#program" id="sheetFull">Full program</a></div>
+</div>
+
 <script>
 (function(){
   const $ = s => document.querySelector(s);
@@ -919,7 +1070,9 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
     {name:'Growth II', from:8, to:11, c:'var(--p-g2)', obj:'Continue progression; specialize further if justified'},
     {name:'Assessment', from:12, to:12, c:'var(--p-assess)', obj:'Measurements, photos, performance and volume review'}
   ];
-  const RIRT = {mach:'1–3', db:'1–3', delt:'1–2', arm:'1–2', comp:'2–3', iso:'1–2', calf:'1–2', gen:'1–3'};
+  const RIRT = {mach:'1–3', db:'1–3', delt:'1–2', arm:'1–2', comp:'2–3', iso:'1–2', calf:'1–2', upiso:'1–2'};
+  const COMP = new Set(['mach','db','comp']);
+  const restOf = e => COMP.has(e.t) ? '2–3 min' : '60–120 s';
   const REG = {Back:'var(--ring-3)', Shoulders:'var(--ring-1)', Chest:'var(--ring-2)', Arms:'var(--p-g2)', Legs:'var(--legs)'};
   const MUS = {'Lats':'Back','Upper back':'Back','Traps':'Back','Side delts':'Shoulders','Rear delts':'Shoulders','Upper chest':'Chest','Mid chest':'Chest','Biceps':'Arms','Triceps':'Arms','Quads':'Legs','Hamstrings':'Legs','Glutes / abductors':'Legs','Calves':'Legs'};
   const PRIORITY = ['Lats','Upper back','Side delts','Rear delts','Upper chest'];
@@ -928,7 +1081,7 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
     'Pull A': {day:1, focus:'Lat width · Rear delts · Biceps', ex:[
       E('Neutral-Grip Lat Pulldown','47 kg',3,8,12,'Lats','mach'),
       E('Incline Chest-Supported DB Row','15 kg',3,8,12,'Upper back','mach'),
-      E('Straight-Arm Cable Pulldown','19 kg',2,12,18,'Lats','mach'),
+      E('Straight-Arm Cable Pulldown','19 kg',2,12,18,'Lats','upiso'),
       E('Reverse Pec Deck','22.5 kg',2,12,18,'Rear delts','delt'),
       E('Cable Biceps Curl','22.5 kg',2,8,12,'Biceps','arm'),
       E('DB Hammer Curl','12.5 kg',2,10,15,'Biceps','arm')]},
@@ -939,7 +1092,7 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
       E('DB Lateral Raise','4 kg',2,12,20,'Side delts','delt'),
       E('Seated OH DB Triceps Extension','10 kg',2,10,15,'Triceps','arm'),
       E('V-Bar Pushdown','20 kg',2,10,15,'Triceps','arm')]},
-    'Legs A': {day:3, focus:'Quadriceps · Hamstrings · Calves', ex:[
+    'Legs A': {day:3, focus:'Quad priority · Hamstrings · Calves', ex:[
       E('Horizontal Leg Press','',3,8,12,'Quads','comp'),
       E('Leg Extension','',3,10,15,'Quads','iso'),
       E('Leg Curl','',2,10,15,'Hamstrings','iso'),
@@ -950,24 +1103,24 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
       E('Wide-Grip Pulldown','38 kg',2,10,15,'Lats','mach'),
       E('Single-Arm Cable Lat Pulldown','19 kg',2,10,15,'Lats','mach'),
       E('Reverse Pec Deck','22.5 kg',2,12,18,'Rear delts','delt'),
-      E('DB Shrugs','27.5 kg',2,10,15,'Traps','gen'),
+      E('DB Shrugs','27.5 kg',2,10,15,'Traps','upiso'),
       E('Incline DB Curl','10 kg',2,8,12,'Biceps','arm'),
       E('Preacher Curl','15 kg',2,10,15,'Biceps','arm')]},
-    'Push B': {day:5, focus:'Delt specialization · Chest · Triceps', ex:[
+    'Push B': {day:5, focus:'Lateral-delt specialization · Chest · Triceps', ex:[
       E('DB Lateral Raise','4 kg',3,12,20,'Side delts','delt'),
       E('Incline DB Press','17.5 kg',3,8,12,'Upper chest','db'),
       E('Machine Chest Press','48.75 kg',2,8,12,'Mid chest','mach'),
       E('Cable Lateral Raise','3.5 kg',3,12,20,'Side delts','delt'),
       E('Seated OH DB Triceps Extension','10 kg',2,10,15,'Triceps','arm'),
       E('V-Bar Pushdown','20 kg',2,10,15,'Triceps','arm')]},
-    'Legs B': {day:6, focus:'Hamstrings · Glutes · Quads · Calves', ex:[
+    'Legs B': {day:6, focus:'Hamstrings · Glutes · Quads', ex:[
       E('Leg Curl','',3,8,12,'Hamstrings','iso'),
       E('Horizontal Leg Press','',2,10,15,'Quads','comp'),
       E('DB Romanian Deadlift','',2,8,12,'Hamstrings','comp'),
       E('Leg Extension','',2,12,15,'Quads','iso'),
       E('Standing Calf Raise','',3,10,15,'Calves','calf'),
       E('Hip Abduction Machine','',2,15,20,'Glutes / abductors','iso')]},
-    'Recovery': {day:7, focus:'Rest from lifting', ex:[], rec:[['Resistance training','Rest'],['Walking','Optional, easy pace'],['Mobility','Optional, 5–10 minutes']]}
+    'Recovery': {day:7, focus:'Rest from lifting', ex:[], rec:[['Resistance training','Rest'],['Walking','Optional, easy pace'],['Mobility','Optional'],['Nutrition','Same weekly reference']]}
   };
   const SESSIONS = Object.keys(EX);
   const setsOf = k => EX[k].ex.reduce((a,e) => a + e.sets, 0);
@@ -975,10 +1128,21 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
   const loadOf = (k, e) => store.get(exKey(k,e), '') || e.load;
   const rirOf = (k, e) => (LEG[k] && state.week === 1) ? '3–4' : RIRT[e.t];
   const LEG = {
-    'Legs A': [{t:'7–8', lo:7, hi:8}, {t:'~10', lo:10, hi:10}, {t:'13', lo:13, hi:13}],
-    'Legs B': [{t:'7–8', lo:7, hi:8}, {t:'~10–11', lo:10, hi:11}, {t:'14', lo:14, hi:14}]
+    'Legs A': [{t:'7–8', lo:7, hi:8}, {t:'~10', lo:10, hi:10}, {t:'10–13', lo:10, hi:13}, {t:'13', lo:13, hi:13}],
+    'Legs B': [{t:'7–8', lo:7, hi:8}, {t:'~10–11', lo:10, hi:11}, {t:'11–14', lo:11, hi:14}, {t:'14', lo:14, hi:14}]
   };
-  const stageOf = w => w === 1 ? 0 : w === 2 ? 1 : 2;
+  const stageOf = w => Math.min(w, 4) - 1;
+  const NPH = {'Transition':'var(--p-cal)', 'Maintenance search':'var(--p-g1)', 'Conditional':'var(--p-audit)', 'Winter growth':'var(--p-g2)'};
+  const WEEKS = [
+    [1700,60,130,'Transition','Calibrate loads; introduce legs at ~50–60% volume','Reduce dietary rigidity'],
+    [1800,60,155,'Transition','Increase leg volume if recovered; establish consistent RIR','Improve energy availability'],
+    [1900,65,169,'Transition','Approach full training volume','Support performance'],
+    [2000,65,194,'Transition','Full volume if recovery permits','Continue toward maintenance'],
+    [2100,70,208,'Maintenance search','Progressive overload','Identify maintenance'],
+    [2200,70,233,'Maintenance search','Progressive overload','Stabilize intake'],
+    [2300,70,258,'Maintenance search','Evaluate fatigue and performance','Maintenance or slight surplus'],
+    [2400,75,271,'Conditional','Continue growth; deload only if needed','Adjust based on results']
+  ].map(([kcal,f,c,ph,tr,nu], i) => ({w:i+1, kcal, p:160, f, c, ph, tr, nu}));
   const phaseOf = w => PHASES.find(p => w >= p.from && w <= p.to);
 
   let state = {
@@ -1002,7 +1166,7 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
   function legPct(w, session){
     const st = stageOf(w);
     const mid = x => (x.lo + x.hi)/2;
-    if (LEG[session]) return mid(LEG[session][st]) / LEG[session][2].hi;
+    if (LEG[session]) return mid(LEG[session][st]) / LEG[session][3].hi;
     return (mid(LEG['Legs A'][st]) + mid(LEG['Legs B'][st])) / 27;
   }
 
@@ -1017,20 +1181,30 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
 
   function lineup(){
     const k = state.session, d = EX[k];
-    const rows = d.ex.map((e,i) => `<div class="lu-r"><span class="i">${i+1}</span><div><b>${e.n}</b><small>${loadOf(k,e) || 'Load TBD'} · ${e.sets}×${e.lo}–${e.hi}</small></div><span class="pill neutral">RIR ${rirOf(k,e)}</span></div>`).join('');
+    const rows = d.ex.map((e,i) => `<div class="lu-r"><span class="i">${i+1}</span><div><b>${e.n}</b><small>${loadOf(k,e) || 'Load TBD'} · ${e.sets}×${e.lo}–${e.hi} · rest ${restOf(e)}</small></div><span class="pill neutral">RIR ${rirOf(k,e)}</span></div>`).join('');
     return `<div class="mc wide"><div class="label">Day ${d.day} lineup · ${d.ex.length} exercises · ${setsOf(k)} listed sets</div><p style="margin-top:0;margin-bottom:4px">${d.focus}</p><div class="lu">${rows}</div></div>`;
   }
+  function weekCard(){
+    const w = state.week, W = WEEKS[w-1];
+    const ph = W ? W.ph : 'Winter growth';
+    const tr = W ? W.tr : phaseOf(w).obj;
+    const nu = W ? W.nu : 'Modest surplus, set from the weeks 5–8 results';
+    const ref = W ? `Reference ~${fmt(W.kcal)} kcal · P ${W.p} g · F ${W.f} g · C ${W.c} g. Eat above it whenever hunger, training or social occasions call for it.` : 'Use the winter growth calculator once maintenance is known.';
+    return `<div class="mc wide"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div class="label" style="margin:0">Week ${w} plan</div><span class="pill neutral"><i style="background:${NPH[ph]}"></i>${ph}</span></div>
+      <div class="wkplan"><div><small>Training</small><b>${tr}</b></div><div><small>Nutrition</small><b>${nu}</b></div></div><p>${ref}</p></div>`;
+  }
+  const nutPill = w => { const W = WEEKS[w-1]; return `<span class="pill neutral" style="margin-left:auto;align-self:center">${W ? '~' + fmt(W.kcal) + ' kcal' : 'Surplus'}</span>`; };
   function beforeCards(){
     const w = state.week, s = state.session, st = stageOf(w), isLegs = !!LEG[s];
-    const out = [];
+    const out = [weekCard()];
     if (s === 'Recovery'){
       EX.Recovery.rec.forEach(([a,b]) => out.push(`<div class="mc"><div class="label">${a}</div><div class="big" style="font-size:22px">${b}</div></div>`));
-      out.push(`<div class="mc"><div class="label">Still log</div><p>Morning bodyweight. Recovery and soreness feed the weekly review.</p></div>`);
+      out.push(`<div class="mc wide"><div class="label">Still log</div><p>Morning bodyweight. Recovery and soreness feed the weekly review.</p></div>`);
       return out.join('');
     }
     if (isLegs){
       const L = LEG[s][st];
-      out.push(`<div class="mc"><div class="label">Working sets today</div><div class="big">${L.t}</div><p>${st===2 ? 'Full listed volume from week 3 onward.' : 'About 50–70% of the ' + LEG[s][2].t + ' listed sets. Trim sets, keep every exercise.'}</p></div>`);
+      out.push(`<div class="mc"><div class="label">Working sets today</div><div class="big">${L.t}</div><p>${['About 50–60% of the ' + LEG[s][3].t + ' listed sets. Trim sets, keep every exercise.', 'More than week 1, only if you have recovered.', 'Approaching the full ' + LEG[s][3].t + ' sets.', 'Full listed volume if recovery permits.'][st]}</p></div>`);
       out.push(`<div class="mc"><div class="label">Effort target</div><div class="big">${w===1 ? '3–4 RIR' : w===2 ? '3–4 → 2–3' : 'See lineup'}</div><p>${w<=2 ? 'Start at 3–4 RIR on unfamiliar lower-body exercises. No failure, no max testing.' : 'Leg press / RDL 2–3 · leg extension / curl 1–2 · calves 1–2.'}</p></div>`);
       out.push(lineup());
       if (w === 1) out.push(`<div class="mc wide"><div class="label">Loads</div><p>Leg loads are TBD. Use this week to find them${s==='Legs B' ? '. RDL: very light dumbbells or no load while you learn the movement' : ''}. Type each one into Circuit 1 once found.</p></div>`);
@@ -1132,7 +1306,7 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
     $('#rlBlock').textContent = `${w} / 12`;
     $('#rlPhase').textContent = `${w - p.from + 1} / ${p.to - p.from + 1}`;
     $('#rlLegs').textContent = Math.round(vals[2]*100) + '%';
-    $('#phaseBanner').innerHTML = `<span class="sw" style="background:${p.c}"></span><div><h4>${p.name} · ${p.from===p.to ? 'Week '+p.from : 'Weeks '+p.from+'–'+p.to}</h4><p>${p.obj}</p></div>`;
+    $('#phaseBanner').innerHTML = `<span class="sw" style="background:${p.c}"></span><div><h4>${p.name} · ${p.from===p.to ? 'Week '+p.from : 'Weeks '+p.from+'–'+p.to}</h4><p>${p.obj}</p></div>${nutPill(w)}`;
     $('#beforePane').innerHTML = beforeCards();
     $('#beforePane').hidden = state.mode !== 'before';
     $('#afterPane').hidden = state.mode !== 'after';
@@ -1142,6 +1316,7 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
     renderCircuit();
     renderRamp();
     renderTimeline();
+    renderLadder();
   }
 
   /* ---------- Session clock ---------- */
@@ -1152,8 +1327,8 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
     $('#clkT').textContent = `${pad(Math.floor(sec/60))}:${pad(sec%60)}`;
     const ring = $('#clkRing');
     ring.setAttribute('stroke-dasharray', `${Math.min(100, min/55*100).toFixed(2)} 100`);
-    ring.setAttribute('stroke', min > 55 ? 'var(--bad)' : min >= 45 ? 'var(--good)' : 'var(--accent)');
-    $('#clkS').textContent = min > 55 ? `Over by ${Math.ceil(min-55)} min · note it for the review` : min >= 45 ? 'Inside the 45–55 min window' : `Session clock · ${Math.max(0, Math.ceil(45-min))} min to the window`;
+    ring.setAttribute('stroke', min > 55 ? 'var(--bad)' : min >= 50 ? 'var(--good)' : 'var(--accent)');
+    $('#clkS').textContent = min > 55 ? `Over by ${Math.ceil(min-55)} min · note it for the review` : min >= 50 ? 'Inside the 50–55 min window' : `Session clock · ${Math.max(0, Math.ceil(50-min))} min to the window`;
   }
   $('#clkGo').addEventListener('click', () => {
     if (clkStart){ clkAcc += Date.now() - clkStart; clkStart = null; clearInterval(clkTimer); $('#clkGo').textContent = 'Resume'; }
@@ -1161,7 +1336,7 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
       try{ navigator.wakeLock && navigator.wakeLock.request('screen').catch(()=>{}); }catch(e){} }
     clkTick();
   });
-  $('#clkReset').addEventListener('click', () => { clkStart = null; clkAcc = 0; clearInterval(clkTimer); $('#clkGo').textContent = 'Start'; clkTick(); $('#clkS').textContent = 'Session clock · target 45–55 min'; });
+  $('#clkReset').addEventListener('click', () => { clkStart = null; clkAcc = 0; clearInterval(clkTimer); $('#clkGo').textContent = 'Start'; clkTick(); $('#clkS').textContent = 'Session clock · target 50–55 min'; });
 
   /* ---------- Rest timer ---------- */
   let restEnd = 0, restDur = 0, restTimer = null, actx = null;
@@ -1190,7 +1365,7 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
   function renderCircuit(){
     $('#days').innerHTML = SESSIONS.map(k => {
       const d = EX[k], sets = setsOf(k), on = k === state.session ? ' on' : '';
-      if (k === 'Recovery') return `<button type="button" class="day rest${on}" data-s="${k}" aria-pressed="${!!on}"><span class="dn">Day 7</span><b>Recovery</b><span class="f">Optional walk and 5–10 min mobility</span><span class="mb"></span><span class="meta">No lifting</span></button>`;
+      if (k === 'Recovery') return `<button type="button" class="day rest${on}" data-s="${k}" aria-pressed="${!!on}"><span class="dn">Day 7</span><b>Recovery</b><span class="f">Optional walk and mobility</span><span class="mb"></span><span class="meta">No lifting</span></button>`;
       const mb = d.ex.map(e => `<span style="flex:${e.sets};background:${regOf(e.m)}"></span>`).join('');
       return `<button type="button" class="day${on}" data-s="${k}" aria-pressed="${!!on}"><span class="dn">Day ${d.day}</span><b>${k}</b><span class="f">${d.focus}</span><span class="mb">${mb}</span><span class="meta">${d.ex.length} exercises · ${sets} sets</span></button>`;
     }).join('');
@@ -1200,21 +1375,22 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
       return;
     }
     const legs = !!LEG[k], st = stageOf(state.week);
-    const note = legs && st < 2 ? `<div class="callout warn" style="margin-bottom:14px"><div class="ico">!</div><div><p><b>Week ${state.week}: about ${LEG[k][st].t} of ${setsOf(k)} listed sets</b> at 3–4 RIR. The listed sets become the target from week 3.</p></div></div>` : '';
+    const note = legs && st < 3 ? `<div class="callout warn" style="margin-bottom:14px"><div class="ico">!</div><div><p><b>Week ${state.week}: about ${LEG[k][st].t} of ${setsOf(k)} listed sets</b>${state.week === 1 ? ' at 3–4 RIR' : ', only if recovered'}. The listed sets become the target from week 4.</p></div></div>` : '';
     const rows = d.ex.map((e,i) => {
       const saved = store.get(exKey(k,e), ''), lo = 6, hi = 20;
       const left = (e.lo-lo)/(hi-lo)*100, width = (e.hi-e.lo)/(hi-lo)*100;
       return `<div class="exr">
         <span class="idx">${i+1}</span>
-        <div class="nm"><b>${e.n}</b><small><i style="background:${regOf(e.m)}"></i>${e.m}${e.load ? ' · start ' + e.load : ' · load set in week 1'}</small><span class="mob">${e.sets} × ${e.lo}–${e.hi} · RIR ${rirOf(k,e)}</span></div>
+        <div class="nm"><b>${e.n}</b><small><i style="background:${regOf(e.m)}"></i>${e.m}${e.load ? ' · start ' + e.load : ' · load set in week 1'}</small><span class="mob">${e.sets} × ${e.lo}–${e.hi} · RIR ${rirOf(k,e)} · rest ${restOf(e)}</span></div>
         <input class="load${saved ? ' changed' : ''}" type="text" id="ld-${d.day}-${i}" data-i="${i}" value="${saved}" placeholder="${e.load || 'TBD'}" aria-label="Current load for ${e.n}">
         <span class="sx">${e.sets} × ${e.lo}–${e.hi}</span>
         <div class="rrw"><div class="rr"><i style="left:${left}%;width:${width}%;background:${regOf(e.m)}"></i></div><div class="rr-k"><span>6</span><span>reps</span><span>20</span></div></div>
         <span class="rirc"><span class="pill neutral">${rirOf(k,e)}</span></span>
+        <span class="restc">${restOf(e)}</span>
       </div>`;
     }).join('');
     $('#dayDetail').innerHTML = `<div class="card-head"><div><span class="label">Day ${d.day}</span><h3 style="margin-top:4px">${k}</h3><div class="sub">${d.focus}</div></div><div class="prio" style="margin-top:0"><span class="pill info">${d.ex.length} exercises</span><span class="pill neutral">${setsOf(k)} sets</span></div></div>${note}
-      <div class="exh"><span>#</span><span>Exercise</span><span>Load</span><span>Sets × reps</span><span>Rep range</span><span>RIR</span></div>${rows}`;
+      <div class="exh"><span>#</span><span>Exercise</span><span>Load</span><span>Sets × reps</span><span>Rep range</span><span>RIR</span><span>Rest</span></div>${rows}`;
   }
   $('#days').addEventListener('click', e => { const b = e.target.closest('.day'); if(!b) return; state.session = b.dataset.s; store.set('session', state.session); render(); });
   $('#dayDetail').addEventListener('change', e => {
@@ -1276,7 +1452,7 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
   /* ---------- Leg ramp ---------- */
   function renderRamp(){
     const max = 15, cur = stageOf(state.week);
-    const labels = ['Week 1','Week 2','Week 3+'];
+    const labels = ['Week 1','Week 2','Week 3','Week 4+'];
     let h = '<div class="axis"><span>15</span><span>10</span><span>5</span><span>0</span></div>';
     labels.forEach((lab, i) => {
       h += `<div class="grp"><div class="bars">`;
@@ -1324,7 +1500,7 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
     {k:'Loads, reps, RIR', f:() => true},
     {k:'Waist', f:() => true},
     {k:'Circumferences + photos', f:w => w % 4 === 0},
-    {k:'Deload decision', f:w => w === 7}
+    {k:'Fatigue review · deload only if needed', f:w => w === 7 || w === 8}
   ];
   $('#tlPhases').innerHTML = PHASES.map(p => `<div class="tp" style="--pc:${p.c};grid-column:${p.from} / ${p.to+1}"><b>${p.name}</b><span>${p.from===p.to ? 'Wk '+p.from : 'Wk '+p.from+'–'+p.to}</span></div>`).join('');
   $('#tlWeeks').addEventListener('click', e => { const b = e.target.closest('.wkc'); if(!b) return; setWeek(+b.dataset.w); document.getElementById('today').scrollIntoView({block:'start'}); });
@@ -1333,6 +1509,7 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
     for (let w = 1; w <= 12; w++){ const p = phaseOf(w); h += `<button type="button" class="wkc ${w===state.week?'on':''}" data-w="${w}" style="--pc:${p.c}" aria-label="Week ${w}, ${p.name}"><span class="band"></span><span class="wn">W${w}</span></button>`; }
     $('#tlWeeks').innerHTML = h;
     $('#tlTracks').innerHTML = TRACKS.map(t => `<div class="tl-track" style="grid-template-columns:repeat(12, minmax(0,1fr))"><span style="grid-column:1 / -1;font-weight:600;color:var(--fg)">${t.k}</span>${Array.from({length:12}, (_,i) => `<span class="dot ${t.f(i+1)?'on':''}" style="${t.f(i+1)?'background:'+phaseOf(i+1).c:''}"></span>`).join('')}</div>`).join('');
+    $('#tlTracks').insertAdjacentHTML('afterbegin', `<div class="tl-track" style="grid-template-columns:repeat(12, minmax(0,1fr))"><span style="grid-column:1 / -1;font-weight:600;color:var(--fg)">Calorie reference</span>${Array.from({length:12}, (_,i) => { const W = WEEKS[i]; return `<span style="text-align:center;font:600 11px/1.2 var(--font-display);font-variant-numeric:tabular-nums;color:${W ? NPH[W.ph] : 'var(--fg-3)'}">${W ? (W.kcal/1000).toFixed(1) + 'k' : '+'}</span>`; }).join('')}</div>`);
   }
   $('#phaseCards').innerHTML = PHASES.map(p => `<div class="card"><div style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:50%;background:${p.c}"></span><span class="label">${p.from===p.to ? 'Week '+p.from : 'Weeks '+p.from+'–'+p.to}</span></div><h3 style="margin-top:8px">${p.name}</h3><p class="sub">${p.obj}</p></div>`).join('') +
     `<div class="card" style="background:var(--surface-2);box-shadow:none"><span class="label">Rule of the block</span><h3 style="margin-top:8px">Recovery decides</h3><p class="sub">Volume increases and deloads both follow the data, not the calendar.</p></div>`;
@@ -1341,16 +1518,131 @@ footer{padding-block:40px 60px; color:var(--fg-3); font-size:13px; border-top:1p
   const SC = [
     {k:'Exercise loads, reps and RIR', c:0, n:''},
     {k:'Session duration', c:0, n:''},
-    {k:'Morning bodyweight', c:1, n:'Use weekly averages'},
+    {k:'Morning bodyweight', c:1, n:'7-day rolling average'},
     {k:'Waist', c:2, n:''},
     {k:'Recovery and soreness', c:2, n:'Weekly review'},
     {k:'Upper arms, chest, shoulders, thighs', c:3, n:''},
-    {k:'Standardized physique photos', c:3, n:''}
+    {k:'Standardized physique photos', c:3, n:'Baseline now, then every 4 weeks'}
   ];
   const scCol = ['var(--ring-1)','var(--p-audit)','var(--ring-2)','var(--p-g2)'];
   $('#matrix').innerHTML = SC.map(r => `<tr><td><b style="font-weight:600">${r.k}</b>${r.n ? `<small>${r.n}</small>` : ''}</td>${[0,1,2,3].map(i => `<td>${i===r.c ? `<span class="m" style="background:${scCol[i]}" aria-label="yes"></span>` : '<span class="m" style="background:var(--surface-2)" aria-hidden="true"></span>'}</td>`).join('')}</tr>`).join('');
 
-  renderNut(); render(); clkTick();
+  /* ---------- Nutrition ladder ---------- */
+  function renderLadder(){
+    const max = 2500, cur = state.week;
+    let h = '<div class="ax"><span>2,500</span><span>2,000</span><span>1,500</span><span>1,000</span><span>500</span><span>0</span></div>';
+    WEEKS.forEach(W => {
+      const on = W.w === cur ? ' on' : '';
+      h += `<button type="button" class="lcol${on}" data-w="${W.w}" aria-pressed="${!!on}" aria-label="Week ${W.w}: about ${W.kcal} kcal"><span class="sw" style="--h:${(W.kcal/max*100).toFixed(1)}%"><b>${fmt(W.kcal)}</b><span class="stk"><span style="flex:${W.p*4};background:var(--ring-1)"></span><span style="flex:${W.f*9};background:var(--p-audit)"></span><span style="flex:${W.c*4};background:var(--ring-3)"></span></span></span><span class="wl">W${W.w}</span></button>`;
+    });
+    $('#lad').innerHTML = h;
+    $('#ladPh').innerHTML = '<span></span>' + [['Transition',1,4],['Maintenance search',5,7],['Conditional',8,8]].map(([n,a,b]) => `<div style="--pc:${NPH[n]};grid-column:${a+1} / ${b+2}" title="${n}">${n}</div>`).join('');
+    const W = WEEKS[cur-1];
+    if (!W){
+      $('#ladDetail').innerHTML = `<span class="label">Week ${cur}</span><div class="kcal" style="font-size:40px;margin-top:6px">Surplus</div><p class="sub" style="margin-top:8px;font-size:15px">The ladder ends at week 8. From here, a modest surplus on top of the maintenance you found, using the calculator below.</p>`;
+      return;
+    }
+    const d = W.kcal - 1700;
+    $('#ladDetail').innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><span class="label">Week ${W.w} reference</span><span class="pill neutral"><i style="background:${NPH[W.ph]}"></i>${W.ph}</span></div>
+      <div class="kcal" style="margin-top:6px">${fmt(W.kcal)}<small>kcal</small></div>
+      <div class="macros">
+        <div class="macro"><div class="label"><i style="background:var(--ring-1)"></i>Protein</div><div class="g">${W.p}<small> g</small></div><div class="kc">${fmt(W.p*4)} kcal</div></div>
+        <div class="macro"><div class="label"><i style="background:var(--p-audit)"></i>Fat</div><div class="g">${W.f}<small> g</small></div><div class="kc">${fmt(W.f*9)} kcal</div></div>
+        <div class="macro"><div class="label"><i style="background:var(--ring-3)"></i>Carbs</div><div class="g">${W.c}<small> g</small></div><div class="kc">${fmt(W.c*4)} kcal</div></div>
+      </div>
+      <div class="ld-rows">
+        <div class="ld-row"><span>Training</span><b>${W.tr}</b></div>
+        <div class="ld-row"><span>Nutrition</span><b>${W.nu}</b></div>
+        <div class="ld-row"><span>vs. week 1</span><b>${d ? '+' + fmt(d) + ' kcal, mostly carbs' : 'Starting point'}</b></div>
+      </div>`;
+  }
+  $('#lad').addEventListener('click', e => { const b = e.target.closest('.lcol'); if (b) setWeek(+b.dataset.w); });
+
+  /* ---------- Weight log ---------- */
+  const BASE_KG = 69.4;
+  const todayISO = () => { const t = new Date(); t.setMinutes(t.getMinutes() - t.getTimezoneOffset()); return t.toISOString().slice(0,10); };
+  const dayNum = d => Math.round(Date.parse(d + 'T00:00:00Z') / 864e5);
+  $('#wtDate').value = todayISO();
+  function wtEntries(){ const a = store.get('weights', []); return Array.isArray(a) ? a.filter(x => x && x.d && +x.kg).sort((x,y) => x.d < y.d ? -1 : 1) : []; }
+  function rolling(list){ return list.map(x => { const n = dayNum(x.d); const win = list.filter(y => { const m = dayNum(y.d); return m <= n && m > n - 7; }); return win.reduce((a,y) => a + +y.kg, 0) / win.length; }); }
+  function renderWeights(){
+    const list = wtEntries(), avg = rolling(list);
+    const last = avg.length ? avg[avg.length-1] : null;
+    const waists = list.filter(x => +x.waist);
+    const lw = waists.length ? +waists[waists.length-1].waist : null;
+    const sign = v => (v > 0 ? '+' : v < 0 ? '−' : '±') + Math.abs(v).toFixed(1);
+    $('#wtStats').innerHTML = `
+      <div class="mc"><div class="label">7-day average</div><div class="big">${last ? last.toFixed(1) + ' kg' : '—'}</div><p>${list.length ? list.length + ' entr' + (list.length===1?'y':'ies') + ' logged' : 'Log your first morning weight'}</p></div>
+      <div class="mc"><div class="label">vs. baseline 69.4 kg</div><div class="big">${last ? sign(last - BASE_KG) + ' kg' : '—'}</div><p>Slow and controlled is the goal</p></div>
+      <div class="mc"><div class="label">Latest waist</div><div class="big">${lw ? lw.toFixed(1) + ' cm' : '—'}</div><p>Baseline 78–78.5 cm · weekly</p></div>`;
+    const W = 640, H = 190, pl = 40, pr = 14, pt = 14, pb = 26;
+    const pts = list.slice(-42), av = avg.slice(-42);
+    const vals = pts.map(x => +x.kg).concat(av, [BASE_KG]);
+    let lo = Math.min(...vals) - .4, hi = Math.max(...vals) + .4;
+    lo = Math.floor(lo*2)/2; hi = Math.ceil(hi*2)/2;
+    const x = i => pts.length <= 1 ? (pl + (W-pl-pr)/2) : pl + i * (W-pl-pr) / (pts.length-1);
+    const y = v => pt + (hi - v) / (hi - lo) * (H-pt-pb);
+    let g = '';
+    const step = (hi - lo) > 3 ? 1 : .5;
+    for (let v = lo; v <= hi + 1e-9; v += step) g += `<line x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"/><text x="${pl-6}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="var(--fg-3)">${v.toFixed(1)}</text>`;
+    g += `<line x1="${pl}" x2="${W-pr}" y1="${y(BASE_KG)}" y2="${y(BASE_KG)}" stroke="var(--fg-3)" stroke-dasharray="4 4"/><text x="${pl+6}" y="${y(BASE_KG)-6}" font-size="11" fill="var(--fg-2)">Baseline 69.4</text>`;
+    if (pts.length){
+      g += pts.map((p,i) => `<circle cx="${x(i)}" cy="${y(+p.kg)}" r="3" fill="var(--fg-3)" opacity=".6"/>`).join('');
+      if (av.length > 1){
+        const d = av.map((v,i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+        g += `<path d="${d} L${x(av.length-1).toFixed(1)},${H-pb} L${x(0).toFixed(1)},${H-pb} Z" fill="var(--accent-soft)"/><path d="${d}" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+      }
+      const li = av.length - 1;
+      g += `<circle cx="${x(li)}" cy="${y(av[li])}" r="5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>`;
+      g += `<text x="${pl}" y="${H-6}" font-size="11" fill="var(--fg-3)">${pts[0].d.slice(5)}</text><text x="${W-pr}" y="${H-6}" text-anchor="end" font-size="11" fill="var(--fg-3)">${pts[pts.length-1].d.slice(5)}</text>`;
+    } else {
+      g += `<text x="${W/2}" y="${H/2+24}" text-anchor="middle" font-size="13" fill="var(--fg-2)">Add a morning weight to start the trend line</text>`;
+    }
+    $('#wtChart').innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Daily weights with 7-day rolling average">${g}</svg><div class="key" style="margin-top:6px"><span><i style="background:var(--fg-3);border-radius:50%"></i>Daily weight</span><span><i style="background:var(--accent)"></i>7-day average</span></div>`;
+    $('#wtList').innerHTML = list.slice(-10).reverse().map(x => `<span>${x.d.slice(5)} · ${(+x.kg).toFixed(1)} kg${+x.waist ? ' · ' + (+x.waist).toFixed(1) + ' cm' : ''}<button type="button" data-d="${x.d}" aria-label="Remove ${x.d}">×</button></span>`).join('');
+  }
+  $('#wtForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const d = $('#wtDate').value || todayISO(), kg = parseFloat($('#wtKg').value), waist = parseFloat($('#wtWaist').value);
+    if (!(kg > 0)){ $('#wtKg').focus(); return; }
+    const list = wtEntries().filter(x => x.d !== d);
+    list.push({d, kg, waist: waist > 0 ? waist : null});
+    store.set('weights', list); $('#wtKg').value = ''; $('#wtWaist').value = '';
+    renderWeights();
+  });
+  $('#wtList').addEventListener('click', e => { const b = e.target.closest('button[data-d]'); if(!b) return; store.set('weights', wtEntries().filter(x => x.d !== b.dataset.d)); renderWeights(); });
+
+  /* ---------- Program sheet ---------- */
+  let sheetDay = state.session, lastFocus = null;
+  function renderSheet(){
+    const k = sheetDay, d = EX[k];
+    $('#sheetWk').textContent = `Week ${state.week} · Day ${d.day}`;
+    $('#sheetH').textContent = k === 'Recovery' ? 'Recovery' : `${k} · ${d.focus}`;
+    $('#sheetSeg').innerHTML = SESSIONS.map(s => `<button type="button" data-s="${s}" aria-pressed="${s===k}">${s === 'Recovery' ? 'Rest' : s}</button>`).join('');
+    if (k === 'Recovery'){
+      $('#sheetBody').innerHTML = `<div class="lu">${d.rec.map(([a,b]) => `<div class="lu-r" style="grid-template-columns:minmax(0,1fr) auto"><b>${a}</b><small>${b}</small></div>`).join('')}</div>`;
+    } else {
+      const st = stageOf(state.week), legs = !!LEG[k];
+      const note = legs && st < 3 ? `<div class="callout warn" style="margin-bottom:10px"><div class="ico">!</div><div><p><b>Week ${state.week}: ~${LEG[k][st].t} of ${setsOf(k)} sets.</b> Trim sets, keep every exercise.</p></div></div>` : '';
+      $('#sheetBody').innerHTML = note + `<div class="lu">${d.ex.map((e,i) => `<div class="lu-r"><span class="i">${i+1}</span><div><b>${e.n}</b><small>${loadOf(k,e) || 'Load TBD'} · ${e.sets}×${e.lo}–${e.hi}</small></div><small>${restOf(e)}</small><span class="pill neutral">${rirOf(k,e)}</span></div>`).join('')}</div>
+        <p style="font-size:12px;color:var(--fg-2);margin-top:10px">${d.ex.length} exercises · ${setsOf(k)} listed sets · RIR and rest shown per exercise</p>`;
+    }
+  }
+  function openSheet(){ lastFocus = document.activeElement; sheetDay = state.session; renderSheet(); $('#scrim').hidden = false; $('#sheet').hidden = false; $('#sheetClose').focus(); }
+  function closeSheet(){ $('#scrim').hidden = true; $('#sheet').hidden = true; if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+  $('#fab').addEventListener('click', openSheet);
+  $('#sheetClose').addEventListener('click', closeSheet);
+  $('#scrim').addEventListener('click', closeSheet);
+  $('#sheetSeg').addEventListener('click', e => { const b = e.target.closest('button'); if(!b) return; sheetDay = b.dataset.s; renderSheet(); });
+  $('#sheetStart').addEventListener('click', () => { state.session = sheetDay; state.mode = 'before'; store.set('session', sheetDay); store.set('mode', 'before'); render(); closeSheet(); document.getElementById('today').scrollIntoView({block:'start'}); });
+  $('#sheetFull').addEventListener('click', () => { state.session = sheetDay; store.set('session', sheetDay); render(); closeSheet(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !$('#sheet').hidden){ closeSheet(); return; }
+    const tag = (e.target.tagName || '').toLowerCase();
+    if ((e.key === 'p' || e.key === 'P') && !e.metaKey && !e.ctrlKey && !e.altKey && !['input','textarea','select'].includes(tag)){ $('#sheet').hidden ? openSheet() : closeSheet(); }
+  });
+
+  renderNut(); render(); clkTick(); renderWeights();
 })();
 </script>
 </body>
