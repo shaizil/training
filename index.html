@@ -550,6 +550,73 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
 
 .fade-in{animation:fadeUp .6s cubic-bezier(.2,.8,.2,1) both}
 @keyframes fadeUp{from{transform:translateY(8px)} to{transform:none}}
+
+/* ---------- Circuit 2 additions ---------- */
+.verdict.bad{background:var(--bad-soft)} .verdict.bad b{color:var(--bad)}
+.chg{display:inline-flex; align-items:center; gap:3px; font:650 11px/1 var(--font-display); padding:3px 7px; border-radius:999px; background:var(--good-soft); color:var(--good); font-variant-numeric:tabular-nums; white-space:nowrap}
+.chg.big{background:var(--warn-soft); color:var(--warn)}
+.chg.same{background:var(--surface-2); color:var(--fg-2)}
+.chg.new{background:var(--accent-soft); color:var(--accent)}
+.tip{display:block; font-size:12px; color:var(--warn); margin-top:4px; line-height:1.35}
+.exh, .exr{grid-template-columns:28px minmax(0,1.9fr) 100px 80px minmax(90px,1fr) 72px 70px}
+.exr .nm small{flex-wrap:wrap}
+.rirsel{width:100%; padding:8px 4px; border-radius:10px; border:1px solid var(--line-strong); background:var(--surface); color:var(--fg); font:650 14px/1 var(--font-display); text-align:center; font-variant-numeric:tabular-nums}
+.rirsel.set{border-color:var(--good); background:var(--good-soft); color:var(--good)}
+@media (max-width:760px){
+  .exr{grid-template-columns:28px minmax(0,1fr) 84px 62px}
+  .exr .nm{grid-column:2 / -1; grid-row:1}
+  .exr .rrw{grid-column:2; grid-row:2}
+  .exr .load{grid-column:3; grid-row:2}
+  .exr .rirsel{grid-column:4; grid-row:2}
+  .exr .idx{grid-row:1 / 3; align-self:start}
+}
+.lu-r .tip{margin-top:2px}
+.rirkey{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:10px; margin-top:14px}
+@media (max-width:520px){ .rirkey{grid-template-columns:repeat(2, minmax(0,1fr))} }
+.rk{background:var(--surface-2); border-radius:var(--r-md); padding:14px}
+.rk b{display:block; font:800 32px/1 var(--font-display); letter-spacing:-.02em; color:var(--fg)}
+.rk p{font-size:13px; color:var(--fg-2); margin-top:6px}
+.rk.zero b{color:var(--bad)}
+.dec{display:grid}
+.dec-r{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px; align-items:center; padding:12px 0; border-bottom:1px solid var(--line); font-size:15px}
+.dec-r:last-child{border-bottom:0}
+.lc{display:grid; gap:9px}
+.lc-r{display:grid; grid-template-columns:minmax(0,220px) minmax(0,1fr) 128px; gap:12px; align-items:center; font-size:14px}
+.lc-r .t{height:12px; border-radius:6px; background:var(--surface-2); overflow:hidden; position:relative}
+.lc-r .t i{display:block; height:100%; border-radius:6px}
+.lc-r .t::after{content:""; position:absolute; top:0; bottom:0; left:80%; border-left:1px dashed var(--fg-3)}
+.lc-r b{font:650 13px/1.2 var(--font-display); text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap}
+.lc-r b small{display:block; font:500 11px/1.3 var(--font-text); color:var(--fg-2)}
+@media (max-width:560px){ .lc-r{grid-template-columns:minmax(0,1fr) auto} .lc-r .t{grid-column:1 / -1; grid-row:2} }
+.exa{display:grid; gap:16px}
+.exa-row{display:grid; grid-template-columns:132px minmax(0,1fr); gap:16px; align-items:end}
+.exa-row .who b{display:block; font:700 16px/1.2 var(--font-display)}
+.exa-row .who small{font-size:12px; color:var(--fg-2)}
+.sets3{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:8px}
+.sb3{display:grid; gap:6px}
+.sb3 .col{height:84px; background:var(--surface-2); border-radius:10px; position:relative; overflow:hidden}
+.sb3 .col i{position:absolute; left:0; right:0; bottom:0; border-radius:10px}
+.sb3 .col .zone{position:absolute; left:0; right:0; border-top:1px dashed var(--fg-3); border-bottom:1px dashed var(--fg-3); background:rgba(127,127,127,.06)}
+.sb3 span{font:650 13px/1.2 var(--font-display); text-align:center; font-variant-numeric:tabular-nums}
+.sb3 span small{display:block; font:500 11px/1.2 var(--font-text); color:var(--fg-2)}
+@media (max-width:480px){ .exa-row{grid-template-columns:minmax(0,1fr)} }
+.cmp{display:grid; gap:10px; margin-top:12px}
+.cmp-r{display:grid; grid-template-columns:84px minmax(0,1fr) 92px; gap:10px; align-items:center; font-size:14px}
+.cmp-r .t{height:14px; border-radius:7px; background:var(--surface-2); position:relative}
+.cmp-r .t i{position:absolute; top:0; bottom:0; border-radius:7px}
+.cmp-r b{font:700 14px/1 var(--font-display); text-align:right; font-variant-numeric:tabular-nums}
+.mr{margin-top:12px}
+.mr .t{height:16px; border-radius:8px; background:var(--surface-2); position:relative}
+.mr .band{position:absolute; top:0; bottom:0; border-radius:8px; background:var(--good-soft); border:1px solid var(--good)}
+.mr .mk{position:absolute; top:-5px; bottom:-5px; width:3px; border-radius:2px; background:var(--good)}
+.mr .ax{display:flex; justify-content:space-between; font-size:11px; color:var(--fg-3); margin-top:6px; font-variant-numeric:tabular-nums}
+.rev{display:grid}
+.rev-r{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto; gap:14px; align-items:center; padding:12px 0; border-bottom:1px solid var(--line); font-size:15px}
+.rev-r:last-child{border-bottom:0}
+.rev-r span{color:var(--fg-2)}
+.rev-r .ci{border:0; padding:0}
+@media (max-width:560px){ .rev-r{grid-template-columns:minmax(0,1fr) auto} .rev-r span{grid-column:1; grid-row:2; font-size:13px} .rev-r .ci, .rev-r .pill{grid-column:2; grid-row:1 / 3} }
+.ci input:disabled{cursor:default; opacity:1}
 </style>
 </head>
 <body>
@@ -563,37 +630,38 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
     <div class="nav-links">
       <a href="#program">Program</a>
       <a href="#today">Today</a>
-      <a href="#volume">Volume</a>
-      <a href="#progression">Progression</a>
-      <a href="#effort">Effort</a>
-      <a href="#legs">Legs intro</a>
-      <a href="#session">55 minutes</a>
+      <a href="#progression">Overload</a>
       <a href="#nutrition">Nutrition</a>
-      <a href="#timeline">12 weeks</a>
+      <a href="#legs">Legs</a>
+      <a href="#volume">Volume</a>
+      <a href="#effort">Effort</a>
+      <a href="#session">Session time</a>
+      <a href="#timeline">12 circuits</a>
       <a href="#baseline">Baseline</a>
       <a href="#scorecard">Scorecard</a>
-      <a href="#verdict">Verdict</a>
+      <a href="#verdict">Coach's note</a>
     </div>
   </div>
 </nav>
 
 <main id="top">
   <header class="wrap hero">
-    <div class="eyebrow">Transition to growth · Circuit 1 · 6-day PPL × 2</div>
-    <h1>Train the right muscles.<br><span class="grad">Then prove it.</span></h1>
-    <p class="lede">Six days a week, 85 working sets, 50–55 minutes a session, while calories climb from 1,700 toward maintenance over eight weeks. Shoulders, back and upper chest lead; the legs finally get real work. Use Today before and after every session. Everything below it is the reference.</p>
-    <div class="prio" aria-label="Aesthetic priorities">
-      <span class="chip"><i style="background:var(--ring-1)"></i>Shoulders</span>
-      <span class="chip"><i style="background:var(--ring-3)"></i>Back</span>
+    <div class="eyebrow">Circuit 2 · Maintenance-fed hypertrophy · 6-day PPL × 2</div>
+    <h1>Build mode.<br><span class="grad">Activated.</span></h1>
+    <p class="lede">We're done cutting. Maintenance calories, weight-first progressive overload and a recorded RIR for every exercise. Shoulder width, upper chest, back thickness, arms and serious leg development lead the program.</p>
+    <div class="prio" aria-label="Priorities">
+      <span class="chip"><i style="background:var(--ring-1)"></i>Shoulder width</span>
       <span class="chip"><i style="background:var(--ring-2)"></i>Upper chest</span>
-      <span class="chip"><i style="background:var(--legs)"></i>Legs, back in the program</span>
+      <span class="chip"><i style="background:var(--ring-3)"></i>Back thickness</span>
+      <span class="chip"><i style="background:var(--p-g2)"></i>Arms</span>
+      <span class="chip"><i style="background:var(--legs)"></i>Serious legs</span>
     </div>
-    <div class="cta"><a class="btn" href="#program">Training program</a><a class="btn ghost" href="#today">Today's session</a><a class="btn ghost" href="#nutrition">Nutrition ladder</a></div>
+    <div class="cta"><a class="btn" href="#program">Training program</a><a class="btn ghost" href="#today">Today's session</a><a class="btn ghost" href="#progression">Overload rules</a></div>
     <div class="stats">
-      <div class="stat"><div class="k">Training days</div><div class="v num">6<small>/ week</small></div><div class="s">Pull · Push · Legs × 2, then rest</div></div>
-      <div class="stat"><div class="k">Working sets</div><div class="v num">85<small>/ week</small></div><div class="s">From week 3; warm-ups excluded</div></div>
-      <div class="stat"><div class="k">Session length</div><div class="v num">50–55<small>min</small></div><div class="s">Including warm-up and transitions</div></div>
-      <div class="stat"><div class="k">Calorie ladder</div><div class="v num">1.7→2.4<small>k kcal</small></div><div class="s">8 weeks toward maintenance</div></div>
+      <div class="stat"><div class="k">Training days</div><div class="v num">6<small>+ rest</small></div><div class="s">Pull · Push · Legs × 2</div></div>
+      <div class="stat"><div class="k">Working sets</div><div class="v num">84–86</div><div class="s">89 once Legs B reaches 15</div></div>
+      <div class="stat"><div class="k">Calories</div><div class="v num">2,450<small>kcal</small></div><div class="s">Maintenance · 170 P · 60 F · 308 C</div></div>
+      <div class="stat"><div class="k">Load targets</div><div class="v num" id="heroUps">–</div><div class="s">Targets to test, not mandatory</div></div>
     </div>
   </header>
 
@@ -602,17 +670,17 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
     <div class="ch-head">
       <span class="ch-num">CONSOLE</span>
       <h2 id="today-h">Today</h2>
-      <p>Pick the week and the session. <b>Before</b> shows what this session asks of you. <b>After</b> turns your reps into next session's decision and walks you through what to log.</p>
+      <p>Pick the circuit and the session. <b>Before</b> shows the lineup, the new targets and what to watch. <b>After</b> turns your reps and final-set RIR into next session's action.</p>
     </div>
 
     <div class="today">
       <div class="today-bar">
         <div class="wk">
-          <span class="label">Week</span>
+          <span class="label">Circuit</span>
           <div class="stepper">
-            <button type="button" id="wkPrev" aria-label="Previous week">‹</button>
-            <output id="wkOut" class="num" aria-live="polite">Week 1</output>
-            <button type="button" id="wkNext" aria-label="Next week">›</button>
+            <button type="button" id="wkPrev" aria-label="Previous circuit">‹</button>
+            <output id="wkOut" class="num" aria-live="polite">Circuit 2</output>
+            <button type="button" id="wkNext" aria-label="Next circuit">›</button>
           </div>
         </div>
         <div class="seg" id="sessSeg" role="group" aria-label="Session"></div>
@@ -627,7 +695,7 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
           <div class="rings" id="rings" role="img" aria-label="Progress rings"></div>
           <div class="ring-legend">
             <div class="rl"><i style="background:var(--ring-1)"></i><span>Block progress</span><b id="rlBlock" class="num">–</b></div>
-            <div class="rl"><i style="background:var(--ring-2)"></i><span>Phase progress</span><b id="rlPhase" class="num">–</b></div>
+            <div class="rl"><i style="background:var(--ring-2)"></i><span>RIR logged this circuit</span><b id="rlPhase" class="num">–</b></div>
             <div class="rl"><i style="background:var(--ring-3)"></i><span>Leg volume vs. full</span><b id="rlLegs" class="num">–</b></div>
           </div>
           <div class="clock" aria-label="Session clock">
@@ -637,7 +705,7 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
             </svg>
             <div>
               <div class="t" id="clkT">00:00</div>
-              <div class="ts" id="clkS">Session clock · target 50–55 min</div>
+              <div class="ts" id="clkS">Session clock</div>
               <div class="row">
                 <button class="btn sm" type="button" id="clkGo">Start</button>
                 <button class="btn sm ghost" type="button" id="clkReset">Reset</button>
@@ -647,7 +715,7 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
           <div class="rest" aria-label="Rest timer">
             <div style="display:flex;justify-content:space-between;align-items:baseline"><span class="label">Rest timer</span><span class="rt" id="restT">0:00</span></div>
             <div class="bar"><i id="restBar"></i></div>
-            <div style="font-size:12px;color:var(--fg-2);margin-top:8px">Isolation 60–120 s · Compound 2–3 min</div>
+            <div style="font-size:12px;color:var(--fg-2);margin-top:8px">Isolation 60–120 s · Compound and leg press 2–3 min</div>
             <div class="row">
               <button class="btn sm ghost" type="button" data-rest="60">1:00</button>
               <button class="btn sm ghost" type="button" data-rest="90">1:30</button>
@@ -665,16 +733,22 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
           <div id="afterPane" hidden>
             <div class="mode-cards">
               <div class="mc wide" id="ckCard">
-                <div class="label">Double progression check</div>
-                <p style="margin-bottom:12px">Pick an exercise and enter your reps. You get the decision for next session. Reps are remembered per exercise.</p>
+                <div class="label">Overload check</div>
+                <p style="margin-bottom:12px">Pick an exercise, enter each set's reps and the RIR of your final set. You get next session's action under the Circuit 2 rules.</p>
                 <div class="checker">
                   <div class="ck-inputs">
                     <div class="field" style="flex:1 1 220px;min-width:0"><label for="ckEx">Exercise</label><select id="ckEx"></select></div>
                     <div class="field"><label for="rLo">Range low</label><input type="number" id="rLo" value="8" min="1" max="40" inputmode="numeric"></div>
-                    <div class="field"><label for="rHi">Range high</label><input type="number" id="rHi" value="12" min="1" max="40" inputmode="numeric"></div>
+                    <div class="field"><label for="rHi">Range high</label><input type="number" id="rHi" value="10" min="1" max="40" inputmode="numeric"></div>
                   </div>
-                  <div class="ck-inputs" id="ckSets"></div>
-                  <label class="toggle"><input type="checkbox" id="rirOk" checked> Every set finished at the target RIR</label>
+                  <div class="ck-inputs">
+                    <div class="ck-inputs" id="ckSets"></div>
+                    <div class="field"><label for="ckRir">Final-set RIR</label><select id="ckRir" class="rirsel" style="width:86px"></select></div>
+                  </div>
+                  <div style="display:flex;flex-wrap:wrap;gap:12px 24px">
+                    <label class="toggle"><input type="checkbox" id="techOk" checked> Technique held on every set</label>
+                    <label class="toggle"><input type="checkbox" id="pain"> Pain or unusual joint discomfort</label>
+                  </div>
                   <div class="setbars" id="setBars"></div>
                   <div id="verdict" class="verdict hold" aria-live="polite"></div>
                 </div>
@@ -690,103 +764,228 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
     </div>
   </section>
 
-  <!-- CIRCUIT -->
+  <!-- PROGRAM -->
   <section class="chapter wrap" id="program" aria-labelledby="cir-h">
     <div class="ch-head">
-      <span class="ch-num">TRAINING PROGRAM · CIRCUIT 1</span>
-      <h2 id="cir-h">Six sessions, one rest day</h2>
-      <p>Tap a day to open it here and in the Today console. Type your current working load into any exercise; the starting reference stays visible underneath.</p>
+      <span class="ch-num">TRAINING PROGRAM · CIRCUIT 2</span>
+      <h2 id="cir-h">The week, with new targets</h2>
+      <p>Resistance goes up wherever Circuit 1 justified it, even if that costs a few reps. The new weights are targets to test, not mandatory increases. Type what you actually lift into the load box and log the final-set RIR for every exercise.</p>
+    </div>
+    <div class="prio" style="margin:0 0 14px" id="progSum">
+      <span class="pill info">84–86 sets this circuit</span>
+      <span class="pill neutral">89 at full Legs B volume</span>
+      <span class="pill neutral">Pull A → Push A → Legs A → Pull B → Push B → Legs B → Rest</span>
     </div>
     <div class="days" id="days" role="group" aria-label="Training days"></div>
     <div class="card" style="margin-top:14px" id="dayDetail"></div>
-    <div class="grid g2" style="margin-top:16px">
-      <div class="callout info"><div class="ico">i</div><div><p><b>Upper-body loads are starting points,</b> not mandatory targets. Compounds mostly 1–3 RIR, isolations 1–2. Rest 2–3 min between compound sets and 60–120 s between isolation sets.</p></div></div>
-      <div class="callout warn"><div class="ico">!</div><div><p><b>Legs ramp over four weeks:</b> about 50–60% of listed sets in week 1 at 3–4 RIR, more in week 2 if recovered, close to full in week 3, full in week 4 if recovery permits. Leg loads are set in week 1.</p></div></div>
+    <div class="grid g-12-8" style="margin-top:16px">
+      <div class="card">
+        <h3>How to log RIR</h3>
+        <p class="sub">Reps in reserve: how many more clean reps you could have done. Record it for the final working set of each exercise. That's enough to start calibrating intensity.</p>
+        <div class="rirkey">
+          <div class="rk"><b>3</b><p>Could do 3 more clean reps</p></div>
+          <div class="rk"><b>2</b><p>Could do 2 more</p></div>
+          <div class="rk"><b>1</b><p>Could do 1 more</p></div>
+          <div class="rk zero"><b>0</b><p>No more clean reps possible</p></div>
+        </div>
+      </div>
+      <div class="grid" style="align-content:start">
+        <div class="callout warn"><div class="ico">!</div><div><p><b>Targets to test.</b> We haven't established your RIR yet. If technique deteriorates or you're already at failure, keep the previous load.</p></div></div>
+        <div class="callout info"><div class="ico">i</div><div><p><b>Rest.</b> 2–3 minutes between compound and challenging leg-press sets, 60–120 seconds between isolation sets.</p></div></div>
+      </div>
     </div>
   </section>
 
-  <!-- 8 VOLUME -->
-  <section class="chapter wrap" id="volume" aria-labelledby="vol-h">
+  <!-- PROGRESSION -->
+  <section class="chapter wrap" id="progression" aria-labelledby="prog-h">
     <div class="ch-head">
-      <span class="ch-num">§ 8 · VOLUME AUDIT</span>
-      <h2 id="vol-h">Are we training the right muscles?</h2>
-      <p>Effort moves away from redundant elbow-flexor variations and toward the lower body and more focused shoulder work.</p>
+      <span class="ch-num">§ 3 · PROGRESSIVE OVERLOAD</span>
+      <h2 id="prog-h">Weight first, reps follow</h2>
+      <p>We prioritize load increases, but not at the expense of productive reps. The objective is progressive mechanical tension with consistent technique, not heavier numbers at any cost.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card">
+        <div class="card-head"><div><h3>Incline machine press</h3><div class="sub">What a successful load increase looks like</div></div><span class="pill neutral">Example</span></div>
+        <div class="exa" id="exa"></div>
+        <div class="verdict good" style="margin-top:16px"><div><b>That's a successful load increase</b><span>+5 kg on the stack. We don't need to reach 12 reps immediately.</span></div></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><div><h3>The new rules</h3><div class="sub">Result on an exercise → next action</div></div></div>
+        <div class="dec">
+          <div class="dec-r"><span>All sets completed, <b>2–3 RIR</b></span><span class="pill good">Consider increasing weight</span></div>
+          <div class="dec-r"><span>All sets completed, <b>1 RIR</b></span><span class="pill info">Keep weight, consolidate</span></div>
+          <div class="dec-r"><span>Final set reaches <b>0 RIR</b></span><span class="pill warn">Keep or reduce weight</span></div>
+          <div class="dec-r"><span>Below minimum rep range</span><span class="pill warn">Reduce weight</span></div>
+          <div class="dec-r"><span>Technique deteriorates</span><span class="pill warn">Reduce weight</span></div>
+          <div class="dec-r"><span>Pain or unusual joint discomfort</span><span class="pill bad">Stop and reassess</span></div>
+        </div>
+      </div>
+      <div class="card" style="grid-column:1 / -1">
+        <div class="card-head"><div><h3>Every load change, Circuit 1 → 2</h3><div class="sub">Relative jump per exercise. Dashed line marks +20%, where technique needs the closest watch.</div></div><span class="pill neutral" id="lcCount"></span></div>
+        <div class="lc" id="lc"></div>
+      </div>
+      <div class="callout warn"><div class="ico">!</div><div><p><b>Big jumps on small lifts.</b> Lateral raises from 4 to 5 kg is +25%. If the heavier dumbbells make you swing, shorten the range or shrug, return to 4 kg. We're growing the lateral delts, not just moving heavier dumbbells.</p></div></div>
+      <div class="callout info"><div class="ico">i</div><div><p><b>What changed from Circuit 1.</b> Circuit 1 used double progression: reps first, load once every set hit the top. Circuit 2 leads with load and lets reps drop back into a lower range.</p></div></div>
+    </div>
+  </section>
+
+  <!-- NUTRITION -->
+  <section class="chapter wrap" id="nutrition" aria-labelledby="nut-h">
+    <div class="ch-head">
+      <span class="ch-num">§ 1 · NUTRITION · MAINTENANCE</span>
+      <h2 id="nut-h">Fed for growth</h2>
+      <p>Recent data puts maintenance around 2,450–2,500 kcal. We start at 2,450 and confirm it with the 7-day weight average and waist over the next 2–3 weeks.</p>
+    </div>
+    <div class="card">
+      <div class="nut">
+        <div>
+          <div class="label">Circuit 2 daily target</div>
+          <div class="kcal" style="margin-top:6px">2,450<small>kcal</small></div>
+          <div class="stackbar" aria-hidden="true"><div style="flex-grow:680;background:var(--ring-1)"></div><div style="flex-grow:540;background:var(--p-audit)"></div><div style="flex-grow:1232;background:var(--ring-3)"></div></div>
+          <div class="macros">
+            <div class="macro"><div class="label"><i style="background:var(--ring-1)"></i>Protein</div><div class="g">170<small> g</small></div><div class="kc">680 kcal</div></div>
+            <div class="macro"><div class="label"><i style="background:var(--p-audit)"></i>Fat</div><div class="g">60<small> g</small></div><div class="kc">540 kcal</div></div>
+            <div class="macro"><div class="label"><i style="background:var(--ring-3)"></i>Carbs</div><div class="g">308<small> g</small></div><div class="kc">1,232 kcal</div></div>
+          </div>
+          <p style="font-size:14px;color:var(--fg-2);margin-top:14px">Same target every day. No calorie cycling between training and rest days.</p>
+        </div>
+        <div>
+          <div class="label">From cut to build</div>
+          <div class="cmp">
+            <div class="cmp-r"><span>The cut</span><div class="t"><i style="left:0;width:65.4%;background:var(--surface-3)"></i><i style="left:65.4%;width:7.7%;background:var(--fg-3);opacity:.5"></i></div><b>1,700–1,900</b></div>
+            <div class="cmp-r"><span>Circuit 2</span><div class="t"><i style="left:0;width:94.2%;background:var(--good)"></i></div><b>2,450</b></div>
+          </div>
+          <div class="label" style="margin-top:22px">Maintenance estimate</div>
+          <div class="mr">
+            <div class="t"><span class="band" style="left:42.9%;width:14.3%"></span><span class="mk" style="left:calc(42.9% - 1px)"></span></div>
+            <div class="ax" style="position:relative;height:16px"><span style="position:absolute;left:0">2,300</span><span style="position:absolute;left:50%;transform:translateX(-50%);color:var(--good);font-weight:650">2,450–2,500</span><span style="position:absolute;right:0">2,650</span></div>
+          </div>
+          <div class="ld-rows" style="margin-top:10px">
+            <div class="ld-row"><span>Evaluate</span><b>7-day weight average and waist, over 2–3 weeks</b></div>
+            <div class="ld-row"><span>Weight</span><b>Stable 7-day average</b></div>
+            <div class="ld-row"><span>Waist</span><b>Approximately stable</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid g2" style="margin-top:16px">
+      <div class="callout good"><div class="ico">✓</div><div><p><b>Done cutting.</b> 1,700–1,900 kcal is not a muscle-building strategy. This is the first maintenance-fed hypertrophy week.</p></div></div>
+      <div class="callout info"><div class="ico">i</div><div><p><b>No calorie cycling.</b> The same 2,450 kcal on training days and on Day 7.</p></div></div>
+    </div>
+    <div class="quote" style="margin-top:16px">
+      <p>We're no longer optimizing for the lowest possible number on the scale.</p>
+      <p>We're optimizing for stronger lifts, larger muscles, better recovery and a physique that looks increasingly athletic.</p>
+    </div>
+    <div class="ch-head" style="margin-top:40px;margin-bottom:16px">
+      <span class="ch-num">MACRO CALCULATOR</span>
+      <h3 style="font-size:24px;letter-spacing:-.02em">Adjust when the trend speaks</h3>
+      <p>Starts at the Circuit 2 targets. Change maintenance once the 7-day average confirms it, or add a small surplus later.</p>
+    </div>
+    <div class="card">
+      <div class="nut">
+        <div style="display:grid;gap:20px;align-content:start">
+          <div>
+            <div class="label" style="margin-bottom:8px">Maintenance</div>
+            <div class="maint"><input type="number" id="maint" value="2450" min="1200" max="5000" step="25" inputmode="numeric" aria-label="Maintenance calories"><span style="color:var(--fg-2);font-size:14px">kcal / day · current estimate 2,450–2,500</span></div>
+          </div>
+          <div class="slider"><div class="top"><label for="surplus">Surplus</label><b id="surplusV">Maintenance</b></div><input type="range" id="surplus" min="0" max="200" step="25" value="0"><span class="hint">0 = Circuit 2. A later lean-growth phase used +100–200 kcal.</span></div>
+          <div class="slider"><div class="top"><label for="protein">Protein</label><b id="proteinV">170 g</b></div><input type="range" id="protein" min="150" max="180" step="5" value="170"><span class="hint">Circuit 2: 170 g / day</span></div>
+          <div class="slider"><div class="top"><label for="fat">Fat</label><b id="fatV">60 g</b></div><input type="range" id="fat" min="50" max="90" step="1" value="60"><span class="hint">Circuit 2: 60 g / day</span></div>
+        </div>
+        <div>
+          <div class="label">Daily target</div>
+          <div class="kcal" id="kcal">2,450<small>kcal</small></div>
+          <div class="stackbar" id="macroBar" aria-hidden="true"></div>
+          <div class="macros">
+            <div class="macro"><div class="label"><i style="background:var(--ring-1)"></i>Protein</div><div class="g" id="mP">170<small> g</small></div><div class="kc" id="mPk">680 kcal</div></div>
+            <div class="macro"><div class="label"><i style="background:var(--p-audit)"></i>Fat</div><div class="g" id="mF">60<small> g</small></div><div class="kc" id="mFk">540 kcal</div></div>
+            <div class="macro"><div class="label"><i style="background:var(--ring-3)"></i>Carbs</div><div class="g" id="mC">308<small> g</small></div><div class="kc" id="mCk">1,230 kcal</div></div>
+          </div>
+          <p style="font-size:13px;color:var(--fg-2);margin-top:12px">Carbs fill the remainder, prioritized around training.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGS -->
+  <section class="chapter wrap" id="legs" aria-labelledby="legs-h">
+    <div class="ch-head">
+      <span class="ch-num">LEGS · CIRCUIT 2</span>
+      <h2 id="legs-h">From introduction to quad specialization</h2>
+      <p>Leg training expands, but not straight into excessive volume after one introductory session.</p>
     </div>
     <div class="grid g-12-8">
       <div class="card">
-        <div class="card-head"><div><h3>Where the effort moved</h3><div class="sub">Compared with the old program</div></div></div>
+        <div class="card-head"><div><h3>Leg session sets per circuit</h3><div class="sub">Hatched top shows the range · Circuit 3+ builds Legs B toward 15</div></div><span class="pill info" id="rampWeek">Circuit 2</span></div>
+        <div style="position:relative">
+          <div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="ramp" id="ramp" role="img" aria-label="Legs A: 7 to 8 sets in Circuit 1, 15 from Circuit 2. Legs B: not part of Circuit 1, 10 to 12 sets in Circuit 2, building toward 15."></div>
+        </div>
+        <div class="key"><span><i style="background:var(--legs)"></i>Legs A</span><span><i style="background:var(--p-assess)"></i>Legs B</span></div>
+      </div>
+      <div class="grid" style="align-content:start">
+        <div class="card">
+          <h3>Legs A · quad specialization</h3>
+          <ul class="vlist conf" style="margin-top:14px">
+            <li><span class="b">↑</span><span>The first session took about 20 minutes, so both the challenge and the rest periods go up.</span></li>
+            <li><span class="b">2–3</span><span>Minutes of rest between challenging leg-press sets.</span></li>
+            <li><span class="b">◎</span><span>Controlled eccentrics, comfortable full range of motion.</span></li>
+            <li><span class="b">45</span><span>Target duration 35–45 minutes.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Legs B · new session</h3>
+          <ul class="vlist test" style="margin-top:14px">
+            <li><span class="b">1</span><span>We're establishing baseline weights, not pretending we have performance data.</span></li>
+            <li><span class="b">12</span><span>10–12 working sets are enough for the first exposure. 15 is the eventual target.</span></li>
+            <li><span class="b">!</span><span>RDL: start conservatively. Groin or abdominal pressure means swap it for another leg-curl variation.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" style="grid-column:1 / -1">
+        <h3 style="margin-bottom:12px">The soreness rule</h3>
+        <div class="flow">
+          <div class="q">Was soreness from the previous leg session substantial?</div>
+          <div class="branches">
+            <div class="br yes"><b>Yes</b>Reduce the number of working sets rather than forcing all of them.</div>
+            <div class="br no"><b>No</b>Do the full prescription.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOLUME -->
+  <section class="chapter wrap" id="volume" aria-labelledby="vol-h">
+    <div class="ch-head">
+      <span class="ch-num">§ 4 · WEEKLY OVERVIEW</span>
+      <h2 id="vol-h">Where the sets go</h2>
+      <p>Circuit 2 runs 84–86 working sets while Legs B starts at 10–12. At full Legs B volume the week reaches 89.</p>
+    </div>
+    <div class="grid g-12-8">
+      <div class="card">
+        <div class="card-head"><div><h3>Where the effort moved</h3><div class="sub">Compared with the original program</div></div></div>
         <div class="shift">
-          <div class="sh"><div class="arrow up" aria-hidden="true">↑</div><div><h4>Lower body</h4><p>After a long gap without direct leg work, 27 weekly sets across two dedicated sessions.</p></div><span class="pill good">Major increase</span></div>
-          <div class="sh"><div class="arrow focus" aria-hidden="true">◎</div><div><h4>Shoulders</h4><p>More focused development. Fewer wasted sets, better placement in the session.</p></div><span class="pill info">More focused</span></div>
-          <div class="sh"><div class="arrow down" aria-hidden="true">↓</div><div><h4>Elbow flexors</h4><p>Redundant curl variations cut. Arms still get direct, full-range work.</p></div><span class="pill bad">Trimmed</span></div>
-          <div class="sh"><div class="arrow focus" aria-hidden="true">⇅</div><div><h4>Side delts</h4><p>Slightly less direct volume, but now trained with priority instead of after heavy pressing fatigue.</p></div><span class="pill info">Less volume, better sets</span></div>
+          <div class="sh"><div class="arrow up" aria-hidden="true">↑</div><div><h4>Lower body</h4><p>30 weekly sets at full volume, with quads specialized on Legs A.</p></div><span class="pill good">Major increase</span></div>
+          <div class="sh"><div class="arrow focus" aria-hidden="true">◎</div><div><h4>Lateral delts</h4><p>Push A and Push B both open with lateral raises: 11 direct sets, done fresh.</p></div><span class="pill info">Priority</span></div>
+          <div class="sh"><div class="arrow focus" aria-hidden="true">⇅</div><div><h4>Arms</h4><p>Redundant curl variations gone; 8 biceps and 9 triceps sets, each one targeted.</p></div><span class="pill info">Focused</span></div>
+          <div class="sh"><div class="arrow up" aria-hidden="true">↑</div><div><h4>Triceps on Push B</h4><p>Overhead extension goes from 2 to 3 sets, taking Push B to 16.</p></div><span class="pill good">+1 set</span></div>
         </div>
       </div>
       <div class="card">
-        <div class="card-head"><div><h3>Weekly working sets</h3><div class="sub">By session, full volume from week 3</div></div></div>
+        <div class="card-head"><div><h3>Weekly working sets</h3><div class="sub">By session, Legs B at its 15-set target</div></div></div>
         <div class="donut-wrap">
           <div class="donut">
             <svg viewBox="0 0 42 42" aria-hidden="true" id="donutSvg"></svg>
-            <div class="c"><b>85</b><span>sets / week</span></div>
+            <div class="c"><b id="donutTot">89</b><span>sets / week</span></div>
           </div>
           <div class="legend" id="sessLegend"></div>
         </div>
       </div>
       <div class="card" style="grid-column:1 / -1">
-        <div class="card-head"><div><h3>Direct weekly sets by muscle</h3><div class="sub">Each set counted once, toward the exercise's primary target</div></div>
+        <div class="card-head"><div><h3>Direct weekly sets by muscle</h3><div class="sub">Each set counted once, toward the exercise's primary target · full volume</div></div>
           <div class="prio" style="margin-top:0" id="regKey"></div></div>
         <div class="mus" id="mus"></div>
-      </div>
-      <div class="card" style="grid-column:1 / -1">
-        <div class="card-head"><div><h3>Side delts: fewer sets, fresher sets</h3><div class="sub">Where lateral work sits relative to pressing fatigue</div></div></div>
-        <div class="grid g2">
-          <div class="order">
-            <div class="order-row">
-              <span class="lbl">Old program</span>
-              <div class="seq"><span class="blk">Press</span><span class="sep">→</span><span class="blk">Press</span><span class="sep">→</span><span class="blk">Press</span><span class="sep">→</span><span class="blk delt tired">Lateral raises</span></div>
-            </div>
-            <div class="fatigue" aria-hidden="true"></div>
-            <p style="font-size:14px;color:var(--fg-2)">Delts reached the laterals already worn down by pressing. More sets, lower quality.</p>
-          </div>
-          <div class="order">
-            <div class="order-row">
-              <span class="lbl">Program V1</span>
-              <div class="seq"><span class="blk delt">Lateral raise</span><span class="sep">→</span><span class="blk">Incline press</span><span class="sep">→</span><span class="blk">Chest press</span><span class="sep">→</span><span class="blk delt">Lateral raise</span><span class="sep">→</span><span class="blk">Triceps</span></div>
-            </div>
-            <div class="fatigue" aria-hidden="true"></div>
-            <p style="font-size:14px;color:var(--fg-2)">Push A and Push B both open with lateral raises, so the main side-delt work happens before any pressing. 11 direct side-delt sets a week.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9 PROGRESSION -->
-  <section class="chapter wrap" id="progression" aria-labelledby="prog-h">
-    <div class="ch-head">
-      <span class="ch-num">§ 9 · PROGRESSION</span>
-      <h2 id="prog-h">Double progression, the most important part</h2>
-      <p>This is how we avoid another six months of identical prescriptions. Reps climb first. Load rises only when the current load is genuinely mastered.</p>
-    </div>
-    <div class="grid g-12-8">
-      <div class="card">
-        <div class="card-head">
-          <div><h3>Incline machine press · 3 × 8–12</h3><div class="sub">Five sessions in the life of one exercise</div></div>
-          <span class="pill neutral">Example</span>
-        </div>
-        <div class="ladder" id="ladder"></div>
-      </div>
-      <div class="grid" style="align-content:start">
-        <div class="card">
-          <h3>The rule</h3>
-          <ul class="vlist conf" style="margin-top:14px">
-            <li><span class="b">1</span><span>Keep the load. Add reps inside the range, session by session.</span></li>
-            <li><span class="b">2</span><span>When <b>every set</b> reaches the top of the range at the target RIR, increase the weight next session.</span></li>
-            <li><span class="b">3</span><span>Reps drop after the jump. That is expected. Start rebuilding.</span></li>
-          </ul>
-        </div>
-        <div class="callout info"><div class="ico">i</div><div><p><b>Lateral raises</b> use the same concept across a wider rep range.</p></div></div>
-        <div class="callout warn"><div class="ico">!</div><div><p><b>Small increases win.</b> If the cable stack jumps too far, extend the rep range or use small add-on weights before you sacrifice form.</p></div></div>
       </div>
     </div>
   </section>
@@ -794,75 +993,36 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
   <!-- EFFORT -->
   <section class="chapter wrap" id="effort" aria-labelledby="eff-h">
     <div class="ch-head">
-      <span class="ch-num">§ 9 · EFFORT AND EXECUTION</span>
-      <h2 id="eff-h">How hard every set should be</h2>
-      <p>RIR is reps in reserve: how many more clean reps you could have done. 0 means failure. Each row shows the target window.</p>
+      <span class="ch-num">EFFORT AND EXECUTION</span>
+      <h2 id="eff-h">Calibrating effort</h2>
+      <p>Circuit 2 collects the RIR data we don't have yet. The windows below are the reference standards to compare it against.</p>
     </div>
     <div class="rules">
-      <div class="rule"><span class="label">Compounds</span><div class="v">1–3 RIR</div><p>Mostly. Presses, rows, pulldowns, leg press, RDL</p></div>
-      <div class="rule"><span class="label">Isolations</span><div class="v">1–2 RIR</div><p>Mostly. Raises, curls, extensions, calves</p></div>
-      <div class="rule"><span class="label">New leg movements</span><div class="v">3–4 RIR</div><p>Initially, while loads and technique settle</p></div>
-      <div class="rule"><span class="label">Rest · compounds</span><div class="v">2–3 min</div><p>Between sets</p></div>
+      <div class="rule"><span class="label">Log</span><div class="v">Final-set RIR</div><p>Every exercise, every session</p></div>
+      <div class="rule"><span class="label">Increase weight</span><div class="v">2–3 RIR</div><p>All sets completed in range</p></div>
+      <div class="rule"><span class="label">Consolidate</span><div class="v">1 RIR</div><p>Keep the weight</p></div>
+      <div class="rule"><span class="label">Rest · compounds</span><div class="v">2–3 min</div><p>Including challenging leg-press sets</p></div>
       <div class="rule"><span class="label">Rest · isolations</span><div class="v">60–120 s</div><p>Between sets</p></div>
-      <div class="rule"><span class="label">Increase weight</span><div class="v">All sets at top</div><p>Every set at the top of its range, at target RIR</p></div>
+      <div class="rule"><span class="label">Stop</span><div class="v">Pain</div><p>Or unusual joint discomfort: stop and reassess</p></div>
     </div>
     <div class="card">
       <div class="rir" id="rirTable">
-        <div class="rir-head"><span>Movement</span><span>Target RIR</span><span>Technique standard</span></div>
+        <div class="rir-head"><span>Movement</span><span>Reference RIR</span><span>Technique standard</span></div>
       </div>
     </div>
     <div class="callout good" style="margin-top:16px"><div class="ico">✓</div><div><p><b>Failure isn't required for growth.</b> The 2026 ACSM review found no consistent benefit to routinely training to momentary failure compared with sufficiently effortful training.</p></div></div>
   </section>
 
-  <!-- 10 LEGS -->
-  <section class="chapter wrap" id="legs" aria-labelledby="legs-h">
-    <div class="ch-head">
-      <span class="ch-num">§ 10 · THE FIRST FOUR WEEKS</span>
-      <h2 id="legs-h">Bringing the legs back in</h2>
-      <p>You haven't trained legs directly for a long time. Volume ramps over four weeks, and each step only happens if recovery allows.</p>
-    </div>
-    <div class="grid g-12-8">
-      <div class="card">
-        <div class="card-head"><div><h3>Leg session sets by week</h3><div class="sub">Hatched top shows the range · week 3 approaches full</div></div><span class="pill info" id="rampWeek">Week 1</span></div>
-        <div style="position:relative">
-          <div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-          <div class="ramp" id="ramp" role="img" aria-label="Legs A: 7 to 8 sets in week 1, about 10 in week 2, approaching 13 in week 3, 13 from week 4. Legs B: 7 to 8 in week 1, about 10 to 11 in week 2, approaching 14 in week 3, 14 from week 4."></div>
-        </div>
-        <div class="key"><span><i style="background:var(--legs)"></i>Legs A</span><span><i style="background:var(--p-assess)"></i>Legs B</span><span>Upper sessions: normal programmed sets throughout</span></div>
-      </div>
-      <div class="grid" style="align-content:start">
-        <div class="card">
-          <h3>Week 1 rules</h3>
-          <ul class="vlist conf" style="margin-top:14px">
-            <li><span class="b">3–4</span><span>Start around <b>3–4 RIR</b> on unfamiliar lower-body exercises. No failure, no max testing.</span></li>
-            <li><span class="b">RDL</span><span>Learn the movement with very light dumbbells or no load before progressing.</span></li>
-            <li><span class="b">↑</span><span>Upper sessions: normal programmed sets with calibrated effort.</span></li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3 style="margin-bottom:12px">The recovery gate</h3>
-          <div class="flow">
-            <div class="q">Significant soreness still there at the second leg session?</div>
-            <div class="branches">
-              <div class="br yes"><b>Yes</b>Don't force the volume increase. Repeat the current sets.</div>
-              <div class="br no"><b>No</b>Follow the schedule to the next step.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 11 SESSION -->
+  <!-- SESSION -->
   <section class="chapter wrap" id="session" aria-labelledby="ses-h">
     <div class="ch-head">
-      <span class="ch-num">§ 11 · EXECUTION PLAN</span>
-      <h2 id="ses-h">The 55-minute session</h2>
-      <p>Where the time goes in a typical session. Circuit 1 sessions are planned at 50–55 minutes. Warm-up sets don't count toward the 85 weekly working sets.</p>
+      <span class="ch-num">EXECUTION PLAN</span>
+      <h2 id="ses-h">Session time</h2>
+      <p>Upper sessions are planned at 50–55 minutes, Legs A at 35–45. Warm-up sets don't count as working sets.</p>
     </div>
     <div class="grid g-12-8">
       <div class="card">
-        <div class="card-head"><div><h3>Time budget</h3><div class="sub">Midpoint of each range, on a 60-minute scale</div></div></div>
+        <div class="card-head"><div><h3>Time budget</h3><div class="sub">Upper session, midpoint of each range, on a 60-minute scale</div></div></div>
         <div class="tb-bar">
           <div class="tb-target" style="left:75%;width:16.667%"><span>Target 45–55</span></div>
           <div class="tb-segs" id="tbSegs"></div>
@@ -871,83 +1031,18 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
         <div class="tb-list" id="tbList"></div>
       </div>
       <div class="grid" style="align-content:start">
-        <div class="callout warn"><div class="ico">!</div><div><p><b>Push B and Pull B</b> are the most likely to run past 55 minutes. Time them during the first two weeks.</p><p class="muted">Pull B has seven exercises and 15 sets; Push B has 15 sets including six of lateral raises. If they consistently run long, remove or move the lowest-value accessory. Don't cut rest so far that set performance suffers.</p></div></div>
-        <div class="card">
-          <h3>Walking and cardio</h3>
-          <p class="sub" style="margin-top:8px;font-size:15px">The mandatory daily 5 km walk as a calorie-burning requirement is retired. Walking can stay in your routine and easy cardio is fine. As leg volume rises, recovery matters more than hitting an exercise-calorie target, so cardio should never compromise lower-body training.</p>
-        </div>
+        <div class="callout warn"><div class="ico">!</div><div><p><b>Push B and Pull B</b> are the most likely to run past 55 minutes.</p><p class="muted">Push B now has 16 sets; Pull B has seven exercises and 15 sets. If they consistently run long, remove or move the lowest-value accessory. Don't cut rest so far that set performance suffers.</p></div></div>
+        <div class="callout info"><div class="ico">i</div><div><p><b>Legs A gets longer.</b> The first leg session took about 20 minutes. With 15 sets and 2–3 minutes between leg-press sets, aim for 35–45.</p></div></div>
       </div>
     </div>
   </section>
 
-  <!-- 12 NUTRITION -->
-  <section class="chapter wrap" id="nutrition" aria-labelledby="nut-h">
-    <div class="ch-head">
-      <span class="ch-num">NUTRITION · 8-WEEK LADDER</span>
-      <h2 id="nut-h">Climbing toward maintenance</h2>
-      <p>Protein stays at 160 g, fat rises slowly and carbs take most of the added calories to fuel training. Weekly numbers are flexible reference points, not ceilings. Higher-calorie meals and weekends are normal life, with no need to compensate afterwards.</p>
-    </div>
-    <div class="card">
-      <div class="nut">
-        <div style="min-width:0">
-          <div class="card-head" style="margin-bottom:26px"><div><h3>Weekly calorie reference</h3><div class="sub">Stacked by macro calories · tap a week</div></div>
-            <div class="prio" style="margin-top:0"><span class="chip"><i style="background:var(--ring-1)"></i>Protein</span><span class="chip"><i style="background:var(--p-audit)"></i>Fat</span><span class="chip"><i style="background:var(--ring-3)"></i>Carbs</span></div></div>
-          <div class="lad-scroll"><div class="lad-inner">
-            <div class="lad-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="lad" id="lad" role="group" aria-label="Calorie reference by week"></div>
-            <div class="lad-ph" id="ladPh"></div>
-          </div></div>
-        </div>
-        <div id="ladDetail" style="min-width:0"></div>
-      </div>
-    </div>
-    <div class="grid g2" style="margin-top:16px">
-      <div class="callout warn"><div class="ico">!</div><div><p><b>1,700 kcal is likely still a deficit</b> at your activity level. Eat above the reference whenever hunger, training or social occasions call for it. We aren't prolonging the cut.</p></div></div>
-      <div class="callout good"><div class="ico">✓</div><div><p><b>A guide, not a test.</b> 2,100 kcal in week 1 is not a mistake. If recovery clearly needs more food, we don't wait for the next scheduled step.</p></div></div>
-      <div class="callout info"><div class="ico">i</div><div><p><b>Weeks 5–8 are provisional.</b> They move with weight trend, appetite, energy and performance, and don't climb automatically past maintenance. Calories are approximate due to rounding.</p></div></div>
-      <div class="callout info"><div class="ico">i</div><div><p><b>Day 7 is no exception.</b> Same weekly reference on recovery days; there's no need to cut calories.</p></div></div>
-    </div>
-    <div class="quote" style="margin-top:16px">
-      <p>The goal for the first month isn't to maximize weight gain. It's to establish the routine, improve energy availability and drop the psychological burden of cutting.</p>
-      <p>From there, the winter is for building muscle with a modest surplus.</p>
-    </div>
-    <div class="ch-head" style="margin-top:40px;margin-bottom:16px">
-      <span class="ch-num">AFTER THE LADDER</span>
-      <h3 style="font-size:24px;letter-spacing:-.02em">Winter growth calculator</h3>
-      <p>Once weeks 5–7 show where maintenance sits, run a small surplus of about 100–200 kcal and adjust on two-to-three-week trends.</p>
-    </div>
-    <div class="card">
-      <div class="nut">
-        <div style="display:grid;gap:20px;align-content:start">
-          <div>
-            <div class="label" style="margin-bottom:8px">Maintenance found in weeks 5–7</div>
-            <div class="maint"><input type="number" id="maint" value="2400" min="1200" max="5000" step="25" inputmode="numeric" aria-label="Observed maintenance calories"><span style="color:var(--fg-2);font-size:14px">kcal / day · example, replace with what the trend shows</span></div>
-          </div>
-          <div class="slider"><div class="top"><label for="surplus">Surplus</label><b id="surplusV">+150 kcal</b></div><input type="range" id="surplus" min="100" max="200" step="10" value="150"><span class="hint">Program range: 100–200 kcal above observed maintenance</span></div>
-          <div class="slider"><div class="top"><label for="protein">Protein</label><b id="proteinV">160 g</b></div><input type="range" id="protein" min="150" max="170" step="5" value="160"><span class="hint">Program range: 150–170 g / day</span></div>
-          <div class="slider"><div class="top"><label for="fat">Fat</label><b id="fatV">75 g</b></div><input type="range" id="fat" min="55" max="90" step="1" value="75"><span class="hint">Week 8 reference is 75 g; more is fine as calories rise</span></div>
-        </div>
-        <div>
-          <div class="label">Winter growth target</div>
-          <div class="kcal" id="kcal">2,550<small>kcal</small></div>
-          <div class="stackbar" id="macroBar" aria-hidden="true"></div>
-          <div class="macros">
-            <div class="macro"><div class="label"><i style="background:var(--ring-1)"></i>Protein</div><div class="g" id="mP">160<small> g</small></div><div class="kc" id="mPk">640 kcal</div></div>
-            <div class="macro"><div class="label"><i style="background:var(--p-audit)"></i>Fat</div><div class="g" id="mF">62<small> g</small></div><div class="kc" id="mFk">558 kcal</div></div>
-            <div class="macro"><div class="label"><i style="background:var(--ring-3)"></i>Carbs</div><div class="g" id="mC">338<small> g</small></div><div class="kc" id="mCk">1,352 kcal</div></div>
-          </div>
-          <p style="font-size:13px;color:var(--fg-2);margin-top:12px">Carbs fill the remainder, prioritized around training.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 13 TIMELINE -->
+  <!-- TIMELINE -->
   <section class="chapter wrap" id="timeline" aria-labelledby="tl-h">
     <div class="ch-head">
-      <span class="ch-num">§ 13 · THE FIRST 12 WEEKS</span>
-      <h2 id="tl-h">The block, week by week</h2>
-      <p>Tap a week to load it into the Today console.</p>
+      <span class="ch-num">THE FIRST 12 CIRCUITS</span>
+      <h2 id="tl-h">The block, circuit by circuit</h2>
+      <p>One circuit is one training week. Tap a circuit to load it into the Today console. Circuits 3 onward are provisional until the Circuit 2 data is in.</p>
     </div>
     <div class="card">
       <div class="tl">
@@ -965,16 +1060,16 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
   <section class="chapter wrap" id="baseline" aria-labelledby="base-h">
     <div class="ch-head">
       <span class="ch-num">BASELINE AND MONITORING</span>
-      <h2 id="base-h">Where we start</h2>
-      <p>Today's numbers, and how each one is tracked from here.</p>
+      <h2 id="base-h">Where we started</h2>
+      <p>The starting numbers, and how each one is tracked. At maintenance, the target is a stable 7-day average and a roughly stable waist.</p>
     </div>
     <div class="base">
       <div class="stat"><div class="k">Weight</div><div class="v num">~69.4<small>kg</small></div><span class="pill info mon">7-day rolling average</span></div>
       <div class="stat"><div class="k">Waist</div><div class="v num">78–78.5<small>cm</small></div><span class="pill info mon">Weekly</span></div>
       <div class="stat"><div class="k">Body fat</div><div class="v num">~17<small>%</small></div><span class="pill neutral mon">Garmin estimate · trend only</span></div>
-      <div class="stat"><div class="k">Strength</div><div class="v" style="font-size:22px;line-height:1.25">Existing working weights</div><span class="pill info mon">Every workout</span></div>
-      <div class="stat"><div class="k">Recovery</div><div class="v" style="font-size:22px;line-height:1.25">Establish a baseline</div><span class="pill info mon">Weekly</span></div>
-      <div class="stat"><div class="k">Progress photos</div><div class="v" style="font-size:22px;line-height:1.25">Take them now</div><span class="pill info mon">Every 4 weeks</span></div>
+      <div class="stat"><div class="k">Strength</div><div class="v" style="font-size:22px;line-height:1.25">Circuit 1 working weights</div><span class="pill info mon">Every workout</span></div>
+      <div class="stat"><div class="k">Intensity</div><div class="v" style="font-size:22px;line-height:1.25">Final-set RIR</div><span class="pill info mon">Every exercise</span></div>
+      <div class="stat"><div class="k">Progress photos</div><div class="v" style="font-size:22px;line-height:1.25">Baseline taken</div><span class="pill info mon">Every 4 weeks</span></div>
     </div>
     <div class="card" style="margin-top:16px">
       <div class="card-head"><div><h3>Morning weight log</h3><div class="sub">Judge the 7-day rolling average, never a single day. Saved in this browser only.</div></div></div>
@@ -993,11 +1088,14 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
   <!-- SCORECARD -->
   <section class="chapter wrap" id="scorecard" aria-labelledby="sc-h">
     <div class="ch-head">
-      <span class="ch-num">§ 13 · SCORECARD</span>
-      <h2 id="sc-h">What we actually measure</h2>
-      <p>The numbers that decide every change to the program, and how often each one is taken.</p>
+      <span class="ch-num">§ 5 · SCORECARD</span>
+      <h2 id="sc-h">What we want to see after Circuit 2</h2>
+      <p>Tick each target once it's met. Session and RIR counts fill in from what you log in the program.</p>
     </div>
-    <div class="card matrix">
+    <div class="card">
+      <div class="rev" id="review"></div>
+    </div>
+    <div class="card matrix" style="margin-top:16px">
       <table>
         <thead><tr><th scope="col">Measurement</th><th scope="col">Every session</th><th scope="col">Daily</th><th scope="col">Weekly</th><th scope="col">Every 4 weeks</th></tr></thead>
         <tbody id="matrix"></tbody>
@@ -1005,40 +1103,42 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
     </div>
   </section>
 
-  <!-- VERDICT -->
+  <!-- COACH'S NOTE -->
   <section class="chapter wrap" id="verdict" aria-labelledby="ver-h">
     <div class="ch-head">
-      <span class="ch-num">COACHING VERDICT</span>
-      <h2 id="ver-h">The V1 we launch</h2>
+      <span class="ch-num">COACH'S NOTE</span>
+      <h2 id="ver-h">Let's build</h2>
     </div>
     <div class="verdict-hero">
-      <blockquote>“The first goal is not to lift heavier on every movement immediately. It's to establish a reliable, repeatable hypertrophy baseline from which we can actually measure progress.”</blockquote>
-      <div class="by">Six days · 85 eventual working sets · shoulders, back and upper chest first · legs finally trained</div>
+      <blockquote>“The first circuit gave us working weights. The second circuit gives us intensity data.”</blockquote>
+      <div class="by">Circuit 2 · the first maintenance-fed hypertrophy week</div>
     </div>
     <div class="grid g2" style="margin-top:16px">
       <div class="card">
-        <div class="card-head"><h3>High confidence</h3><span class="pill good">Ready</span></div>
+        <div class="card-head"><h3>What we optimize for</h3><span class="pill good">Now</span></div>
         <ul class="vlist conf">
-          <li><span class="b">✓</span><span>Movement-pattern coverage</span></li>
-          <li><span class="b">✓</span><span>Less redundant arm training</span></li>
-          <li><span class="b">✓</span><span>Using the available machines for effective lower-body work</span></li>
+          <li><span class="b">✓</span><span>Stronger lifts</span></li>
+          <li><span class="b">✓</span><span>Larger muscles</span></li>
+          <li><span class="b">✓</span><span>Better recovery</span></li>
+          <li><span class="b">✓</span><span>A physique that looks increasingly athletic</span></li>
         </ul>
       </div>
       <div class="card">
-        <div class="card-head"><h3>To be tested</h3><span class="pill warn">Experimental</span></div>
+        <div class="card-head"><h3>What the data decides next</h3><span class="pill warn">After Circuit 2</span></div>
         <ul class="vlist test">
-          <li><span class="b">?</span><span>Individual exercise tolerance</span></li>
-          <li><span class="b">?</span><span>Exactly how much delt volume you can recover from</span></li>
-          <li><span class="b">?</span><span>Whether seven exercises on Pull B fit inside 55 minutes</span></li>
+          <li><span class="b">?</span><span>Which exercises deserve additional sets</span></li>
+          <li><span class="b">?</span><span>Which are already delivering enough stimulus</span></li>
+          <li><span class="b">?</span><span>Whether 2,450 kcal is true maintenance</span></li>
+          <li><span class="b">?</span><span>How the biggest jumps hold up: lateral raises, DB row, curls, overhead extension</span></li>
         </ul>
-        <p style="font-size:14px;color:var(--fg-2);margin-top:14px">We test these instead of pretending to know them in advance.</p>
+        <p style="font-size:14px;color:var(--fg-2);margin-top:14px">With load progression and RIR together, these become decisions made on evidence.</p>
       </div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap">Hypertrophy 2.0 · Circuit 1 · Program sections 8–13. Your loads, reps, ticked checklist items and selected week are saved in this browser only.</div>
+  <div class="wrap">Hypertrophy 2.0 · Circuit 2. Your loads, reps, RIR logs, ticked items and weight entries are saved in this browser only.</div>
 </footer>
 
 <button class="fab" id="fab" type="button" aria-haspopup="dialog" aria-controls="sheet">
@@ -1048,7 +1148,7 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
 <div class="scrim" id="scrim" hidden></div>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetH" hidden>
   <div class="grab" aria-hidden="true"></div>
-  <div class="sheet-head"><div><span class="label" id="sheetWk">Week 1</span><h3 id="sheetH">Training program</h3></div><button class="close" type="button" id="sheetClose" aria-label="Close">×</button></div>
+  <div class="sheet-head"><div><span class="label" id="sheetWk">Circuit 2</span><h3 id="sheetH">Training program</h3></div><button class="close" type="button" id="sheetClose" aria-label="Close">×</button></div>
   <div class="seg" id="sheetSeg" role="group" aria-label="Day"></div>
   <div id="sheetBody"></div>
   <div class="sheet-foot"><button class="btn" type="button" id="sheetStart">Open in Today</button><a class="btn ghost" href="#program" id="sheetFull">Full program</a></div>
@@ -1062,91 +1162,97 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
     set(k, v){ try{ localStorage.setItem('hv1:'+k, JSON.stringify(v)); }catch(e){} }
   };
   const fmt = n => Math.round(n).toLocaleString('en-US');
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
   const PHASES = [
-    {name:'Calibration', from:1, to:2, c:'var(--p-cal)', obj:'Establish loads, introduce legs, confirm session duration'},
-    {name:'Growth I', from:3, to:6, c:'var(--p-g1)', obj:'Consistent double progression'},
+    {name:'Calibration', from:1, to:1, c:'var(--p-cal)', obj:'Circuit 1: working weights established, legs introduced'},
+    {name:'Build I', from:2, to:6, c:'var(--p-g1)', obj:'Maintenance-fed, weight-first overload; collect RIR data'},
     {name:'Recovery audit', from:7, to:7, c:'var(--p-audit)', obj:'Evaluate fatigue; deload only if warranted'},
-    {name:'Growth II', from:8, to:11, c:'var(--p-g2)', obj:'Continue progression; specialize further if justified'},
+    {name:'Build II', from:8, to:11, c:'var(--p-g2)', obj:'Add sets where load and RIR data justify them'},
     {name:'Assessment', from:12, to:12, c:'var(--p-assess)', obj:'Measurements, photos, performance and volume review'}
   ];
-  const RIRT = {mach:'1–3', db:'1–3', delt:'1–2', arm:'1–2', comp:'2–3', iso:'1–2', calf:'1–2', upiso:'1–2'};
   const COMP = new Set(['mach','db','comp']);
   const restOf = e => COMP.has(e.t) ? '2–3 min' : '60–120 s';
   const REG = {Back:'var(--ring-3)', Shoulders:'var(--ring-1)', Chest:'var(--ring-2)', Arms:'var(--p-g2)', Legs:'var(--legs)'};
   const MUS = {'Lats':'Back','Upper back':'Back','Traps':'Back','Side delts':'Shoulders','Rear delts':'Shoulders','Upper chest':'Chest','Mid chest':'Chest','Biceps':'Arms','Triceps':'Arms','Quads':'Legs','Hamstrings':'Legs','Glutes / abductors':'Legs','Calves':'Legs'};
-  const PRIORITY = ['Lats','Upper back','Side delts','Rear delts','Upper chest'];
-  const E = (n, load, sets, lo, hi, m, t) => ({n, load, sets, lo, hi, m, t});
+  const PRIORITY = ['Lats','Upper back','Side delts','Upper chest','Quads'];
+  const TIP_LAT = '+25%. If 5 kg makes you swing, shorten the range or shrug, go back to 4 kg.';
+  const TIP_CAB = 'Heavier weight only with clean technique.';
+  const E = (n, prev, load, sets, lo, hi, m, t, tip) => ({n, prev, load, sets, lo, hi, m, t, tip: tip || ''});
   const EX = {
-    'Pull A': {day:1, focus:'Lat width · Rear delts · Biceps', ex:[
-      E('Neutral-Grip Lat Pulldown','47 kg',3,8,12,'Lats','mach'),
-      E('Incline Chest-Supported DB Row','15 kg',3,8,12,'Upper back','mach'),
-      E('Straight-Arm Cable Pulldown','19 kg',2,12,18,'Lats','upiso'),
-      E('Reverse Pec Deck','22.5 kg',2,12,18,'Rear delts','delt'),
-      E('Cable Biceps Curl','22.5 kg',2,8,12,'Biceps','arm'),
-      E('DB Hammer Curl','12.5 kg',2,10,15,'Biceps','arm')]},
-    'Push A': {day:2, focus:'Side delts · Upper chest · Triceps', ex:[
-      E('Cable Lateral Raise','3.5 kg',3,10,18,'Side delts','delt'),
-      E('Incline Machine Press','48.75 kg',3,8,12,'Upper chest','mach'),
-      E('Machine Chest Press','48.75 kg',2,8,12,'Mid chest','mach'),
-      E('DB Lateral Raise','4 kg',2,12,20,'Side delts','delt'),
-      E('Seated OH DB Triceps Extension','10 kg',2,10,15,'Triceps','arm'),
-      E('V-Bar Pushdown','20 kg',2,10,15,'Triceps','arm')]},
-    'Legs A': {day:3, focus:'Quad priority · Hamstrings · Calves', ex:[
-      E('Horizontal Leg Press','',3,8,12,'Quads','comp'),
-      E('Leg Extension','',3,10,15,'Quads','iso'),
-      E('Leg Curl','',2,10,15,'Hamstrings','iso'),
-      E('Standing Calf Raise','',3,10,15,'Calves','calf'),
-      E('Hip Abduction Machine','',2,15,20,'Glutes / abductors','iso')]},
-    'Pull B': {day:4, focus:'Back thickness · Traps · Biceps', ex:[
-      E('Seated Row Machine','56 kg',3,8,12,'Upper back','mach'),
-      E('Wide-Grip Pulldown','38 kg',2,10,15,'Lats','mach'),
-      E('Single-Arm Cable Lat Pulldown','19 kg',2,10,15,'Lats','mach'),
-      E('Reverse Pec Deck','22.5 kg',2,12,18,'Rear delts','delt'),
-      E('DB Shrugs','27.5 kg',2,10,15,'Traps','upiso'),
-      E('Incline DB Curl','10 kg',2,8,12,'Biceps','arm'),
-      E('Preacher Curl','15 kg',2,10,15,'Biceps','arm')]},
-    'Push B': {day:5, focus:'Lateral-delt specialization · Chest · Triceps', ex:[
-      E('DB Lateral Raise','4 kg',3,12,20,'Side delts','delt'),
-      E('Incline DB Press','17.5 kg',3,8,12,'Upper chest','db'),
-      E('Machine Chest Press','48.75 kg',2,8,12,'Mid chest','mach'),
-      E('Cable Lateral Raise','3.5 kg',3,12,20,'Side delts','delt'),
-      E('Seated OH DB Triceps Extension','10 kg',2,10,15,'Triceps','arm'),
-      E('V-Bar Pushdown','20 kg',2,10,15,'Triceps','arm')]},
-    'Legs B': {day:6, focus:'Hamstrings · Glutes · Quads', ex:[
-      E('Leg Curl','',3,8,12,'Hamstrings','iso'),
-      E('Horizontal Leg Press','',2,10,15,'Quads','comp'),
-      E('DB Romanian Deadlift','',2,8,12,'Hamstrings','comp'),
-      E('Leg Extension','',2,12,15,'Quads','iso'),
-      E('Standing Calf Raise','',3,10,15,'Calves','calf'),
-      E('Hip Abduction Machine','',2,15,20,'Glutes / abductors','iso')]},
-    'Recovery': {day:7, focus:'Rest from lifting', ex:[], rec:[['Resistance training','Rest'],['Walking','Optional, easy pace'],['Mobility','Optional'],['Nutrition','Same weekly reference']]}
+    'Pull A': {day:1, focus:'Lat width · Rear delts · Biceps', pri:'Establish stronger working weights without sacrificing lat engagement or using momentum.', ex:[
+      E('Neutral-Grip Lat Pulldown','47 kg','50 kg',3,8,10,'Lats','mach'),
+      E('Incline Chest-Supported DB Row','15 kg','17.5 kg',3,8,10,'Upper back','mach','Relatively large jump. Stay at 15 kg if you can\'t control the heavier dumbbells.'),
+      E('Straight-Arm Cable Pulldown','19 kg','21 kg',2,10,12,'Lats','upiso'),
+      E('Reverse Pec Deck','22.5 kg','25 kg',2,10,15,'Rear delts','delt'),
+      E('Cable Biceps Curl','22.5 kg','25 kg',2,8,12,'Biceps','arm'),
+      E('DB Hammer Curl','12.5 kg','12.5 kg',2,10,12,'Biceps','arm')]},
+    'Push A': {day:2, focus:'Lateral delts · Upper chest · Triceps', pri:'Shoulder width. The lateral raises matter most: we\'re growing the lateral delts, not just moving heavier dumbbells.', ex:[
+      E('Cable Lateral Raise','3.5 kg','4 kg',3,10,15,'Side delts','delt',TIP_CAB),
+      E('Incline Machine Press','48.75 kg','53.75 kg',3,8,10,'Upper chest','mach'),
+      E('Machine Chest Press','48.75 kg','51.25 kg',2,8,10,'Mid chest','mach'),
+      E('DB Lateral Raise','4 kg','5 kg',2,10,15,'Side delts','delt',TIP_LAT),
+      E('Seated OH DB Triceps Extension','10 kg','12.5 kg',2,8,12,'Triceps','arm'),
+      E('V-Bar Pushdown','20 kg','22.5 kg',2,10,15,'Triceps','arm')]},
+    'Legs A': {day:3, focus:'Quad specialization', pri:'More challenge and longer rest than the ~20-minute first session. Controlled eccentrics, comfortable full range. If soreness from the first session was substantial, do fewer sets rather than forcing all 15. Target 35–45 minutes.', ex:[
+      E('Horizontal Leg Press','22.5 kg','27.5 kg',4,10,12,'Quads','comp','Rest 2–3 min between challenging sets.'),
+      E('Leg Extension','30 kg','32.5 kg',3,10,15,'Quads','iso'),
+      E('Leg Curl','10.75 kg','12.5 kg',3,10,12,'Hamstrings','iso'),
+      E('Standing Calf Raise','20 kg','22.5 kg',3,12,15,'Calves','iso'),
+      E('Hip Abduction Machine','37.5 kg','40 kg',2,12,15,'Glutes / abductors','iso')]},
+    'Pull B': {day:4, focus:'Back thickness · Traps · Biceps', pri:'Back thickness and traps.', ex:[
+      E('Seated Row Machine','56 kg','61 kg',3,8,10,'Upper back','mach','Keep the trunk reasonably stable. No torso swing.'),
+      E('Wide-Grip Pulldown','38 kg','42 kg',2,8,12,'Lats','mach'),
+      E('Single-Arm Cable Lat Pulldown','19 kg','21 kg',2,10,12,'Lats','mach'),
+      E('Reverse Pec Deck','22.5 kg','25 kg',2,10,15,'Rear delts','delt'),
+      E('DB Shrugs','27.5 kg','30 kg',2,10,12,'Traps','upiso','Controlled elevation and lowering. No bouncing.'),
+      E('Incline DB Curl','10 kg','12.5 kg',2,8,10,'Biceps','arm'),
+      E('Preacher Curl','15 kg','17.5 kg',2,8,12,'Biceps','arm')]},
+    'Push B': {day:5, focus:'Lateral-delt specialization · Chest · Triceps', pri:'Lateral delts first, then upper-chest pressing. Use the heavier lateral-raise weights only with clean technique.', ex:[
+      E('DB Lateral Raise','4 kg','5 kg',3,10,15,'Side delts','delt',TIP_LAT),
+      E('Incline DB Press','17.5 kg','20 kg',3,8,10,'Upper chest','db'),
+      E('Machine Chest Press','48.75 kg','51.25 kg',2,8,10,'Mid chest','mach'),
+      E('Cable Lateral Raise','3.5 kg','4 kg',3,10,15,'Side delts','delt',TIP_CAB),
+      E('Seated OH DB Triceps Extension','10 kg','12.5 kg',3,8,12,'Triceps','arm'),
+      E('V-Bar Pushdown','20 kg','22.5 kg',2,10,15,'Triceps','arm')]},
+    'Legs B': {day:6, focus:'Hamstrings · Glutes · Quads', initial:'10–12', pri:'New session: establish baseline weights. 10–12 working sets are enough for this first exposure; 15 is the eventual target.', ex:[
+      E('Leg Curl','','10.75–12.5 kg',3,10,12,'Hamstrings','iso'),
+      E('Horizontal Leg Press','','22.5–27.5 kg',3,10,12,'Quads','comp'),
+      E('DB Romanian Deadlift','','Light calibration',2,10,12,'Hamstrings','comp','Start conservatively. Groin or abdominal pressure: swap for another leg-curl variation.'),
+      E('Leg Extension','','30 kg',2,12,15,'Quads','iso'),
+      E('Standing Calf Raise','','20–22.5 kg',3,12,15,'Calves','iso'),
+      E('Hip Abduction Machine','','37.5–40 kg',2,15,20,'Glutes / abductors','iso')]},
+    'Recovery': {day:7, focus:'Rest from lifting', ex:[], rec:[['Resistance training','Rest'],['Walking','Optional, easy pace'],['Mobility','Optional'],['Nutrition','2,450 kcal, no cycling']]}
   };
   const SESSIONS = Object.keys(EX);
+  const TRAIN = SESSIONS.filter(k => k !== 'Recovery');
   const setsOf = k => EX[k].ex.reduce((a,e) => a + e.sets, 0);
-  const exKey = (k, e) => 'load:' + k + '|' + e.n;
+  const setsLabel = k => EX[k].initial ? `${EX[k].initial} of ${setsOf(k)}` : String(setsOf(k));
+  const exKey = (k, e) => 'c2load:' + k + '|' + e.n;
   const loadOf = (k, e) => store.get(exKey(k,e), '') || e.load;
-  const rirOf = (k, e) => (LEG[k] && state.week === 1) ? '3–4' : RIRT[e.t];
+  const rirKey = (w, k, e) => `rir:${w}:${k}|${e.n}`;
+  const rirGet = (k, e) => store.get(rirKey(state.week, k, e), '');
+  const rirCount = (w, k) => EX[k].ex.filter(e => store.get(rirKey(w, k, e), '') !== '').length;
+  const num = s => parseFloat(String(s).replace(',', '.'));
+  function pctOf(e){ const p = num(e.prev), t = num(e.load); return (p > 0 && t > 0) ? (t - p) / p * 100 : null; }
+  function chg(e, compact){
+    if (!e.prev) return '<span class="chg new">New · baseline</span>';
+    const pct = pctOf(e);
+    if (!pct) return `<span class="chg same">= ${e.prev}</span>`;
+    return `<span class="chg${pct >= 20 ? ' big' : ''}">↑ ${compact ? '' : e.prev + ' → ' + e.load + ' · '}+${pct.toFixed(0)}%</span>`;
+  }
   const LEG = {
-    'Legs A': [{t:'7–8', lo:7, hi:8}, {t:'~10', lo:10, hi:10}, {t:'10–13', lo:10, hi:13}, {t:'13', lo:13, hi:13}],
-    'Legs B': [{t:'7–8', lo:7, hi:8}, {t:'~10–11', lo:10, hi:11}, {t:'11–14', lo:11, hi:14}, {t:'14', lo:14, hi:14}]
+    'Legs A': [{t:'7–8', lo:7, hi:8}, {t:'15', lo:15, hi:15}, {t:'15', lo:15, hi:15}],
+    'Legs B': [{t:'—', lo:0, hi:0}, {t:'10–12', lo:10, hi:12}, {t:'12–15', lo:12, hi:15}]
   };
-  const stageOf = w => Math.min(w, 4) - 1;
-  const NPH = {'Transition':'var(--p-cal)', 'Maintenance search':'var(--p-g1)', 'Conditional':'var(--p-audit)', 'Winter growth':'var(--p-g2)'};
-  const WEEKS = [
-    [1700,60,130,'Transition','Calibrate loads; introduce legs at ~50–60% volume','Reduce dietary rigidity'],
-    [1800,60,155,'Transition','Increase leg volume if recovered; establish consistent RIR','Improve energy availability'],
-    [1900,65,169,'Transition','Approach full training volume','Support performance'],
-    [2000,65,194,'Transition','Full volume if recovery permits','Continue toward maintenance'],
-    [2100,70,208,'Maintenance search','Progressive overload','Identify maintenance'],
-    [2200,70,233,'Maintenance search','Progressive overload','Stabilize intake'],
-    [2300,70,258,'Maintenance search','Evaluate fatigue and performance','Maintenance or slight surplus'],
-    [2400,75,271,'Conditional','Continue growth; deload only if needed','Adjust based on results']
-  ].map(([kcal,f,c,ph,tr,nu], i) => ({w:i+1, kcal, p:160, f, c, ph, tr, nu}));
+  const stageOf = w => Math.min(w, 3) - 1;
   const phaseOf = w => PHASES.find(p => w >= p.from && w <= p.to);
+  const winOf = s => s === 'Legs A' ? [35, 45] : [50, 55];
 
+  let week0 = Math.min(12, Math.max(1, +store.get('week', 2) || 2));
+  if (!store.get('c2init', false)){ week0 = Math.max(week0, 2); store.set('c2init', true); store.set('week', week0); }
   let state = {
-    week: Math.min(12, Math.max(1, +store.get('week', 1) || 1)),
+    week: week0,
     session: SESSIONS.includes(store.get('session','Pull A')) ? store.get('session','Pull A') : 'Pull A',
     mode: store.get('mode','before') === 'after' ? 'after' : 'before'
   };
@@ -1164,11 +1270,12 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
     return s + '</svg>';
   }
   function legPct(w, session){
-    const st = stageOf(w);
-    const mid = x => (x.lo + x.hi)/2;
-    if (LEG[session]) return mid(LEG[session][st]) / LEG[session][3].hi;
-    return (mid(LEG['Legs A'][st]) + mid(LEG['Legs B'][st])) / 27;
+    const st = stageOf(w), mid = x => (x.lo + x.hi)/2;
+    if (LEG[session]) return mid(LEG[session][st]) / 15;
+    return (mid(LEG['Legs A'][st]) + mid(LEG['Legs B'][st])) / 30;
   }
+  const totalEx = () => TRAIN.reduce((a,k) => a + EX[k].ex.length, 0);
+  const totalRir = w => TRAIN.reduce((a,k) => a + rirCount(w, k), 0);
 
   /* ---------- Today ---------- */
   const sessSeg = $('#sessSeg');
@@ -1179,156 +1286,181 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
   $('#wkNext').addEventListener('click', () => setWeek(state.week + 1));
   function setWeek(w){ state.week = Math.min(12, Math.max(1, w)); store.set('week', state.week); render(); }
 
-  function lineup(){
-    const k = state.session, d = EX[k];
-    const rows = d.ex.map((e,i) => `<div class="lu-r"><span class="i">${i+1}</span><div><b>${e.n}</b><small>${loadOf(k,e) || 'Load TBD'} · ${e.sets}×${e.lo}–${e.hi} · rest ${restOf(e)}</small></div><span class="pill neutral">RIR ${rirOf(k,e)}</span></div>`).join('');
-    return `<div class="mc wide"><div class="label">Day ${d.day} lineup · ${d.ex.length} exercises · ${setsOf(k)} listed sets</div><p style="margin-top:0;margin-bottom:4px">${d.focus}</p><div class="lu">${rows}</div></div>`;
+  function circInfo(w){
+    if (w === 1) return {tag:'Calibration', c:'var(--p-cal)', tr:'Working weights established; legs introduced', nu:'Transition from the cut, about 1,700 kcal', ref:'Circuit 1 is history now. Its loads are the "Circuit 1" column in the program.'};
+    if (w === 2) return {tag:'Build mode', c:'var(--p-g1)', tr:'Test the new target loads. Record final-set RIR on every exercise.', nu:'Maintenance 2,450 kcal · 170 P · 60 F · 308 C', ref:'Same calories every day, rest day included. The new weights are targets to test, not mandatory increases.'};
+    return {tag:'Build mode', c:phaseOf(w).c, tr: w === 7 ? 'Recovery audit: evaluate fatigue, deload only if warranted' : 'Progress from your last circuit using the overload rules', nu: w <= 4 ? 'Maintenance 2,450 kcal while the 7-day average and waist confirm it' : 'Maintenance confirmed or adjusted from the 2–3 week trend', ref:'Provisional. Loads shown are the Circuit 2 targets until you type in what you actually lift.'};
   }
   function weekCard(){
-    const w = state.week, W = WEEKS[w-1];
-    const ph = W ? W.ph : 'Winter growth';
-    const tr = W ? W.tr : phaseOf(w).obj;
-    const nu = W ? W.nu : 'Modest surplus, set from the weeks 5–8 results';
-    const ref = W ? `Reference ~${fmt(W.kcal)} kcal · P ${W.p} g · F ${W.f} g · C ${W.c} g. Eat above it whenever hunger, training or social occasions call for it.` : 'Use the winter growth calculator once maintenance is known.';
-    return `<div class="mc wide"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div class="label" style="margin:0">Week ${w} plan</div><span class="pill neutral"><i style="background:${NPH[ph]}"></i>${ph}</span></div>
-      <div class="wkplan"><div><small>Training</small><b>${tr}</b></div><div><small>Nutrition</small><b>${nu}</b></div></div><p>${ref}</p></div>`;
+    const w = state.week, c = circInfo(w);
+    return `<div class="mc wide"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div class="label" style="margin:0">Circuit ${w} plan</div><span class="pill neutral"><i style="background:${c.c}"></i>${c.tag}</span></div>
+      <div class="wkplan"><div><small>Training</small><b>${c.tr}</b></div><div><small>Nutrition</small><b>${c.nu}</b></div></div><p>${c.ref}</p></div>`;
   }
-  const nutPill = w => { const W = WEEKS[w-1]; return `<span class="pill neutral" style="margin-left:auto;align-self:center">${W ? '~' + fmt(W.kcal) + ' kcal' : 'Surplus'}</span>`; };
+  function lineup(){
+    const k = state.session, d = EX[k];
+    const rows = d.ex.map((e,i) => `<div class="lu-r"><span class="i">${i+1}</span><div><b>${e.n}</b><small>${esc(loadOf(k,e))} · ${e.sets}×${e.lo}–${e.hi} · rest ${restOf(e)}</small>${e.tip ? `<small class="tip">${e.tip}</small>` : ''}</div>${chg(e, true)}</div>`).join('');
+    return `<div class="mc wide"><div class="label">Day ${d.day} lineup · ${d.ex.length} exercises · ${setsLabel(k)} sets</div><p style="margin-top:0;margin-bottom:4px">${d.focus}</p><div class="lu">${rows}</div></div>`;
+  }
   function beforeCards(){
-    const w = state.week, s = state.session, st = stageOf(w), isLegs = !!LEG[s];
+    const w = state.week, s = state.session, st = stageOf(w), d = EX[s];
     const out = [weekCard()];
     if (s === 'Recovery'){
-      EX.Recovery.rec.forEach(([a,b]) => out.push(`<div class="mc"><div class="label">${a}</div><div class="big" style="font-size:22px">${b}</div></div>`));
+      d.rec.forEach(([a,b]) => out.push(`<div class="mc"><div class="label">${a}</div><div class="big" style="font-size:22px">${b}</div></div>`));
       out.push(`<div class="mc wide"><div class="label">Still log</div><p>Morning bodyweight. Recovery and soreness feed the weekly review.</p></div>`);
       return out.join('');
     }
-    if (isLegs){
+    if (LEG[s]){
       const L = LEG[s][st];
-      out.push(`<div class="mc"><div class="label">Working sets today</div><div class="big">${L.t}</div><p>${['About 50–60% of the ' + LEG[s][3].t + ' listed sets. Trim sets, keep every exercise.', 'More than week 1, only if you have recovered.', 'Approaching the full ' + LEG[s][3].t + ' sets.', 'Full listed volume if recovery permits.'][st]}</p></div>`);
-      out.push(`<div class="mc"><div class="label">Effort target</div><div class="big">${w===1 ? '3–4 RIR' : w===2 ? '3–4 → 2–3' : 'See lineup'}</div><p>${w<=2 ? 'Start at 3–4 RIR on unfamiliar lower-body exercises. No failure, no max testing.' : 'Leg press / RDL 2–3 · leg extension / curl 1–2 · calves 1–2.'}</p></div>`);
-      out.push(lineup());
-      if (w === 1) out.push(`<div class="mc wide"><div class="label">Loads</div><p>Leg loads are TBD. Use this week to find them${s==='Legs B' ? '. RDL: very light dumbbells or no load while you learn the movement' : ''}. Type each one into Circuit 1 once found.</p></div>`);
-      if (s === 'Legs B' && w <= 3) out.push(`<div class="mc wide alert"><div class="label">Recovery gate</div><p>Is soreness from Legs A still significant? Then repeat last session's sets instead of increasing. The ramp depends on recovery.</p></div>`);
+      const msgA = ['Introductory session.', 'If soreness from the last leg session was substantial, do fewer sets rather than forcing all 15.', 'Full prescription if recovery allows.'];
+      const msgB = ['Not part of Circuit 1.', 'First exposure. 15 is the eventual target.', 'Build toward 15 as recovery allows.'];
+      out.push(`<div class="mc"><div class="label">Working sets today</div><div class="big">${L.t}</div><p>${(s === 'Legs A' ? msgA : msgB)[st]}</p></div>`);
+      out.push(s === 'Legs A'
+        ? `<div class="mc"><div class="label">Duration</div><div class="big">35–45 min</div><p>More challenge and longer rest than the ~20-minute first session.</p></div>`
+        : `<div class="mc"><div class="label">Loads</div><div class="big">Baseline</div><p>Starting weights are ranges. This session sets your baseline.</p></div>`);
     } else {
-      out.push(`<div class="mc"><div class="label">Sets</div><div class="big">${setsOf(s)}</div><p>${w===1 ? 'Normal programmed sets with calibrated effort. Treat listed loads as starting points.' : w===2 ? 'Normal programmed sets.' : 'Normal sets, double progression on every exercise.'}</p></div>`);
-      out.push(`<div class="mc"><div class="label">Effort target</div><div class="big">1–3 RIR</div><p>Most upper-body sets. Laterals, rear delts and arms 1–2, strict and full range.</p></div>`);
-      out.push(lineup());
-      if (s === 'Pull B' || s === 'Push B') out.push(`<div class="mc wide alert"><div class="label">Watch the clock</div><p>${s} is one of the two sessions most likely to pass 55 minutes (${EX[s].ex.length} exercises, ${setsOf(s)} sets). Start the session clock and note the final time.</p></div>`);
+      const ups = d.ex.filter(e => pctOf(e) > 0).length;
+      out.push(`<div class="mc"><div class="label">Working sets</div><div class="big">${setsOf(s)}</div><p>${d.ex.length} exercises. Rest 2–3 min on compounds, 60–120 s on isolations.</p></div>`);
+      out.push(`<div class="mc"><div class="label">Load targets</div><div class="big">${ups} of ${d.ex.length} ↑</div><p>Targets to test. Keep the old load if technique slips or you're already at failure.</p></div>`);
     }
-    out.push(`<div class="mc wide"><div class="label">Warm-up · 8–11 min</div><ul><li>General and joint-specific warm-up: 4–5 min</li><li>Ramp-up sets on the demanding movements: 4–6 min</li><li>Warm-up sets don't count toward the 85 working sets</li></ul></div>`);
-    if (w === 7) out.unshift(`<div class="mc wide alert"><div class="label">Recovery audit week</div><p>Evaluate fatigue honestly. Deload only if it is warranted, not by default.</p></div>`);
-    if (w === 12) out.unshift(`<div class="mc wide goodbg"><div class="label">Assessment week</div><p>Measurements, photos, performance and a volume review close the block.</p></div>`);
+    out.push(`<div class="mc wide goodbg"><div class="label">Priority</div><p style="color:var(--fg)">${d.pri}</p></div>`);
+    out.push(lineup());
+    if (s === 'Pull B' || s === 'Push B') out.push(`<div class="mc wide alert"><div class="label">Watch the clock</div><p>${s} is one of the two sessions most likely to pass 55 minutes (${d.ex.length} exercises, ${setsOf(s)} sets). Start the session clock and note the final time.</p></div>`);
+    out.push(`<div class="mc wide"><div class="label">Warm-up · 8–11 min</div><ul><li>General and joint-specific warm-up: 4–5 min</li><li>Ramp-up sets on the demanding movements: 4–6 min</li><li>Warm-up sets don't count as working sets</li></ul></div>`);
+    if (w === 7) out.unshift(`<div class="mc wide alert"><div class="label">Recovery audit</div><p>Evaluate fatigue honestly. Deload only if it is warranted, not by default.</p></div>`);
+    if (w === 12) out.unshift(`<div class="mc wide goodbg"><div class="label">Assessment</div><p>Measurements, photos, performance and a volume review close the block.</p></div>`);
     return out.join('');
   }
 
+  /* ---------- After: checklist ---------- */
   function checklistItems(){
-    const w = state.week, s = state.session, items = s === 'Recovery' ? [] : [
-      {id:'log', t:'Loads, reps and RIR logged for every exercise', when:'Every session'},
-      {id:'dur', t:'Session duration recorded', when:'Every session'}];
+    const w = state.week, s = state.session, items = [];
+    if (s !== 'Recovery'){
+      const n = EX[s].ex.length, c = rirCount(w, s);
+      items.push({id:'rir', t:`Final-set RIR logged: ${c} of ${n} exercises`, when:'Auto', auto:true, done:c === n});
+      items.push({id:'log', t:'Loads and reps logged for every exercise', when:'Every session'});
+      items.push({id:'dur', t:`Session duration recorded (target ${winOf(s).join('–')} min)`, when:'Every session'});
+      if (LEG[s]) items.push({id:'sore', t:'Note leg soreness. It decides how many sets you do next leg session', when:'This session'});
+    }
     items.push(
-      {id:'bw', t:'Morning bodyweight logged (use the weekly average)', when:'Daily'},
+      {id:'food', t:'About 2,450 kcal with 170 g protein', when:'Daily'},
+      {id:'bw', t:'Morning bodyweight logged (7-day average)', when:'Daily'},
       {id:'waist', t:'Waist measured', when:'Weekly'},
       {id:'rec', t:'Recovery and soreness reviewed', when:'Weekly'});
-    if (s === 'Legs A' && w <= 3) items.splice(2, 0, {id:'sore', t:'Note leg soreness. It decides Legs B volume', when:'This session'});
     if (w % 4 === 0) items.push({id:'circ', t:'Upper arms, chest, shoulders and thighs measured', when:'Every 4 weeks'}, {id:'photo', t:'Standardized physique photos taken', when:'Every 4 weeks'});
     return items;
   }
   function renderChecklist(){
-    const key = `ck:${state.week}:${state.session}`;
-    const done = store.get(key, {});
-    $('#checklist').innerHTML = checklistItems().map(i => `<label class="ci"><input type="checkbox" data-id="${i.id}" ${done[i.id] ? 'checked' : ''}><span>${i.t}</span><span class="when">${i.when}</span></label>`).join('');
+    const done = store.get(`ck:${state.week}:${state.session}`, {});
+    $('#checklist').innerHTML = checklistItems().map(i => `<label class="ci"><input type="checkbox" data-id="${i.id}" ${(i.auto ? i.done : done[i.id]) ? 'checked' : ''} ${i.auto ? 'disabled' : ''}><span>${i.t}</span><span class="when">${i.when}</span></label>`).join('');
   }
   $('#checklist').addEventListener('change', e => {
-    const id = e.target.dataset.id; if(!id) return;
-    const key = `ck:${state.week}:${state.session}`; const done = store.get(key, {});
+    const id = e.target.dataset.id; if(!id || id === 'rir') return;
+    const key = `ck:${state.week}:${state.session}`, done = store.get(key, {});
     done[id] = e.target.checked; store.set(key, done);
   });
 
-  /* Double progression checker */
+  /* ---------- After: overload checker ---------- */
+  const RIR_OPTS = ['', '0', '1', '2', '3', '4'];
+  const rirOptions = v => RIR_OPTS.map(o => `<option value="${o}" ${o === String(v) ? 'selected' : ''}>${o === '' ? '—' : o === '4' ? '4+' : o}</option>`).join('');
+  const curEx = () => { const v = $('#ckEx').value; return v === 'c' ? null : EX[state.session].ex[+v]; };
   function setupChecker(){
-    const k = state.session, sel = $('#ckEx');
-    sel.innerHTML = EX[k].ex.map((e,i) => `<option value="${i}">${e.n} · ${e.sets}×${e.lo}–${e.hi}</option>`).join('') + '<option value="c">Custom (3 sets)</option>';
+    $('#ckEx').innerHTML = EX[state.session].ex.map((e,i) => `<option value="${i}">${e.n} · ${e.sets}×${e.lo}–${e.hi}</option>`).join('') + '<option value="c">Custom (3 sets)</option>';
     pickEx();
   }
   function pickEx(){
-    const k = state.session, v = $('#ckEx').value, e = v === 'c' ? null : EX[k].ex[+v];
-    const n = e ? e.sets : 3, lo = e ? e.lo : +$('#rLo').value || 8, hi = e ? e.hi : +$('#rHi').value || 12;
+    const k = state.session, e = curEx();
+    const n = e ? e.sets : 3, lo = e ? e.lo : +$('#rLo').value || 8, hi = e ? e.hi : +$('#rHi').value || 10;
     $('#rLo').value = lo; $('#rHi').value = hi;
-    const saved = e ? store.get('reps:' + k + '|' + e.n, null) : null;
+    const saved = e ? store.get('c2reps:' + state.week + ':' + k + '|' + e.n, null) : null;
     $('#ckSets').innerHTML = Array.from({length:n}, (_,i) => {
-      const val = saved && saved[i] != null ? saved[i] : Math.max(lo, hi - 1 - i);
+      const val = saved && saved[i] != null ? saved[i] : Math.max(lo, hi - i);
       return `<div class="field"><label for="ckS${i}">Set ${i+1}</label><input type="number" id="ckS${i}" value="${val}" min="0" max="50" inputmode="numeric"></div>`;
     }).join('');
+    $('#ckRir').innerHTML = rirOptions(e ? rirGet(k, e) : '');
     runChecker();
   }
   $('#ckEx').addEventListener('change', pickEx);
   $('#ckSets').addEventListener('input', () => {
-    const k = state.session, v = $('#ckEx').value;
-    if (v !== 'c' && EX[k].ex[+v]) store.set('reps:' + k + '|' + EX[k].ex[+v].n, [...document.querySelectorAll('#ckSets input')].map(i => +i.value || 0));
+    const e = curEx();
+    if (e) store.set('c2reps:' + state.week + ':' + state.session + '|' + e.n, [...document.querySelectorAll('#ckSets input')].map(i => +i.value || 0));
+    runChecker();
+  });
+  $('#ckRir').addEventListener('change', () => {
+    const e = curEx();
+    if (e){ store.set(rirKey(state.week, state.session, e), $('#ckRir').value); renderCircuit(); renderChecklist(); renderRingsOnly(); renderReview(); }
     runChecker();
   });
   function runChecker(){
-    let lo = +$('#rLo').value || 8, hi = +$('#rHi').value || 12;
+    let lo = +$('#rLo').value || 8, hi = +$('#rHi').value || 10;
     if (hi < lo) [lo, hi] = [hi, lo];
     const reps = [...document.querySelectorAll('#ckSets input')].map(i => Math.max(0, +i.value || 0));
     if (!reps.length) return;
-    const k = state.session, v = $('#ckEx').value, ex = v === 'c' ? null : EX[k].ex[+v];
-    const load = ex ? loadOf(k, ex) : '';
-    const rirOk = $('#rirOk').checked;
-    const maxScale = hi + 2;
+    const e = curEx(), load = e ? esc(loadOf(state.session, e)) : 'this load', prev = e && e.prev ? e.prev : '';
+    const rir = $('#ckRir').value, tech = $('#techOk').checked, pain = $('#pain').checked;
+    $('#ckRir').classList.toggle('set', rir !== '');
     $('#setBars').style.gridTemplateColumns = `repeat(${reps.length}, minmax(0,1fr))`;
     $('#setBars').innerHTML = reps.map((r,i) => {
       const cls = r >= hi ? 'full' : r < lo ? 'low' : '';
-      return `<div class="sb"><div class="track"><i class="${cls}" style="width:${Math.min(100, r/maxScale*100)}%"></i></div><div class="meta"><span>Set ${i+1}</span><span>${r} / ${hi}</span></div></div>`;
+      return `<div class="sb"><div class="track"><i class="${cls}" style="width:${Math.min(100, r/(hi+2)*100)}%"></i></div><div class="meta"><span>Set ${i+1}</span><span>${r} · ${lo}–${hi}</span></div></div>`;
     }).join('');
-    const allTop = reps.every(r => r >= hi), anyLow = reps.some(r => r < lo);
-    const toGo = reps.reduce((a,r) => a + Math.max(0, hi - r), 0);
-    const n = reps.length, at = load ? ` at ${load}` : '';
+    const anyLow = reps.some(r => r < lo);
+    const back = prev ? `Go back to ${prev}, the Circuit 1 load.` : 'Drop to a lighter load next time.';
+    const worked = e && prev && pctOf(e) > 0 ? ` The jump from ${prev} worked.` : '';
     let cls, title, body;
-    if (allTop && rirOk){ cls='good'; title='Increase the weight next session'; body=`All ${n} sets hit ${hi}${at} at the target RIR. Take the smallest jump available; if the stack jumps too far, extend the range or use an add-on weight. Reps will drop afterwards. That's good. Start rebuilding.`; }
-    else if (allTop){ cls='hold'; title='Hold the load'; body=`The reps are there but not at the target RIR. Own ${hi} reps on every set at the right effort before adding weight.`; }
-    else if (anyLow){ cls='warn'; title='Below the range. Hold the load and rebuild'; body=`A set fell under ${lo}. Expected right after a jump; if it repeats, the increment was too big. Use a smaller step or extend the range.`; }
-    else { cls='hold'; title='Hold the load. Build reps'; body=`${toGo} rep${toGo===1?'':'s'} to go until all ${n} sets reach ${hi}${at}. Add a rep where you can, with the same clean technique.`; }
+    if (pain){ cls='bad'; title='Stop and reassess'; body='Pain or unusual joint discomfort overrides everything else. Don\'t push through it on this exercise.'; }
+    else if (!tech){ cls='warn'; title='Reduce weight'; body=`Technique deteriorated at ${load}. ${back} Targets are tests, not mandatory increases.`; }
+    else if (anyLow){ cls='warn'; title='Reduce weight'; body=`A set fell below ${lo} reps at ${load}. ${back}`; }
+    else if (rir === ''){ cls='hold'; title='Log the final-set RIR'; body='Reps are in range. Add the RIR of your last set to get the decision. That number is what Circuit 2 is collecting.'; }
+    else if (rir === '0'){ cls='warn'; title='Keep or reduce weight'; body=`The final set hit failure at ${load}. Keep it if every rep was clean; otherwise ${prev ? 'return to ' + prev : 'go lighter'}.`; }
+    else if (rir === '1'){ cls='hold'; title='Keep the weight and consolidate'; body=`All sets in range at ${load} with 1 rep left.${worked} Own this load before adding more.`; }
+    else { cls='good'; title='Consider increasing the weight'; body=`All sets in range with ${rir === '4' ? '4+' : rir} RIR at ${load}.${worked} Take the next small step; small isolation lifts may need an add-on weight rather than a full jump.`; }
     const el = $('#verdict'); el.className = 'verdict ' + cls;
     el.innerHTML = `<div><b>${title}</b><span>${body}</span></div>`;
   }
-  ['#rLo','#rHi','#rirOk'].forEach(id => $(id).addEventListener('input', runChecker));
+  ['#rLo','#rHi','#techOk','#pain'].forEach(id => $(id).addEventListener('input', runChecker));
 
+  function renderRingsOnly(){
+    const w = state.week, done = totalRir(w), all = totalEx();
+    const vals = [w/12, done/all, legPct(w, state.session)];
+    $('#rings').innerHTML = ringsSVG(vals);
+    $('#rings').setAttribute('aria-label', `Circuit ${w} of 12. RIR logged for ${done} of ${all} exercises. Leg volume at ${Math.round(vals[2]*100)} percent of full.`);
+    $('#rlBlock').textContent = `${w} / 12`;
+    $('#rlPhase').textContent = `${done} / ${all}`;
+    $('#rlLegs').textContent = Math.round(vals[2]*100) + '%';
+  }
   function render(){
     const w = state.week, p = phaseOf(w);
-    $('#wkOut').textContent = 'Week ' + w;
+    $('#wkOut').textContent = 'Circuit ' + w;
     $('#wkPrev').disabled = w === 1; $('#wkNext').disabled = w === 12;
     sessSeg.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.s === state.session));
     document.querySelectorAll('#modeSeg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === state.mode));
-    const vals = [w/12, (w - p.from + 1)/(p.to - p.from + 1), legPct(w, state.session)];
-    $('#rings').innerHTML = ringsSVG(vals);
-    $('#rings').setAttribute('aria-label', `Week ${w} of 12. ${p.name}. Leg volume at ${Math.round(vals[2]*100)} percent of full.`);
-    $('#rlBlock').textContent = `${w} / 12`;
-    $('#rlPhase').textContent = `${w - p.from + 1} / ${p.to - p.from + 1}`;
-    $('#rlLegs').textContent = Math.round(vals[2]*100) + '%';
-    $('#phaseBanner').innerHTML = `<span class="sw" style="background:${p.c}"></span><div><h4>${p.name} · ${p.from===p.to ? 'Week '+p.from : 'Weeks '+p.from+'–'+p.to}</h4><p>${p.obj}</p></div>${nutPill(w)}`;
+    renderRingsOnly();
+    $('#phaseBanner').innerHTML = `<span class="sw" style="background:${p.c}"></span><div><h4>${p.name} · ${p.from===p.to ? 'Circuit '+p.from : 'Circuits '+p.from+'–'+p.to}</h4><p>${p.obj}</p></div><span class="pill neutral" style="margin-left:auto;align-self:center">${w === 1 ? '~1,700 kcal' : '2,450 kcal'}</span>`;
     $('#beforePane').innerHTML = beforeCards();
     $('#beforePane').hidden = state.mode !== 'before';
     $('#afterPane').hidden = state.mode !== 'after';
     $('#ckCard').hidden = state.session === 'Recovery';
-    if (state.session !== 'Recovery' && $('#ckEx').dataset.for !== state.session){ $('#ckEx').dataset.for = state.session; setupChecker(); }
+    const tag = state.session + ':' + w;
+    if (state.session !== 'Recovery' && $('#ckEx').dataset.for !== tag){ $('#ckEx').dataset.for = tag; setupChecker(); }
     renderChecklist();
     renderCircuit();
     renderRamp();
     renderTimeline();
-    renderLadder();
+    renderReview();
+    clkTick();
   }
 
   /* ---------- Session clock ---------- */
   let clkStart = null, clkAcc = 0, clkTimer = null;
   const pad = n => String(n).padStart(2,'0');
   function clkTick(){
+    const [a, b] = winOf(state.session);
     const ms = clkAcc + (clkStart ? Date.now() - clkStart : 0), sec = Math.floor(ms/1000), min = sec/60;
     $('#clkT').textContent = `${pad(Math.floor(sec/60))}:${pad(sec%60)}`;
     const ring = $('#clkRing');
-    ring.setAttribute('stroke-dasharray', `${Math.min(100, min/55*100).toFixed(2)} 100`);
-    ring.setAttribute('stroke', min > 55 ? 'var(--bad)' : min >= 50 ? 'var(--good)' : 'var(--accent)');
-    $('#clkS').textContent = min > 55 ? `Over by ${Math.ceil(min-55)} min · note it for the review` : min >= 50 ? 'Inside the 50–55 min window' : `Session clock · ${Math.max(0, Math.ceil(50-min))} min to the window`;
+    ring.setAttribute('stroke-dasharray', `${Math.min(100, min/b*100).toFixed(2)} 100`);
+    ring.setAttribute('stroke', min > b ? 'var(--bad)' : min >= a ? 'var(--good)' : 'var(--accent)');
+    $('#clkS').textContent = !ms ? `Session clock · target ${a}–${b} min` : min > b ? `Over by ${Math.ceil(min-b)} min · note it for the review` : min >= a ? `Inside the ${a}–${b} min window` : `${Math.max(0, Math.ceil(a-min))} min to the ${a}–${b} window`;
   }
   $('#clkGo').addEventListener('click', () => {
     if (clkStart){ clkAcc += Date.now() - clkStart; clkStart = null; clearInterval(clkTimer); $('#clkGo').textContent = 'Resume'; }
@@ -1336,7 +1468,7 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
       try{ navigator.wakeLock && navigator.wakeLock.request('screen').catch(()=>{}); }catch(e){} }
     clkTick();
   });
-  $('#clkReset').addEventListener('click', () => { clkStart = null; clkAcc = 0; clearInterval(clkTimer); $('#clkGo').textContent = 'Start'; clkTick(); $('#clkS').textContent = 'Session clock · target 50–55 min'; });
+  $('#clkReset').addEventListener('click', () => { clkStart = null; clkAcc = 0; clearInterval(clkTimer); $('#clkGo').textContent = 'Start'; clkTick(); });
 
   /* ---------- Rest timer ---------- */
   let restEnd = 0, restDur = 0, restTimer = null, actx = null;
@@ -1360,99 +1492,110 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
   }));
   $('#restStop').addEventListener('click', () => { clearInterval(restTimer); restTimer = null; restDur = 0; $('#restT').textContent = '0:00'; $('#restBar').style.width = '0%'; });
 
-  /* ---------- Circuit ---------- */
+  /* ---------- Program ---------- */
   const regOf = m => REG[MUS[m]];
   function renderCircuit(){
+    const w = state.week;
     $('#days').innerHTML = SESSIONS.map(k => {
-      const d = EX[k], sets = setsOf(k), on = k === state.session ? ' on' : '';
-      if (k === 'Recovery') return `<button type="button" class="day rest${on}" data-s="${k}" aria-pressed="${!!on}"><span class="dn">Day 7</span><b>Recovery</b><span class="f">Optional walk and mobility</span><span class="mb"></span><span class="meta">No lifting</span></button>`;
+      const d = EX[k], on = k === state.session ? ' on' : '';
+      if (k === 'Recovery') return `<button type="button" class="day rest${on}" data-s="${k}" aria-pressed="${!!on}"><span class="dn">Day 7</span><b>Rest</b><span class="f">Optional walk and mobility. Same calories.</span><span class="mb"></span><span class="meta">No lifting</span></button>`;
       const mb = d.ex.map(e => `<span style="flex:${e.sets};background:${regOf(e.m)}"></span>`).join('');
-      return `<button type="button" class="day${on}" data-s="${k}" aria-pressed="${!!on}"><span class="dn">Day ${d.day}</span><b>${k}</b><span class="f">${d.focus}</span><span class="mb">${mb}</span><span class="meta">${d.ex.length} exercises · ${sets} sets</span></button>`;
+      const c = rirCount(w, k);
+      return `<button type="button" class="day${on}" data-s="${k}" aria-pressed="${!!on}"><span class="dn">Day ${d.day}</span><b>${k}</b><span class="f">${d.focus}</span><span class="mb">${mb}</span><span class="meta">${d.initial ? d.initial + ' → ' + setsOf(k) : setsOf(k)} sets · RIR ${c}/${d.ex.length}</span></button>`;
     }).join('');
     const k = state.session, d = EX[k];
     if (k === 'Recovery'){
-      $('#dayDetail').innerHTML = `<div class="card-head"><div><span class="label">Day 7</span><h3 style="margin-top:4px">Recovery</h3><div class="sub">${d.focus}</div></div></div><div class="recov">${d.rec.map(([a,b]) => `<div class="mc"><div class="label">${a}</div><div class="big" style="font-size:22px">${b}</div></div>`).join('')}</div>`;
+      $('#dayDetail').innerHTML = `<div class="card-head"><div><span class="label">Day 7</span><h3 style="margin-top:4px">Rest</h3><div class="sub">${d.focus}</div></div></div><div class="recov">${d.rec.map(([a,b]) => `<div class="mc"><div class="label">${a}</div><div class="big" style="font-size:22px">${b}</div></div>`).join('')}</div>`;
       return;
     }
-    const legs = !!LEG[k], st = stageOf(state.week);
-    const note = legs && st < 3 ? `<div class="callout warn" style="margin-bottom:14px"><div class="ico">!</div><div><p><b>Week ${state.week}: about ${LEG[k][st].t} of ${setsOf(k)} listed sets</b>${state.week === 1 ? ' at 3–4 RIR' : ', only if recovered'}. The listed sets become the target from week 4.</p></div></div>` : '';
     const rows = d.ex.map((e,i) => {
-      const saved = store.get(exKey(k,e), ''), lo = 6, hi = 20;
+      const saved = store.get(exKey(k,e), ''), lo = 6, hi = 20, r = store.get(rirKey(w, k, e), '');
       const left = (e.lo-lo)/(hi-lo)*100, width = (e.hi-e.lo)/(hi-lo)*100;
       return `<div class="exr">
         <span class="idx">${i+1}</span>
-        <div class="nm"><b>${e.n}</b><small><i style="background:${regOf(e.m)}"></i>${e.m}${e.load ? ' · start ' + e.load : ' · load set in week 1'}</small><span class="mob">${e.sets} × ${e.lo}–${e.hi} · RIR ${rirOf(k,e)} · rest ${restOf(e)}</span></div>
-        <input class="load${saved ? ' changed' : ''}" type="text" id="ld-${d.day}-${i}" data-i="${i}" value="${saved}" placeholder="${e.load || 'TBD'}" aria-label="Current load for ${e.n}">
+        <div class="nm"><b>${e.n}</b><small><i style="background:${regOf(e.m)}"></i>${e.m} ${chg(e)}</small>${e.tip ? `<span class="tip">${e.tip}</span>` : ''}<span class="mob">${e.sets} × ${e.lo}–${e.hi} · rest ${restOf(e)}</span></div>
+        <input class="load${saved ? ' changed' : ''}" type="text" id="ld-${d.day}-${i}" data-i="${i}" value="${esc(saved)}" placeholder="${esc(e.load)}" aria-label="Load lifted on ${e.n}, target ${esc(e.load)}">
         <span class="sx">${e.sets} × ${e.lo}–${e.hi}</span>
         <div class="rrw"><div class="rr"><i style="left:${left}%;width:${width}%;background:${regOf(e.m)}"></i></div><div class="rr-k"><span>6</span><span>reps</span><span>20</span></div></div>
-        <span class="rirc"><span class="pill neutral">${rirOf(k,e)}</span></span>
         <span class="restc">${restOf(e)}</span>
+        <select class="rirsel${r !== '' ? ' set' : ''}" id="rir-${d.day}-${i}" data-i="${i}" aria-label="Final-set RIR for ${e.n}">${rirOptions(r)}</select>
       </div>`;
     }).join('');
-    $('#dayDetail').innerHTML = `<div class="card-head"><div><span class="label">Day ${d.day}</span><h3 style="margin-top:4px">${k}</h3><div class="sub">${d.focus}</div></div><div class="prio" style="margin-top:0"><span class="pill info">${d.ex.length} exercises</span><span class="pill neutral">${setsOf(k)} sets</span></div></div>${note}
-      <div class="exh"><span>#</span><span>Exercise</span><span>Load</span><span>Sets × reps</span><span>Rep range</span><span>RIR</span><span>Rest</span></div>${rows}`;
+    const c = rirCount(w, k);
+    $('#dayDetail').innerHTML = `<div class="card-head"><div><span class="label">Day ${d.day} · Circuit ${w}</span><h3 style="margin-top:4px">${k}</h3><div class="sub">${d.focus}</div></div><div class="prio" style="margin-top:0"><span class="pill info">${d.ex.length} exercises</span><span class="pill neutral">${setsLabel(k)} sets</span><span class="pill ${c === d.ex.length ? 'good' : 'neutral'}">RIR ${c}/${d.ex.length}</span></div></div>
+      <div class="callout info" style="margin-bottom:14px"><div class="ico">◎</div><div><p><b>Priority.</b> ${d.pri}</p></div></div>
+      <div class="exh"><span>#</span><span>Exercise · Circuit 1 → 2</span><span>Load</span><span>Sets × reps</span><span>Rep range</span><span>Rest</span><span>RIR</span></div>${rows}`;
   }
   $('#days').addEventListener('click', e => { const b = e.target.closest('.day'); if(!b) return; state.session = b.dataset.s; store.set('session', state.session); render(); });
   $('#dayDetail').addEventListener('change', e => {
-    const inp = e.target.closest('.load'); if(!inp) return;
-    const k = state.session, ex = EX[k].ex[+inp.dataset.i], v = inp.value.trim();
-    store.set(exKey(k, ex), v); inp.classList.toggle('changed', !!v);
-    $('#beforePane').innerHTML = beforeCards(); runChecker();
+    const k = state.session, inp = e.target.closest('.load'), sel = e.target.closest('.rirsel');
+    if (inp){
+      const ex = EX[k].ex[+inp.dataset.i], v = inp.value.trim();
+      store.set(exKey(k, ex), v); inp.classList.toggle('changed', !!v);
+      $('#beforePane').innerHTML = beforeCards(); runChecker();
+    }
+    if (sel){
+      const ex = EX[k].ex[+sel.dataset.i];
+      store.set(rirKey(state.week, k, ex), sel.value);
+      render();
+      const again = document.getElementById(sel.id); if (again) again.focus();
+    }
   });
 
   /* ---------- Volume charts ---------- */
   (function(){
     const tot = {}; Object.keys(MUS).forEach(m => tot[m] = 0);
-    SESSIONS.forEach(k => EX[k].ex.forEach(e => tot[e.m] += e.sets));
+    TRAIN.forEach(k => EX[k].ex.forEach(e => tot[e.m] += e.sets));
     const max = Math.max(...Object.values(tot));
     $('#mus').innerHTML = Object.keys(MUS).map(m => `<div class="mu${PRIORITY.includes(m) ? ' pri' : ''}"><span>${m}</span><div class="t"><i style="width:${(tot[m]/max*100).toFixed(1)}%;background:${regOf(m)}"></i></div><b>${tot[m]}</b></div>`).join('');
     $('#regKey').innerHTML = Object.entries(REG).map(([r,c]) => `<span class="chip"><i style="background:${c}"></i>${r}</span>`).join('');
     const SC = {'Pull A':'var(--ring-3)','Pull B':'var(--ring-3)','Push A':'var(--ring-1)','Push B':'var(--ring-1)','Legs A':'var(--legs)','Legs B':'var(--legs)'};
     const order = ['Pull A','Pull B','Push A','Push B','Legs A','Legs B'];
+    const total = order.reduce((a,k) => a + setsOf(k), 0);
     let off = 0, svg = '<circle cx="21" cy="21" r="15.915" fill="none" stroke="var(--surface-2)" stroke-width="5"/>';
-    order.forEach(k => { const n = setsOf(k); svg += `<circle cx="21" cy="21" r="15.915" fill="none" stroke="${SC[k]}" stroke-opacity="${k.endsWith('B') ? .6 : 1}" stroke-width="5" pathLength="85" stroke-dasharray="${n-.6} 85" stroke-dashoffset="${-off}"/>`; off += n; });
+    order.forEach(k => { const n = setsOf(k); svg += `<circle cx="21" cy="21" r="15.915" fill="none" stroke="${SC[k]}" stroke-opacity="${k.endsWith('B') ? .6 : 1}" stroke-width="5" pathLength="${total}" stroke-dasharray="${n-.6} ${total}" stroke-dashoffset="${-off}"/>`; off += n; });
     $('#donutSvg').innerHTML = svg;
-    $('#sessLegend').innerHTML = order.map(k => `<div class="lg"><i style="background:${SC[k]};opacity:${k.endsWith('B') ? .6 : 1}"></i><div>${k}<small>Day ${EX[k].day} · ${EX[k].ex.length} exercises</small></div><b>${setsOf(k)}</b></div>`).join('');
+    $('#donutTot').textContent = total;
+    $('#sessLegend').innerHTML = order.map(k => `<div class="lg"><i style="background:${SC[k]};opacity:${k.endsWith('B') ? .6 : 1}"></i><div>${k}<small>Day ${EX[k].day} · ${EX[k].focus.split(' · ')[0]}</small></div><b>${EX[k].initial ? EX[k].initial + '→' : ''}${setsOf(k)}</b></div>`).join('');
   })();
 
-  /* ---------- Progression ladder ---------- */
-  const LADDER = [
-    {r:[12,10,9], d:'Hold load; build reps', p:'info'},
-    {r:[12,11,10], d:'Hold load; build reps', p:'info'},
-    {r:[12,12,11], d:'Hold load', p:'info'},
-    {r:[12,12,12], d:'Increase weight next session', p:'good', note:'All sets at the top, at target RIR'},
-    {r:[10,9,8], d:'Good. Begin rebuilding', p:'neutral', note:'First session at the new load', reset:true}
-  ];
-  $('#ladder').innerHTML = LADDER.map((s,i) => `
-    <div class="step">
-      <span class="n">${i+1}</span>
-      <div class="reps">${s.r.join(' / ')}<small>${s.note || 'Same load'}</small></div>
-      <div class="mini" aria-hidden="true">${s.r.map(r => `<div class="r"><i class="${s.reset ? 'reset' : r>=12 ? 'top' : ''}" style="width:${(r/12*100).toFixed(1)}%"></i></div>`).join('')}</div>
-      <span class="pill ${s.p}">${s.d}</span>
-    </div>`).join('');
+  /* ---------- Overload example + load changes ---------- */
+  (function(){
+    const zone = (lo, hi, max) => `<span class="zone" style="bottom:${lo/max*100}%;height:${(hi-lo)/max*100}%"></span>`;
+    const col = (r, c, sub, z) => `<div class="sb3"><div class="col">${z}<i style="height:${(r/13*100).toFixed(1)}%;background:${c}"></i></div><span>${r}<small>${sub}</small></span></div>`;
+    $('#exa').innerHTML = `
+      <div class="exa-row"><div class="who"><b>Circuit 1</b><small>48.75 kg · 3 × 8–12</small></div><div class="sets3">${[12,12,12].map(r => col(r, 'var(--fg-3)', 'reps', zone(8,12,13))).join('')}</div></div>
+      <div class="exa-row"><div class="who"><b>Circuit 2</b><small>53.75 kg · 3 × 8–10 · +10%</small></div><div class="sets3">${[[10,2],[9,2],[8,1]].map(([r,i]) => col(r, 'var(--good)', i + ' RIR', zone(8,10,13))).join('')}</div></div>`;
+    const seen = new Map();
+    TRAIN.forEach(k => EX[k].ex.forEach(e => { if (e.prev && !seen.has(e.n + e.prev + e.load)) seen.set(e.n + e.prev + e.load, e); }));
+    const list = [...seen.values()].map(e => ({e, p: pctOf(e) || 0})).sort((a,b) => b.p - a.p);
+    const ups = list.filter(x => x.p > 0).length;
+    $('#lcCount').textContent = `${ups} of ${list.length} exercises go up`;
+    $('#heroUps').innerHTML = `${ups}<small>of ${list.length} up</small>`;
+    $('#lc').innerHTML = list.map(({e,p}) => `<div class="lc-r"><span>${e.n}</span><div class="t"><i style="width:${(p/25*80).toFixed(1)}%;background:${p >= 20 ? 'var(--p-audit)' : 'var(--accent)'}"></i></div><b>${p ? '+' + p.toFixed(0) + '%' : 'Same'}<small>${e.prev} → ${e.load}</small></b></div>`).join('');
+  })();
 
-  /* ---------- RIR table ---------- */
+  /* ---------- RIR reference table ---------- */
   const RIR = [
-    {m:'Machine presses, rows, pulldowns', lo:1, hi:3, t:'Controlled, stable repetitions'},
+    {m:'Machine presses, rows, pulldowns', lo:1, hi:3, t:'Controlled, stable repetitions; no torso swing'},
     {m:'Dumbbell pressing', lo:1, hi:3, t:'Full comfortable range of motion, no grinding'},
-    {m:'Lateral and rear-delt work', lo:1, hi:2, t:'Strict, without torso momentum'},
-    {m:'Curls and pushdowns', lo:1, hi:2, t:'Full controlled movement'},
-    {m:'Leg press / RDL', lo:2, hi:3, t:'Technique takes priority'},
-    {m:'Leg extension / curl', lo:1, hi:2, t:'Controlled eccentric', sub:'After adaptation'},
-    {m:'Calves', lo:1, hi:2, t:'Full stretch and controlled peak contraction'},
-    {m:'Unfamiliar lower-body work, week 1', lo:3, hi:4, t:'Learning loads and patterns; not testing strength', soft:true}
+    {m:'Lateral and rear-delt work', lo:1, hi:2, t:'Strict: no swinging, no shortened range, no excessive shrug'},
+    {m:'Curls and triceps work', lo:1, hi:2, t:'Full controlled movement'},
+    {m:'Leg press / RDL', lo:2, hi:3, t:'Technique first; controlled eccentric, full comfortable range'},
+    {m:'Leg extension / curl, abduction', lo:1, hi:2, t:'Controlled eccentric'},
+    {m:'Calves', lo:1, hi:2, t:'Full stretch and controlled peak contraction'}
   ];
   $('#rirTable').insertAdjacentHTML('beforeend', RIR.map(r => `
     <div class="rir-row">
-      <div><h4>${r.m}</h4>${r.sub ? `<p>${r.sub}</p>` : ''}</div>
-      <div><div class="scale5" role="img" aria-label="${r.lo} to ${r.hi} reps in reserve">${[0,1,2,3,4].map(n => `<span class="${n>=r.lo && n<=r.hi ? 'on' + (r.soft ? ' soft' : '') : ''}">${n}</span>`).join('')}</div><div class="scale-key"><span>Failure</span><span>Easier</span></div></div>
+      <div><h4>${r.m}</h4></div>
+      <div><div class="scale5" role="img" aria-label="${r.lo} to ${r.hi} reps in reserve">${[0,1,2,3,4].map(n => `<span class="${n>=r.lo && n<=r.hi ? 'on' : ''}">${n}</span>`).join('')}</div><div class="scale-key"><span>Failure</span><span>Easier</span></div></div>
       <p>${r.t}</p>
     </div>`).join(''));
 
   /* ---------- Leg ramp ---------- */
   function renderRamp(){
     const max = 15, cur = stageOf(state.week);
-    const labels = ['Week 1','Week 2','Week 3','Week 4+'];
+    const labels = ['Circuit 1','Circuit 2','Circuit 3+'];
     let h = '<div class="axis"><span>15</span><span>10</span><span>5</span><span>0</span></div>';
     labels.forEach((lab, i) => {
       h += `<div class="grp"><div class="bars">`;
@@ -1463,8 +1606,9 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
       h += `</div><div class="glab ${i===cur?'cur':''}">${lab}</div></div>`;
     });
     $('#ramp').innerHTML = h;
-    $('#rampWeek').textContent = 'You are in ' + labels[cur].replace('+',' onward');
+    $('#rampWeek').textContent = 'You are in Circuit ' + state.week;
   }
+  $('#ramp').style.gridTemplateColumns = '36px repeat(3, minmax(0,1fr))';
 
   /* ---------- Time budget ---------- */
   const TB = [
@@ -1478,85 +1622,74 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
   const segs = $('#tbSegs'); segs.style.width = (tbTotal/60*100).toFixed(2) + '%';
   segs.innerHTML = TB.map(t => `<div style="flex:${(t.lo+t.hi)/2};background:${t.c}" title="${t.k}: ${t.lo}–${t.hi} min"></div>`).join('');
   $('#tbList').innerHTML = TB.map(t => `<div class="tb-item"><i style="background:${t.c}"></i><span>${t.k}</span><b>${t.lo}–${t.hi} min</b></div>`).join('') +
-    `<div class="tb-item total"><i style="background:transparent"></i><span>Target</span><b>45–55 min</b></div>`;
+    `<div class="tb-item total"><i style="background:transparent"></i><span>Planned</span><b>50–55 min</b></div>`;
 
-  /* ---------- Nutrition ---------- */
+  /* ---------- Macro calculator ---------- */
   function renderNut(){
     const m = Math.max(0, +$('#maint').value || 0), su = +$('#surplus').value, p = +$('#protein').value, f = +$('#fat').value;
     const total = m + su, pk = p*4, fk = f*9, ck = Math.max(0, total - pk - fk), cg = ck/4;
-    $('#surplusV').textContent = `+${su} kcal`; $('#proteinV').textContent = `${p} g`; $('#fatV').textContent = `${f} g`;
+    $('#surplusV').textContent = su ? `+${su} kcal` : 'Maintenance'; $('#proteinV').textContent = `${p} g`; $('#fatV').textContent = `${f} g`;
     $('#kcal').innerHTML = `${fmt(total)}<small>kcal</small>`;
     $('#mP').innerHTML = `${p}<small> g</small>`; $('#mPk').textContent = `${fmt(pk)} kcal`;
     $('#mF').innerHTML = `${f}<small> g</small>`; $('#mFk').textContent = `${fmt(fk)} kcal`;
     $('#mC').innerHTML = `${fmt(cg)}<small> g</small>`; $('#mCk').textContent = `${fmt(ck)} kcal`;
     $('#macroBar').innerHTML = `<div style="flex-grow:${pk};background:var(--ring-1)"></div><div style="flex-grow:${fk};background:var(--p-audit)"></div><div style="flex-grow:${ck};background:var(--ring-3)"></div>`;
-    store.set('maint', m);
+    store.set('maint2', m);
   }
-  $('#maint').value = store.get('maint', 2400);
+  $('#maint').value = store.get('maint2', 2450);
   ['#maint','#surplus','#protein','#fat'].forEach(id => $(id).addEventListener('input', renderNut));
 
   /* ---------- Timeline ---------- */
   const TRACKS = [
-    {k:'Loads, reps, RIR', f:() => true},
+    {k:'Loads, reps, final-set RIR', f:w => w >= 2},
     {k:'Waist', f:() => true},
+    {k:'Maintenance check · 7-day average + waist', f:w => w >= 2 && w <= 4},
     {k:'Circumferences + photos', f:w => w % 4 === 0},
-    {k:'Fatigue review · deload only if needed', f:w => w === 7 || w === 8}
+    {k:'Fatigue review · deload only if warranted', f:w => w === 7}
   ];
-  $('#tlPhases').innerHTML = PHASES.map(p => `<div class="tp" style="--pc:${p.c};grid-column:${p.from} / ${p.to+1}"><b>${p.name}</b><span>${p.from===p.to ? 'Wk '+p.from : 'Wk '+p.from+'–'+p.to}</span></div>`).join('');
+  $('#tlPhases').innerHTML = PHASES.map(p => `<div class="tp" style="--pc:${p.c};grid-column:${p.from} / ${p.to+1}"><b>${p.name}</b><span>${p.from===p.to ? 'C'+p.from : 'C'+p.from+'–'+p.to}</span></div>`).join('');
   $('#tlWeeks').addEventListener('click', e => { const b = e.target.closest('.wkc'); if(!b) return; setWeek(+b.dataset.w); document.getElementById('today').scrollIntoView({block:'start'}); });
   function renderTimeline(){
     let h = '';
-    for (let w = 1; w <= 12; w++){ const p = phaseOf(w); h += `<button type="button" class="wkc ${w===state.week?'on':''}" data-w="${w}" style="--pc:${p.c}" aria-label="Week ${w}, ${p.name}"><span class="band"></span><span class="wn">W${w}</span></button>`; }
+    for (let w = 1; w <= 12; w++){ const p = phaseOf(w); h += `<button type="button" class="wkc ${w===state.week?'on':''}" data-w="${w}" style="--pc:${p.c}" aria-label="Circuit ${w}, ${p.name}"><span class="band"></span><span class="wn">C${w}</span></button>`; }
     $('#tlWeeks').innerHTML = h;
-    $('#tlTracks').innerHTML = TRACKS.map(t => `<div class="tl-track" style="grid-template-columns:repeat(12, minmax(0,1fr))"><span style="grid-column:1 / -1;font-weight:600;color:var(--fg)">${t.k}</span>${Array.from({length:12}, (_,i) => `<span class="dot ${t.f(i+1)?'on':''}" style="${t.f(i+1)?'background:'+phaseOf(i+1).c:''}"></span>`).join('')}</div>`).join('');
-    $('#tlTracks').insertAdjacentHTML('afterbegin', `<div class="tl-track" style="grid-template-columns:repeat(12, minmax(0,1fr))"><span style="grid-column:1 / -1;font-weight:600;color:var(--fg)">Calorie reference</span>${Array.from({length:12}, (_,i) => { const W = WEEKS[i]; return `<span style="text-align:center;font:600 11px/1.2 var(--font-display);font-variant-numeric:tabular-nums;color:${W ? NPH[W.ph] : 'var(--fg-3)'}">${W ? (W.kcal/1000).toFixed(1) + 'k' : '+'}</span>`; }).join('')}</div>`);
+    const kc = `<div class="tl-track" style="grid-template-columns:repeat(12, minmax(0,1fr))"><span style="grid-column:1 / -1;font-weight:600;color:var(--fg)">Calories</span>${Array.from({length:12}, (_,i) => `<span style="text-align:center;font:600 11px/1.2 var(--font-display);font-variant-numeric:tabular-nums;color:${i === 0 ? 'var(--fg-3)' : 'var(--good)'};opacity:${i >= 4 ? .55 : 1}">${i === 0 ? '1.7k' : '2.45k'}</span>`).join('')}</div>`;
+    $('#tlTracks').innerHTML = kc + TRACKS.map(t => `<div class="tl-track" style="grid-template-columns:repeat(12, minmax(0,1fr))"><span style="grid-column:1 / -1;font-weight:600;color:var(--fg)">${t.k}</span>${Array.from({length:12}, (_,i) => `<span class="dot ${t.f(i+1)?'on':''}" style="${t.f(i+1)?'background:'+phaseOf(i+1).c:''}"></span>`).join('')}</div>`).join('');
   }
-  $('#phaseCards').innerHTML = PHASES.map(p => `<div class="card"><div style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:50%;background:${p.c}"></span><span class="label">${p.from===p.to ? 'Week '+p.from : 'Weeks '+p.from+'–'+p.to}</span></div><h3 style="margin-top:8px">${p.name}</h3><p class="sub">${p.obj}</p></div>`).join('') +
-    `<div class="card" style="background:var(--surface-2);box-shadow:none"><span class="label">Rule of the block</span><h3 style="margin-top:8px">Recovery decides</h3><p class="sub">Volume increases and deloads both follow the data, not the calendar.</p></div>`;
+  $('#phaseCards').innerHTML = PHASES.map(p => `<div class="card"><div style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:50%;background:${p.c}"></span><span class="label">${p.from===p.to ? 'Circuit '+p.from : 'Circuits '+p.from+'–'+p.to}</span></div><h3 style="margin-top:8px">${p.name}</h3><p class="sub">${p.obj}</p></div>`).join('') +
+    `<div class="card" style="background:var(--surface-2);box-shadow:none"><span class="label">Rule of the block</span><h3 style="margin-top:8px">Data decides</h3><p class="sub">New sets, load jumps and deloads all follow the load and RIR data, not the calendar.</p></div>`;
 
   /* ---------- Scorecard ---------- */
+  function renderReview(){
+    const w = 2, done = store.get('review2', {});
+    const sessDone = TRAIN.filter(k => rirCount(w, k) > 0).length, rirAll = totalRir(w), exAll = totalEx();
+    const rows = [
+      {id:'sess', k:'Completed sessions', t:'6/6 if recovery and schedule allow', auto:`${sessDone}/6 with RIR logged`},
+      {id:'load', k:'Progressive overload', t:'Successful load increases on selected exercises'},
+      {id:'rir', k:'RIR', t:'Recorded for every exercise', auto:`${rirAll}/${exAll} logged`},
+      {id:'kcal', k:'Nutrition', t:'~2,450 kcal average'},
+      {id:'pro', k:'Protein', t:'170 g'},
+      {id:'fat', k:'Fat', t:'60 g'},
+      {id:'carb', k:'Carbs', t:'~308 g'},
+      {id:'wt', k:'Weight', t:'Stable 7-day average'},
+      {id:'waist', k:'Waist', t:'Approximately stable'},
+      {id:'recov', k:'Recovery', t:'No accumulating excessive soreness'}
+    ];
+    $('#review').innerHTML = rows.map(r => `<div class="rev-r"><b style="font-weight:600">${r.k}</b><span>${r.t}${r.auto ? ` · <b style="color:var(--fg)">${r.auto}</b>` : ''}</span><label class="ci"><input type="checkbox" data-id="${r.id}" ${done[r.id] ? 'checked' : ''} aria-label="${r.k} target met"></label></div>`).join('');
+  }
+  $('#review').addEventListener('change', e => { const id = e.target.dataset.id; if(!id) return; const d = store.get('review2', {}); d[id] = e.target.checked; store.set('review2', d); });
   const SC = [
-    {k:'Exercise loads, reps and RIR', c:0, n:''},
-    {k:'Session duration', c:0, n:''},
+    {k:'Exercise loads and reps', c:0, n:''},
+    {k:'Final-set RIR', c:0, n:'Every exercise'},
+    {k:'Session duration', c:0, n:'50–55 min · Legs A 35–45'},
     {k:'Morning bodyweight', c:1, n:'7-day rolling average'},
     {k:'Waist', c:2, n:''},
     {k:'Recovery and soreness', c:2, n:'Weekly review'},
     {k:'Upper arms, chest, shoulders, thighs', c:3, n:''},
-    {k:'Standardized physique photos', c:3, n:'Baseline now, then every 4 weeks'}
+    {k:'Standardized physique photos', c:3, n:''}
   ];
   const scCol = ['var(--ring-1)','var(--p-audit)','var(--ring-2)','var(--p-g2)'];
   $('#matrix').innerHTML = SC.map(r => `<tr><td><b style="font-weight:600">${r.k}</b>${r.n ? `<small>${r.n}</small>` : ''}</td>${[0,1,2,3].map(i => `<td>${i===r.c ? `<span class="m" style="background:${scCol[i]}" aria-label="yes"></span>` : '<span class="m" style="background:var(--surface-2)" aria-hidden="true"></span>'}</td>`).join('')}</tr>`).join('');
-
-  /* ---------- Nutrition ladder ---------- */
-  function renderLadder(){
-    const max = 2500, cur = state.week;
-    let h = '<div class="ax"><span>2,500</span><span>2,000</span><span>1,500</span><span>1,000</span><span>500</span><span>0</span></div>';
-    WEEKS.forEach(W => {
-      const on = W.w === cur ? ' on' : '';
-      h += `<button type="button" class="lcol${on}" data-w="${W.w}" aria-pressed="${!!on}" aria-label="Week ${W.w}: about ${W.kcal} kcal"><span class="sw" style="--h:${(W.kcal/max*100).toFixed(1)}%"><b>${fmt(W.kcal)}</b><span class="stk"><span style="flex:${W.p*4};background:var(--ring-1)"></span><span style="flex:${W.f*9};background:var(--p-audit)"></span><span style="flex:${W.c*4};background:var(--ring-3)"></span></span></span><span class="wl">W${W.w}</span></button>`;
-    });
-    $('#lad').innerHTML = h;
-    $('#ladPh').innerHTML = '<span></span>' + [['Transition',1,4],['Maintenance search',5,7],['Conditional',8,8]].map(([n,a,b]) => `<div style="--pc:${NPH[n]};grid-column:${a+1} / ${b+2}" title="${n}">${n}</div>`).join('');
-    const W = WEEKS[cur-1];
-    if (!W){
-      $('#ladDetail').innerHTML = `<span class="label">Week ${cur}</span><div class="kcal" style="font-size:40px;margin-top:6px">Surplus</div><p class="sub" style="margin-top:8px;font-size:15px">The ladder ends at week 8. From here, a modest surplus on top of the maintenance you found, using the calculator below.</p>`;
-      return;
-    }
-    const d = W.kcal - 1700;
-    $('#ladDetail').innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><span class="label">Week ${W.w} reference</span><span class="pill neutral"><i style="background:${NPH[W.ph]}"></i>${W.ph}</span></div>
-      <div class="kcal" style="margin-top:6px">${fmt(W.kcal)}<small>kcal</small></div>
-      <div class="macros">
-        <div class="macro"><div class="label"><i style="background:var(--ring-1)"></i>Protein</div><div class="g">${W.p}<small> g</small></div><div class="kc">${fmt(W.p*4)} kcal</div></div>
-        <div class="macro"><div class="label"><i style="background:var(--p-audit)"></i>Fat</div><div class="g">${W.f}<small> g</small></div><div class="kc">${fmt(W.f*9)} kcal</div></div>
-        <div class="macro"><div class="label"><i style="background:var(--ring-3)"></i>Carbs</div><div class="g">${W.c}<small> g</small></div><div class="kc">${fmt(W.c*4)} kcal</div></div>
-      </div>
-      <div class="ld-rows">
-        <div class="ld-row"><span>Training</span><b>${W.tr}</b></div>
-        <div class="ld-row"><span>Nutrition</span><b>${W.nu}</b></div>
-        <div class="ld-row"><span>vs. week 1</span><b>${d ? '+' + fmt(d) + ' kcal, mostly carbs' : 'Starting point'}</b></div>
-      </div>`;
-  }
-  $('#lad').addEventListener('click', e => { const b = e.target.closest('.lcol'); if (b) setWeek(+b.dataset.w); });
 
   /* ---------- Weight log ---------- */
   const BASE_KG = 69.4;
@@ -1568,13 +1701,14 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
   function renderWeights(){
     const list = wtEntries(), avg = rolling(list);
     const last = avg.length ? avg[avg.length-1] : null;
+    const wk = avg.length > 7 ? avg[avg.length-8] : null;
     const waists = list.filter(x => +x.waist);
     const lw = waists.length ? +waists[waists.length-1].waist : null;
     const sign = v => (v > 0 ? '+' : v < 0 ? '−' : '±') + Math.abs(v).toFixed(1);
     $('#wtStats').innerHTML = `
       <div class="mc"><div class="label">7-day average</div><div class="big">${last ? last.toFixed(1) + ' kg' : '—'}</div><p>${list.length ? list.length + ' entr' + (list.length===1?'y':'ies') + ' logged' : 'Log your first morning weight'}</p></div>
-      <div class="mc"><div class="label">vs. baseline 69.4 kg</div><div class="big">${last ? sign(last - BASE_KG) + ' kg' : '—'}</div><p>Slow and controlled is the goal</p></div>
-      <div class="mc"><div class="label">Latest waist</div><div class="big">${lw ? lw.toFixed(1) + ' cm' : '—'}</div><p>Baseline 78–78.5 cm · weekly</p></div>`;
+      <div class="mc"><div class="label">${wk ? 'vs. a week ago' : 'vs. baseline 69.4 kg'}</div><div class="big">${last ? sign(last - (wk || BASE_KG)) + ' kg' : '—'}</div><p>Target at maintenance: stable</p></div>
+      <div class="mc"><div class="label">Latest waist</div><div class="big">${lw ? lw.toFixed(1) + ' cm' : '—'}</div><p>Baseline 78–78.5 cm · approximately stable</p></div>`;
     const W = 640, H = 190, pl = 40, pr = 14, pt = 14, pb = 26;
     const pts = list.slice(-42), av = avg.slice(-42);
     const vals = pts.map(x => +x.kg).concat(av, [BASE_KG]);
@@ -1616,16 +1750,14 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
   let sheetDay = state.session, lastFocus = null;
   function renderSheet(){
     const k = sheetDay, d = EX[k];
-    $('#sheetWk').textContent = `Week ${state.week} · Day ${d.day}`;
-    $('#sheetH').textContent = k === 'Recovery' ? 'Recovery' : `${k} · ${d.focus}`;
+    $('#sheetWk').textContent = `Circuit ${state.week} · Day ${d.day}`;
+    $('#sheetH').textContent = k === 'Recovery' ? 'Rest day' : `${k} · ${d.focus}`;
     $('#sheetSeg').innerHTML = SESSIONS.map(s => `<button type="button" data-s="${s}" aria-pressed="${s===k}">${s === 'Recovery' ? 'Rest' : s}</button>`).join('');
     if (k === 'Recovery'){
       $('#sheetBody').innerHTML = `<div class="lu">${d.rec.map(([a,b]) => `<div class="lu-r" style="grid-template-columns:minmax(0,1fr) auto"><b>${a}</b><small>${b}</small></div>`).join('')}</div>`;
     } else {
-      const st = stageOf(state.week), legs = !!LEG[k];
-      const note = legs && st < 3 ? `<div class="callout warn" style="margin-bottom:10px"><div class="ico">!</div><div><p><b>Week ${state.week}: ~${LEG[k][st].t} of ${setsOf(k)} sets.</b> Trim sets, keep every exercise.</p></div></div>` : '';
-      $('#sheetBody').innerHTML = note + `<div class="lu">${d.ex.map((e,i) => `<div class="lu-r"><span class="i">${i+1}</span><div><b>${e.n}</b><small>${loadOf(k,e) || 'Load TBD'} · ${e.sets}×${e.lo}–${e.hi}</small></div><small>${restOf(e)}</small><span class="pill neutral">${rirOf(k,e)}</span></div>`).join('')}</div>
-        <p style="font-size:12px;color:var(--fg-2);margin-top:10px">${d.ex.length} exercises · ${setsOf(k)} listed sets · RIR and rest shown per exercise</p>`;
+      $('#sheetBody').innerHTML = `<p style="font-size:13px;color:var(--fg-2);margin-bottom:6px">${d.pri}</p><div class="lu">${d.ex.map((e,i) => `<div class="lu-r"><span class="i">${i+1}</span><div><b>${e.n}</b><small>${esc(loadOf(k,e))} · ${e.sets}×${e.lo}–${e.hi}</small></div><small>${restOf(e)}</small>${chg(e, true)}</div>`).join('')}</div>
+        <p style="font-size:12px;color:var(--fg-2);margin-top:10px">${d.ex.length} exercises · ${setsLabel(k)} sets · log the final-set RIR on each</p>`;
     }
   }
   function openSheet(){ lastFocus = document.activeElement; sheetDay = state.session; renderSheet(); $('#scrim').hidden = false; $('#sheet').hidden = false; $('#sheetClose').focus(); }
@@ -1642,7 +1774,7 @@ footer{padding-block:40px 110px; color:var(--fg-3); font-size:13px; border-top:1
     if ((e.key === 'p' || e.key === 'P') && !e.metaKey && !e.ctrlKey && !e.altKey && !['input','textarea','select'].includes(tag)){ $('#sheet').hidden ? openSheet() : closeSheet(); }
   });
 
-  renderNut(); render(); clkTick(); renderWeights();
+  renderNut(); render(); renderWeights();
 })();
 </script>
 </body>
