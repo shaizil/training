@@ -1,0 +1,20 @@
+{
+  "app": "hypertrophy-2.3",
+  "version": 1,
+  "exportedAt": "2026-10-31T06:22:07.229Z",
+  "settings": {
+    "start": "2026-10-26"
+  },
+  "weeks": {
+    "1": {
+      "days": {
+        "upper": {
+          "ex": {
+            "up1": { "w": 10, "reps": [12, 12, 12], "rir": 2, "pain": false }
+          }
+        }
+      },
+      "body": {}
+    }
+  }
+}
